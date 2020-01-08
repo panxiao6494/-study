@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+
+</head>
+
+<body>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button class="self">self</button>
+    <button class="self">self</button>
+    <button>快速</button>
+    <script>
+        $(function() {
+            $("button").click(function() {
+                $(this).css("background", "pink");
+                // 3. 其余的兄弟去掉背景颜色 隐式迭代
+                $(this).siblings("button").css("background", "");
+                console.log($(this).siblings("button"))
+                // 这里区分 我点击的是类为self的元素
+                // 我点击的是没有self类的元素, 返回结果不一样
+                // 总之一点， 不能包含自身
+                console.log($(this).siblings(".self"))
+            });
+        })
+    </script>
+</body>
+
+</html>

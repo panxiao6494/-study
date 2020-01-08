@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 400px;
+            margin: auto;
+        }
+
+        textarea {
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            outline: none;
+        }
+
+        li a {
+            float: right;
+
+        }
+
+        li {
+            list-style: none;
+            margin: 10px 0;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <textarea></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+
+    <script>
+        //点击发布按钮时，会创建节点增加li元素到ul中
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('请输入留言');
+                return false;
+            } else {
+                var li = document.createElement('li');//创建节点
+                li.innerHTML = text.value + "<a href ='javascript:;'>删除</a>";//在li里面添加元素a
+                //把创建的li元素放在ul的第一位，就是把最新发布的留言放在最前面
+                ul.insertBefore(li, ul.children[0]);
+            }
+            var as = document.querySelectorAll('a');
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    ul.removeChild(this.parentNode);//this指向当前的a,要删除ul的子节点，通过a找到li
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        A: <input type="text" v-model="a">
+        B: <input type="text" v-model="b"> <br>
+        <!-- 调用计算属性函数 -->
+        A+B: {{add}} 
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: 1,
+                b: 2
+            },
+            computed: {//计算属性函数
+                add() {
+                    return parseInt(this.a) + parseInt(this.b)
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

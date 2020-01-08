@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        Father.prototype.money = function () {
+            console.log(10000);
+        };
+
+        function Son(name, age, score) {
+            Father.call(this, name, age);//改变this指向，继承父亲的属性
+            this.score = score;
+        };
+
+        Son.prototype = new Father();//通过父构造函数创建的实例对象，可以访问父函数的原型
+        Son.prototype.constructor = Son;//把构造函数重新赋值给son原型，让son的原型对象中的constructor重新指向Son
+        Son.prototype.exam = function () {
+            console.log('考试');
+        }
+        var son = new Son('小明', 18, 80);
+        son.money();
+
+
+
+    </script>
+</body>
+
+</html>

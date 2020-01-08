@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <video src="mov.mp4" muted></video>
+    <script>
+        var myvideo = document.querySelector('video');
+        console.log($('video'), $('video')[0]);//jquery对象转成dom对象
+        console.log(myvideo, $(myvideo));
+        $('video')[0].play()
+       // myvideo.play();
+    </script>
+</body>
+
+</html>

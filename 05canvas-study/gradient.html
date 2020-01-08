@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>渐变</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvas')
+            let context = canvas.getContext('2d');
+            canvas.style.border = "1px solid #999"
+            context.fillStyle = 'rgba(255,0,0,.9)';
+            context.shadowColor = 'skyblue';//阴影颜色
+            context.shadowBlur = 10;//模糊程度
+            context.shadowOffsetX = 10;
+            context.shadowOffsetY = 10;
+            context.fillRect(100, 100, 100, 100);//100,100为起点绘制长宽100的矩形
+        }())
+    </script>
+</body>
+
+</html>

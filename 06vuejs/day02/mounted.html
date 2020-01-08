@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        {{msg}}
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+            methods: {
+                add() {
+                    console.log('add');
+                }
+            },
+            beforeCreate() {//实例创建之前，实例中数据和方法和挂载都没有完成，
+                console.log(this.msg);
+            },
+            created() {
+                console.log(this.msg);//实例对象创建完成，数据和方法都拿到了，到并没有挂载，
+            },
+            beforeMount() {
+                console.log(this.msg);//挂载之前,dom已经渲染，{{msg}} 数据尚未解析
+
+            },
+            mounted(el) {
+                console.log(this.msg); //数据解析渲染完成 window.onload
+
+            }
+        });
+    </script>
+</body>
+
+</html>

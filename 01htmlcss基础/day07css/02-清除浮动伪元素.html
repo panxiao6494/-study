@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.clearfix:after {
+			content: "";
+			display: block;
+			height: 0;
+			visibility: hidden;
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;/*ie6,7专用清除浮动*/
+		}
+		.father {
+			width: 500px;/*因为内容随时会更新父级盒子不方便给高度*/
+			border: 1px solid #000;
+		}
+		.son1 {
+			float: left;
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+		.son2 {
+			float: right;
+			width: 100px;
+			height: 150px;
+			background-color: purple;
+		}
+		.two {
+			width: 500px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="father clearfix">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+	<div class="two"></div>
+</body>
+</html>

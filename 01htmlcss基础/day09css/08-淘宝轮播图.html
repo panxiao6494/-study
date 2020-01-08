@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
+		li {
+			list-style: none;
+		}
+		.main {
+			position: relative;
+			width: 520px;
+			height: 280px;
+			margin: 50px auto;
+		}
+		.left {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -21px;
+			width: 26px;
+			height: 42px;
+			line-height: 42px;
+			border-radius: 0 21px 21px 0;
+			background-color: rgba(0,0,0,0.3);
+		}
+		.right {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -21px;
+			width: 26px;
+			height: 42px;
+			line-height: 42px;
+			text-align: right;
+			border-radius: 21px 0 0 21px;
+			background-color: rgba(0,0,0,0.3);
+		}
+		ul {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -40px;
+			margin-bottom: 30px;
+			width: 80px;
+			height: 16px;
+			border-radius: 8px;
+			background-color: rgba(255,255,255,0.4);
+		}
+		li {
+			float: left;
+			width: 8px;
+			height: 8px;
+			border-radius: 4px;
+			background-color: #fff;
+			margin: 4px;
+		}
+		.cutter {
+			background-color: red;
+		}
+		a:hover {
+			background-color: rgba(0,0,0,0.7);
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<img src="images/taobao.jpg" alt="">
+		<a href="#" class="left">&lt;</a>
+		<a href="#" class="right">&lt;</a>
+		<ul>
+			<li></li>
+			<li class="cutter"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

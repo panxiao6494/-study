@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*function test() {
+            console.log("this:" + this);
+
+        }
+
+        test();//函数名调用 this指向window
+        var a = test.bind();//bind调用改变this指向，不会立即执行
+        a();
+        test.apply();//apply调用，立即执行，一般用在数组中
+        test.call();//call调用，改变thi指向，可以继承其他对象中的方法*/
+        (function (x) {
+            return (function (y) {
+                console.log(x);
+            })(2)
+        })(1);
+    </script>
+</body>
+
+</html>

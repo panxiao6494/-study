@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>day04作业</title>
+  <script>
+    // 课堂问题  数组去重
+    // var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+    // var newArr = [];
+    // var flag = false;
+    // for (var i = 0; i < arr.length; i++) {
+    //   flag = false;
+    //   console.log(flag)
+    //   for (var j = 0; j < newArr.length; j++) {
+    //     if (newArr[j] == arr[i]) {
+    //       flag = true;
+    //     }
+    //   }
+    //   if (!flag) {
+    //     newArr[newArr.length] = arr[i];
+    //   }
+    // }
+    // console.log(newArr);
+
+    function calculator(num1, num2, type) {
+      if (
+        typeof num1 == "number" &&
+        typeof num2 == "number" &&
+        typeof type == "string"
+      ) {
+        if (type == "+" || type == "-" || type == "*" || type == "/") {
+          if (type == "+") {
+            return num1 + num2;
+          } else if (type == "-") {
+            return num1 - num2;
+          } else if (type == "*") {
+            return num1 * num2;
+          } else if (type == "/") {
+            return num1 / num2;
+          }
+        } else {
+          throw new Error("输入错误，请输入+-*/四种运算符");
+        }
+      } else {
+        throw new Error("输入错误，请输入2个数字一个字符串");
+      }
+    }
+    // console.log(calculator(3 , 4, '/'));
+
+    // 2.
+    function zuoYe2(num1, num2) {
+      if (typeof num1 == "number" && typeof num2 == "number") {
+        return num1 > num2 ? num1 : num2;
+      } else {
+        throw new Error("输入参数错误");
+      }
+    }
+    // console.log(zuoYe2(55,'sss'))
+
+    //3.
+    function zuoYe3_1(num1, num2, num3) {
+      var max = num1 > num2 ? num1 : num2;
+      return max > num3 ? max : num3;
+    }
+    function zuoYe3_2(num1, num2, num3) {
+      if (
+        typeof num1 == "number" &&
+        typeof num2 == "number" &&
+        typeof num3 == "number"
+      ) {
+        // 结合数组，一种思想，可以扩展到比较n个值，比较通用的方法
+        var tmp = 0;
+        var arr = [num1, num2, num3];
+        for (var i = 0; i < 3; i++) {
+          if (arr[i] > tmp) {
+            tmp = arr[i];
+          }
+        }
+        return tmp;
+      } else {
+        throw new Error("输入参数错误");
+      }
+    }
+    // console.log(zuoYe3(12,43,99))
+
+    // 4.
+    function zuoYe4(num) {
+      if (typeof num == "number") {
+        if (num == 1) {
+          return "1是素数";
+        } else {
+          for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+              return false;
+              // break;
+            }
+          }
+          return true;
+        }
+      } else {
+        throw new Error("输入参数错误");
+      }
+    }
+    //consnole.log(zuoYe4(59));
+
+    //5.
+    function zuoYe5(arr) {
+      if (arr.constructor.name == "Array") {
+        var newArr = [];
+        //[12,3,32,6,24]; -----> [24,6,32,3,12]
+        for (var i = 0; i < arr.length; i++) {
+          newArr[arr.length - 1 - i] = arr[i];
+        }
+        return newArr;
+      } else {
+        throw new Error("请传入一个数组");
+      }
+    }
+    //console.log(zuoYe5([12,3,32,6,24]));
+
+    // 6.
+    function bubbleSort(arr) {
+      if (arr.constructor.name == "Array") {
+        for (var i = 0; i < arr.length; i++) {
+          for (var j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+              //交换两个数据
+              var tmpItem = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = tmpItem;
+            }
+          }
+        }
+        return arr;
+      } else {
+        throw new Error("请传入一个数组");
+      }
+    }
+    console.log(bubbleSort([45, 12, 3, 43, 11, 24, 35, 98]));
+  </script>
+</head>
+
+<body></body>
+
+</html>

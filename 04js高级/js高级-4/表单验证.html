@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    昵称: <input type="text" class="nich"> <span></span> <br>
+    密码: <input type="password"> <span></span> <br>
+    qq号: <input type="text"> <span></span> <br>
+    手机号码: <input type="text"> <span></span>
+    <script>
+        var nich = document.querySelector('.nich');
+        //昵称
+        var regnc = /^[\u4e00-\u9fa5]{2,8}$/;//2-8位字符
+        //密码
+        var regm = /^[a-zA-Z0-9-_]{6,16}$/ //6-16位数字和字母组成,可以包含横线和下划线
+
+        //调用验证函数
+        regyz(nich, regnc);
+
+
+        //验证函数
+        function regyz(ele, reg) {//设置两个形参,input框和正则 
+            ele.onblur = function () {
+                if (reg.test(this.value)) {
+                    alert('输入正确')
+                } else {
+                    alert('输入有误')
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

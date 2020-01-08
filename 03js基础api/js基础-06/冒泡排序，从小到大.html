@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+    <script>
+        var arr = [65, 97, 76, 13, 27, 49, 58];
+        function sort(a) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var tem = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tem;
+                    }
+                }
+            }
+            return arr;
+        }
+        document.write(sort(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

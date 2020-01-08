@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var rg = /[abc]/;//包含a，b，c任何一个都能匹配
+        console.log(rg.test('a'));//true
+        console.log(rg.test('ab'));//true
+
+        var reg = /^abc$/;//匹配以a开头以a结束，以b开头以b结束，以c开头以c结束
+        var reg1 = /^[a-z]$/;//
+        var reg2 = /^[a-zA-Z0-9]$/;//数字字母，只能匹配一位
+        var reg2 = /^[^a-zA-Z0-9]$/;//取反，不能包含数字字母 匹配一位
+    </script>
+</body>
+
+</html>

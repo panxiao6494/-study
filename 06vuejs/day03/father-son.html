@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        {{msg}}
+        <father :etitle='msg' @cc='show'></father>
+    </div>
+    <script type='text/javascript'>
+        var son = {
+            data() {
+                return {
+                    s: 's'
+                }
+            },
+            template: '<div>son</div>'
+        };
+        var father = {
+            props: ['etitle'],//接受父组件传递过来的参数
+            data() {
+                return {
+                    f: 'ffffff'
+                }
+            },
+            components: {
+                son
+            },
+            template: `<div @click="$emit('cc',f)">father=={{etitle}}<son></son></div>`,//将子组件的data参数传到父组件中
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+            methods: {
+                show(val) {//形参接受子组件传递过来的参数
+                    this.msg = !val;
+                }
+            },
+            components: {
+                father
+            }
+        });
+    </script>
+</body>
+
+</html>

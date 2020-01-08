@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="demo.js"></script> -->
+    <script src="buy.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+            border: none;
+        }
+
+        a {
+            color: #111;
+        }
+
+        a:hover {
+            color: #f00;
+        }
+
+        .content {
+            width: 1200px;
+            margin: 100px auto;
+        }
+
+        h1 {
+            width: 75px;
+            font-size: 18px;
+            color: red;
+            font-weight: 500;
+            border-bottom: 1px solid #f00;
+        }
+
+        .shop {
+            width: 1200px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 13px;
+            text-indent: 12px;
+            background-color: #F3F3F3;
+        }
+
+        .shop li {
+            float: left;
+        }
+
+        .shop li:nth-child(1) {
+            width: 120px;
+        }
+
+        .shop li:nth-child(2) {
+            width: 470px;
+        }
+
+        .shop li:nth-child(3) {
+            width: 128px;
+        }
+
+        .shop li:nth-child(4) {
+            width: 180px;
+        }
+
+        .shop li:nth-child(5) {
+            width: 130px;
+        }
+
+        .item-car {
+            height: 170px;
+            padding: 17px 10px;
+            margin-top: 15px;
+            border: 1px solid aqua;
+            border-top: 2px solid #000;
+        }
+
+        .book p {
+            float: left;
+            width: 222px;
+            margin-right: 200px;
+            font-size: 13px;
+        }
+
+        .j-check {
+            float: left;
+        }
+
+
+        img {
+            float: left;
+            padding: 5px;
+            margin: 0 15px 0 36px;
+            border: 1px solid chartreuse;
+        }
+
+        .item-car .book {
+            float: left;
+        }
+
+        .current {
+            background-color: burlywood;
+            opacity: .7;
+        }
+
+        .j-prize {
+            width: 120px;
+            float: left;
+        }
+
+        .num {
+            float: left;
+            border: 1px solid #666;
+        }
+
+        .itxt {
+            float: left;
+            width: 30px;
+            height: 22px;
+            text-align: center;
+            border-right: 1px solid #666;
+            border-left: 1px solid #666;
+        }
+
+        .add,
+        .reduce {
+            float: left;
+            width: 17px;
+            height: 22px;
+            background-color: #fff;
+            line-height: 22px;
+            text-align: center;
+        }
+
+        .j-sum {
+            float: left;
+            margin-left: 115px;
+            font-weight: 700;
+        }
+
+        .j-del {
+            margin-left: 90px;
+        }
+
+        .list {
+            position: relative;
+            height: 45px;
+            line-height: 45px;
+            text-indent: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            border: 1px solid #000;
+        }
+
+        .list li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .list li:nth-child(6) {
+            position: absolute;
+            right: -21px;
+            top: 0px;
+        }
+
+        .list li:nth-child(4) {
+            margin-left: 530px;
+        }
+
+        .list li .jie {
+            display: inline-block;
+            width: 95px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 20px;
+            text-indent: 16px;
+            color: #fff;
+            background-color: cadetblue;
+        }
+
+        .clear {
+            color: #000;
+            font-weight: 700;
+        }
+
+        em {
+            font-style: normal;
+            font-weight: 700;
+            margin: 0 5px;
+            color: #f00;
+        }
+
+        .prize-all em {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>全部商品</h1>
+        <ul class="shop">
+            <li>
+                <input type="checkbox" class="checkall">全选
+            </li>
+            <li>商品</li>
+            <li>单价</li>
+            <li>数量</li>
+            <li>小计</li>
+            <li>操作</li>
+        </ul>
+        <div class="item-car current">
+            <input type="checkbox" class="j-check" checked=checked>
+            <div class="book">
+                <img src="images/p1.jpg" alt="">
+                <p>【5本26.8元】经典儿童文学彩图青少版八十天环游地球中学生语文教学大纲</p>
+            </div>
+            <div class="j-prize">￥12.60</div>
+            <div class="num">
+                <a href="javascript:;" class="add">+</a>
+                <input type="text" class="itxt" value="1">
+                <a href="javascript:;" class="reduce">-</a>
+            </div>
+            <div class="j-sum">￥12.60</div>
+            <a href="javascript:;" class="j-del">删除</a>
+        </div>
+        <!--  -->
+        <div class="item-car">
+            <input type="checkbox" class="j-check">
+            <div class="book">
+                <img src="images/p2.jpg" alt="">
+                <p>【2000张贴纸】贴纸书 3-6岁 贴画儿童 贴画书全套12册 贴画 贴纸儿童 汽车</p>
+            </div>
+            <div class="j-prize">￥24.80</div>
+            <div class="num">
+                <a href="javascript:;" class="add">+</a>
+                <input type="text" class="itxt" value="1">
+                <a href="javascript:;" class="reduce">-</a>
+            </div>
+            <div class="j-sum">￥24.80</div>
+            <a href="javascript:;" class="j-del">删除</a>
+        </div>
+        <!--  -->
+        <div class="item-car">
+            <input type="checkbox" class="j-check">
+            <div class="book">
+                <img src="images/p3.jpg" alt="">
+                <p>唐诗三百首+成语故事全2册 一年级课外书 精装注音儿童版 小学生二三年级课外阅读书籍</p>
+            </div>
+            <div class="j-prize">￥29.80</div>
+            <div class="num">
+                <a href="javascript:;" class="add">+</a>
+                <input type="text" class="itxt" value="1">
+                <a href="javascript:;" class="reduce">-</a>
+            </div>
+            <div class="j-sum">￥29.80</div>
+            <a href="javascript:;" class="j-del">删除</a>
+        </div>
+        <ul class="list">
+            <li>
+                <input type="checkbox" class="checkall">全选
+            </li>
+            <li><a href="javascript:;" class="remove">删除选中的商品</a></li>
+            <li><a href="javascript:;" class="clear">清空购物车</a></li>
+            <li class="total">已选<em>3</em>件商品</li>
+            <li class="prize-all">总价：<em>￥12.60</em></li>
+            <li><a href="javascript:;" class="jie">去结算</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

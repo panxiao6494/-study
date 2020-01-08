@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <style>
+    html,body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .l-margin-r-10 {
+      margin-right: 10px;
+    }
+    .l-padding-t-10 {
+      padding-top: 10px;
+    }
+    .l-wrap {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: rgba(0,0,0,.03)
+    }
+    .l-header {
+      background-color: #e6b6b6;
+      height: 50px;
+      width: 100%;
+    }
+    input {
+      border-radius: 4px;
+      outline: none;
+      border: none;
+      padding: 5px 8px;
+      height: 30px;
+      color: #ccc;
+    }
+    input:focus{
+      outline: none;
+    }
+    input::-webkit-input-placeholder {
+      color: #ccc;
+    }
+    .l-main {
+      width: 100%;
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="l-wrap">
+      <div class="l-header clearfix">
+        <div class="l-title float-left">123</div>
+        <div class="float-right clearfix l-padding-t-10">
+          <div class="float-left l-margin-r-10">
+            <input class="l-input-user" type="text" value="邮箱/ID/手机号">
+          </div>
+          <div class="float-left l-margin-r-10">
+            <input class="l-input-pwd" type="password" placeholder="密码">
+          </div>
+        </div>
+      </div>
+      <div class="l-main">
+        <button class="btn btn-info btn-sm l-open-light">开关灯</button>
+      </div>
+  </div>
+  
+  <script>
+    // 尽量减少bug的产生，让用户可以在原来输入的基础上修改用户名
+    var inputUser = document.querySelector('.l-input-user');
+    var inputPwd = document.querySelector('.l-input-pwd');
+
+    var inputStatus = 0; //0表示用户没有输入  1表示用户有输入内容
+    inputUser.onfocus = function(){
+        inputUser.style.color = '#ccc';
+        inputUser.style.border = '1px solid #007bff';
+      if(inputStatus === 0){
+        inputUser.value = '';
+      }else {
+
+      }
+    }
+    inputUser.onblur = function(){
+        inputUser.style.border = 'none';
+      // 表示用户没有输入值, 去除字符串首尾空格
+      var newStr = inputUser.value.replace(/(^\s*)|(\s*$)/g, "")
+      if(!newStr){
+        inputUser.value = '邮箱/ID/手机号';
+        inputUser.style.color = '#ccc';
+        inputStatus = 0;
+      }else {
+        inputUser.style.color = '#000';
+      }
+    }
+    inputUser.oninput = function(){
+      inputStatus =1;
+    }
+
+    //去除字符串首尾空格的正则表达式方法
+    // str.replace(/(^\s*)|(\s*$)/g, "")
+
+    inputPwd.onfocus = function(){
+      inputPwd.placeholder ='';
+      inputPwd.style.border = '1px solid #007bff';
+    }
+    inputPwd.onblur = function(){
+      inputPwd.placeholder ='密码';
+      inputPwd.style.border = 'none';
+    }
+
+    // 开关灯
+    var openClose = document.querySelector('.l-open-light');
+    var body = document.querySelector('.l-main');
+
+    var flag = false;
+    openClose.onclick = function(){
+      if(flag){
+        body.style.backgroundColor = 'rgba(0,0,0,.03)';
+      }else {
+        body.style.backgroundColor = '#000';
+      }
+
+      flag = !flag;
+    }
+  </script>
+</body>
+</html>

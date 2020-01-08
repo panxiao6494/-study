@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        width: 500px;
+        margin: 100px auto;
+    }
+
+    textarea {
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        outline: none;
+    }
+
+    button {
+        width: 50px;
+        height: 25px;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <textarea></textarea>
+        <button>发布</button>
+        <h2>评论区</h2>
+        <ul></ul>
+    </div>
+    <script>
+    //点击发布按钮时，会创建节点增加li元素到ul中
+    var btn = document.querySelector('button');
+    var text = document.querySelector('textarea');
+    var ul = document.querySelector('ul');
+    btn.onclick = function() {
+        console.log(text.value)
+        if (text.value == '') {
+            alert('请输入留言');
+            return false;
+        } else {
+            var li = document.createElement('li'); //创建节点
+            li.innerHTML = text.value;
+            //把创建的li元素放在ul的第一位，就是把最新发布的留言放在最前面
+            ul.insertBefore(li, ul.children[0]);
+            text.value = ''
+        }
+    }
+    text.onkeydown = function(e) {
+        if (e.which == 13) {
+            e.cancelBubble = true;
+            e.preventDefault()
+            e.stopPropagation();
+        }
+    }
+    text.onkeyup = function(e) {
+        if (e.which == 13) {
+            if ((text.value).trim() == '') {
+                alert('请输入留言');
+                return false;
+            } else {
+                var li = document.createElement('li'); //创建节点
+                li.innerHTML = text.value;
+                //把创建的li元素放在ul的第一位，就是把最新发布的留言放在最前面
+                ul.insertBefore(li, ul.children[0]);
+                text.value = ''
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button>快递</button>
+    <button>快递</button>
+    <button>快递</button>
+    <button>快递</button>
+    <button>快递</button>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                //把当前触发事件的按钮颜色改变
+                //$(this).css('background', 'skyblue');//隐式迭代，给所有button绑定点击事件，不用for循环
+                //把当前按钮的兄弟元素颜色清空
+                // $(this).siblings('button').css('background', '');
+                $(this).css('background', 'skyblue').siblings().css('background', '')
+            })
+        })
+    </script>
+</body>
+
+</html>

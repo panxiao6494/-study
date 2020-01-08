@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="button" value="点击开灯" id="open">
+    <input type="button" value="点击关灯" id="close">
+    <script>
+        var bad = document.body;
+        var btn1 = document.querySelector('#open');
+        var btn2 = document.querySelector('#close');
+        btn1.onclick = function () {
+            bad.style.backgroundColor = 'orange';
+        }
+        btn2.onclick = function () {
+            bad.style.backgroundColor = '#000';
+        }
+    </script>
+</body>
+
+</html>

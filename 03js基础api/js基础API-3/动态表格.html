@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>成绩2</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 1.先去准备好学生的数据
+        var datas = [{
+            name: '魏璎珞',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 100
+        }, {
+            name: '弘历',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 98
+        }, {
+            name: '傅恒',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 99
+        }, {
+            name: '明玉',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 88
+        }, {
+            name: '明玉',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 88
+        }, {
+            name: '大猪蹄子',
+            subject: 'JavaScript',
+            subject1: 'JavaScript',
+            score: 0,
+        }];
+
+        var tbd = document.querySelector('tbody');
+        for (var i = 0; i < datas.length; i++) {
+            var tr = document.createElement('tr');
+            tbd.appendChild(tr);
+            for (var k in datas[i]) {//根据数组创建td放在tr里面，属性有几个就创建几个，创建i次,没有i++, 只会遍历一个数组元素中的对象属性
+                var td = document.createElement('td');
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td)
+            }
+            var td = document.createElement('td');
+            td.innerHTML = "<a href = 'javascript:;'>删除</a>"//创建a
+            tr.appendChild(td)
+        }
+        var as = document.querySelectorAll('a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].addEventListener('click', function () {
+                tbd.removeChild(this.parentNode.parentNode)
+            })
+        }
+       //要创建动态表格，在tbody里面根据数组找中对象创建tr，再根据对象的属性创建td，属性值是td的内容，
+    </script>
+</body>
+
+</html>

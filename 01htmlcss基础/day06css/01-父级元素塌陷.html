@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.father {
+			width: 500px;
+			height: 500px;
+			background-color: skyblue;
+			/*父级没有边框时，给儿子设置margin,会造成父级盒子塌陷*/
+			/*解决方案
+			1，给父级设置上边框 transparent 透明
+			2，给父级设置上padding padding-top
+			3,为父级盒子添加overflow:hidden;不会影响父级盒子大小*/
+			overflow: hidden;
+		}
+		.son {
+			width: 200px;
+			height: 200px;
+			background-color: purple;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

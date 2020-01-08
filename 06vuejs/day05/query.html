@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+    <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <router-link :to="{path:'/home',query:{id:1}}">点击</router-link>
+        <router-link to="/index">点击</router-link>
+        <router-view></router-view>
+    </div>
+    <script type='text/javascript'>
+        const Home = {
+            template: `<h1>家家</h1>`
+        }
+        const Index = {
+            template: `<h1>首页</h1>`
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/index' },
+                { path: '/index', component: Index },
+                {
+                    name: 'home', path: '/home', component: Home, props: route => {
+                        route.query.id
+                    }
+                }
+            ]
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue',
+            },
+            router,
+        });
+    </script>
+</body>
+
+</html>

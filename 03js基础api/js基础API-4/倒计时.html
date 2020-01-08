@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        // 1. 获取元素 
+        // var hour = document.querySelector('.hour'); // 小时的黑色盒子
+        // var minute = document.querySelector('.minute'); // 分钟的黑色盒子
+        // var second = document.querySelector('.second'); // 秒数的黑色盒子
+        // var inputTime = +new Date('2019-5-21 19:00:00'); // 返回的是用户输入时间总的毫秒数
+        // countDown(); // 我们先调用一次这个函数，防止第一次刷新页面有空白 
+        // // 2. 开启定时器
+        // setInterval(countDown, 1000);
+
+        // function countDown() {
+        //     var nowTime = +new Date(); // 返回的是当前时间总的毫秒数 1970 1.1
+        //     var times = (inputTime - nowTime) / 1000; // times是剩余时间总的秒数 
+        //     var h = parseInt(times / 60 / 60 % 24); //时   26.2%24 2  Math.floor()
+        //     h = h < 10 ? '0' + h : h;
+        //     hour.innerHTML = h; // 把剩余的小时给 小时黑色盒子
+        //     var m = parseInt(times / 60 % 60); // 分 9
+        //     m = m < 10 ? '0' + m : m;
+        //     minute.innerHTML = m;
+        //     var s = parseInt(times % 60); // 当前的秒
+        //     s = s < 10 ? '0' + s : s;
+        //     second.innerHTML = s;
+        // }
+
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        var inputTime = +new Date('2019-5-24 19:00:00');//用户输入的时间戳
+        countDown();//放置刷新有空白，在计时器上面调用一次
+        setInterval(countDown, 1000)//给时间函数添加定时器，每隔一秒调用一次
+        function countDown() {
+            var nowTime = +new Date();//当前时间戳
+            var times = (inputTime - nowTime) / 1000;//剩余总毫秒数
+            var h = parseInt(times / 60 / 60 % 24);//取整获得剩余小时数
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h;//把获得小时数的内容给盒子
+            var m = parseInt(times / 60 % 60);//获得剩余分钟数
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+        }
+    </script>
+</body>
+
+</html

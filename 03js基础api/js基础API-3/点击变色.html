@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+
+<body>
+    <h1>1111</h1>
+    <h1>222</h1>
+    <h1>333</h1>
+    <h1>444</h1>
+    <h1>555</h1>
+</body>
+<script>
+    // var one = document.getElementsByTagName('h1');
+    // for (i = 0; i < one.length; i++) {
+    //     one[i].setAttribute('num', i);
+    //     one[i].onmouseover = function () {
+    //         num = parseInt(this.getAttribute('num'));
+    //         if (num % 2 == 0) {
+    //             this.style.background = "#ccc";
+    //         } else {
+    //             this.style.background = "#f0f";
+    //         }
+    //         this.setAttribute('num', num + 1);
+    //     }
+    //     one[i].onmouseout = function (e) {
+    //         e.target.style.backgroundColor = ''
+    //     }
+    // }
+
+
+
+    var one = document.querySelectorAll('h1');
+    for (var i = 0; i < one.length; i++) {
+        one[i].setAttribute('data-num', i);
+        one[i].addEventListener('mouseover', function () {
+            var num = parseInt(this.getAttribute('data-num'))
+            if (num % 2 == 0) {
+                this.style.backgroundColor = '#ccc';
+            } else {
+                this.style.backgroundColor = '#0f0';
+            }
+
+        })
+        one[i].addEventListener('mouseout', function (e) {
+            e.target.style.backgroundColor = ''
+        })
+    }
+
+
+</script>
+
+</html>

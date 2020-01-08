@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .register {
+            width: 380px;
+            margin: 100px auto;
+        }
+
+        input {
+            float: left;
+        }
+
+        .mima {
+            float: left;
+            text-indent: 17px;
+            background: url(images/mess.png) no-repeat left center;
+        }
+
+        .right {
+            background-image: url(images/right.png);
+        }
+
+        .wrong {
+            background-image: url(images/wrong.png);
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input type="password">
+        <p class="mima">请输入6-16位字符的密码</p>
+    </div>
+    <script>
+        var mima = document.querySelector('.mima');
+        var input = document.querySelector('input');
+        input.onblur = function () {
+            if (input.value.length > 16 || input.value.length < 6) {
+                mima.className = 'mima wrong';
+                mima.innerHTML = '请输入6-16位'
+            } else {
+                mima.className = 'mima right';
+                mima.innerHTML = '输入正确';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tab {
+        width: 500px;
+        border: 1px solid forestgreen;
+        margin:100px auto;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    ul li {
+        float: left;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        width: 165px;
+        font-size: 20px;
+        border-left: 1px solid #666;
+        cursor: pointer;
+        background-color: #f3f3f3;
+    }
+
+    .tab div {
+        display: none;
+    }
+
+    .active {
+        background-color: slateblue;
+    }
+
+    .tab .current {
+        display: block;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        <div class="tab">
+            <ul>
+                <li v-for="(item, i) in list" :class="currentIndex==i?'active':''" :key="item.id" @click="change(i)">{{item.title}}</li>
+            </ul>
+            <div v-for="(item, j) in list" :key="j" :class="currentIndex==j?'current':''">
+                <img :src="item.path">
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentIndex: 0,//默认当前选中的为0
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: './img/apple.png'
+                }, {
+                    id: 2,
+                    title: 'lemon',
+                    path: './img/lemon.png'
+                }, {
+                    id: 3,
+                    title: 'orange',
+                    path: './img/orange.png'
+                },]
+            },
+            methods: {
+                change(i) {//接受参数
+                    this.currentIndex=i
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

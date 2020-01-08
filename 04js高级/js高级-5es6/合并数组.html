@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方式1，把两个数组全部拆分，放到新数组
+        let arr = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        let arr3 = [...arr, ...arr2];
+
+        //方式2
+        let arr1 = [1, 2, 3];
+        let arr4 = [4, 5, 6];
+        arr1.push(...arr4);
+
+
+
+    </script>
+</body>
+
+</html>

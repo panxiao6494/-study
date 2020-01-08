@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #app {
+        width: 800px;
+        margin: 80px auto;
+    }
+
+    #num {
+        width: 28px;
+        text-align: center;
+    }
+
+    li span {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        <ul>
+            <li v-for="(item, index) in myFriut" :key="item.id">
+                <input type="checkbox" v-model="item.flag" id="check">
+                水果名:{{item.name}} |
+                单价: {{item.price}} 元 |
+                数量: <span class="add" @click="addNum(item)">+</span>
+                <input type="text" v-model.lazy='item.num' id="num">
+                <span class="reduce" @click="reduceNum(item)">-</span> kg |
+
+            </li>
+        </ul>
+        <div>总价:{{getPrice}}元</div>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                total: 0,
+                myFriut: [{
+                    id: 1,
+                    name: 'apple',
+                    price: 3,
+                    num: 2,
+                    flag: false
+                }, {
+                    id: 2,
+                    name: 'banana',
+                    price: 4,
+                    num: 7,
+                    flag: false
+                }, {
+                    id: 3,
+                    name: 'orange',
+                    price: 3,
+                    num: 4,
+                    flag: false
+                }]
+            },
+            methods: {
+                addNum(item) {
+                    item.num++
+
+                },
+                reduceNum(item) {
+                    item.num--
+                    if (item.num <= 0) {
+                        item.num = 0;
+                    }
+                }
+            },
+            computed: {
+                getPrice() {
+                    this.total = 0;
+                    this.myFriut.forEach(i => {
+                        if (i.flag) {
+                            this.total += parseInt(i.price) * parseInt(i.num)
+                        }
+                    });
+                    return this.total
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

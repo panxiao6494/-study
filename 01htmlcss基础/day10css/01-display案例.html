@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			position: relative;	
+			width: 222px;
+			height: 220px;
+			margin: 200px auto;
+		}
+		.mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			width: 222px;
+			height: 220px;
+			background:  rgba(0,0,0,0.4) url(images/arr.png) no-repeat center center;/*背景图片居中*/
+		}
+		.box a:hover .mask {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<a href="#">
+			<img src="images/3.jpg" alt="">
+			<div class="mask"></div>
+		</a>
+	</div>
+</body>
+</html>

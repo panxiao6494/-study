@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //Symbol返回一个唯一值，类似字符串
+    let s1 = Symbol('foo');
+    let s2 = Symbol('bar');
+
+    s1 // Symbol(foo)
+    s2 // Symbol(bar)
+
+    s1.toString() // "Symbol(foo)"
+    s2.toString() // "Symbol(bar)"
+
+
+
+    let a = Symbol('a');
+    let b = Symbol('a');
+    console.log(a === b)
+
+
+
+    for (let i = 0; i < 5; i++) {
+        console.log(i);
+    }
+    console.log(i); //无法访问块级作用域中的用let声明的变量
+    </script>
+</body>
+
+</html>

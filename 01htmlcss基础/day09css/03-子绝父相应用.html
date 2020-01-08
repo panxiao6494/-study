@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>应用</title>
+	<style>
+		.box {
+			width: 310px;
+			height: 190px;
+			border: 1px solid #000;
+			padding: 10px;
+			position: relative;/*父亲相对定位，占据位置*/
+		}
+		.top {
+			position: absolute;/*父亲有定位属性，相对于父亲定位 ，不占位置*/
+			top: 0;
+			left: 0;
+		}
+		.buttom {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/top_tu.gif" alt="" class="top">
+		<img src="images/adv.jpg" alt="">
+		<img src="images/br.gif" alt="" class="buttom">
+	</div>
+</body>
+</html>

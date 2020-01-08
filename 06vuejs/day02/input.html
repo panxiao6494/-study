@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <form action="">
+            <table align="center" width="300">
+                <tr>
+                    <td>姓名:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>男<input type="radio" name="sex" v-model="gender">女<input type="radio" name="sex"
+                            v-model="gender"></td>
+                </tr>
+                <tr>
+                    <td>爱好</td>
+                    <td>
+                        打篮球<input type="checkbox" v-model="hobby">
+                        看电影<input type="checkbox" v-model="hobby">
+                        爬山  <input type="checkbox" v-model="hobby">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                gender: '男',
+                hobby:['打篮球','看电影','爬山']
+            }
+        });
+    </script>
+</body>
+
+</html>

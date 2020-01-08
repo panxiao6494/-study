@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(name, age) {//公共属性
+            this.name = name;
+            this.age = age;
+        };
+
+        function Son(name, age, score) {
+            Father.call(this, name, age);//改变this的指向，继承父亲的方法，让this指向自己
+            this.score = score;
+        };
+
+        var son = new Son('xiaoming', 18, 90);
+        console.log(son);
+
+    </script>
+</body>
+
+</html>

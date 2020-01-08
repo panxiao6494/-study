@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预编译</title>
+    <script>
+        //预编译发生在函数执行前
+        function fn(a) {
+            //执行函数fn前预编译：AO -> {a: function () {}, b: undefined[因为函数b()为函数表达式]，d: function () {}}
+            console.log(a); //控制台显示function a () {}
+            var a = 123;
+            console.log(a); //控制台显示123
+            function a() { };
+            console.log(a); //控制台显示123
+            console.log(b); //控制台显示undefined
+            var b = function () { };
+            console.log(b); //控制台显示function () {}
+            console.log(d); //控制台显示function d () {}
+            function d() { };
+        }
+        fn(1)
+        //变量声明提升，函数声明整体提升
+        //1. 创建AO对象（Active Object）
+        //2. 查找函数形参及函数内变量声明，形参名及变量名作为AO对象的属性，值为undefined
+        //3. 实参形参相统一，实参值赋给形参
+        //4. 查找函数声明，函数名作为AO对象的属性，值为函数引用
+        //预编译：GO -> {bar: function () {}} 
+        //解释执行：{bar()} 
+        function Bar() {
+
+            foo = 10;
+            //解释执行函数bar()：{foo: 10} 
+            function foo() { }
+            var foo = 11;
+            //解释执行函数bar()：{foo: 11} 
+            return foo;
+        }
+        console.log(Bar()); //控制台显示11 
+//预编译发生在函数执行前，会把变量声明提升到前面，把函数声明整体提升到前面
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

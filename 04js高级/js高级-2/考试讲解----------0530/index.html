@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .wrap {
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      /* align-items: center; */
+    }
+
+    .m-form-left {
+      flex: 0 1 auto;
+    }
+
+    .m-form-right {
+      flex: 0 1 auto;
+    }
+
+    .m-input-wrap {
+      width: 400px;
+      margin: 15px auto;
+    }
+
+    .m-input-wrap .form-control {
+      display: inline-block;
+      width: auto;
+    }
+
+    .m-table-wrap {
+      width: 600px;
+      margin: 15px auto 0;
+    }
+
+
+    .test-flex {
+      margin: 15px 0 0 0;
+      width: 100%;
+      height: 120px;
+      background: #fff;
+    }
+
+    .test-flex-1 {
+      width: 300px;
+      padding: 10px;
+      background-color: #ccc;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .test-flex-2 {
+      width: 100px;
+      padding: 10px;
+      background-color: #ccc;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .item {
+      width: 50px;
+      height: 40px;
+      margin: 5px;
+      background-color: aqua;
+      flex: 1;
+    }
+  </style>
+  <script src='./jquery.js'></script>
+  <!-- <script>
+    // jquery, 原生js  创建添加删除 元素
+    // 1. jquery
+    var tr = $('<tr></tr>');
+    $('tbody').append(tr); // prepend(tr) 前面连个是父子关系；   兄弟关系： after(tr) before(tr)
+    $('tbody').remove(); // 删除自己，   $('tbody').empty()  .html('')  清空里面的子元素
+
+    // 2. 原生js
+    var li = document.createElement('li'); // 创建元素    
+    // document.write('<div>123</div>');这种创建方式不推荐  
+    // ul.innerHTML += '<li></li>'
+    var ul = document.querySelector('ul'); //  必须获取父节点
+
+    ul.appendChild(li); // 给ul的最后一位添加一个元素， 父子关系   ul.insertBefore(li, ul.children[0])
+    ul.removeChild(ul.children[0]); // 删除 节点
+  </script> -->
+  <script>
+    $(function () {
+      // var btn = document.querySelector('#add');
+      // $('#add').onclick(function(){})   这种写法不推荐
+      $('#add').on('click', function () {
+        // 表示是不是有一个输入框没值， 默认全部由有值，true
+        var flag = true;
+        $('input').each(function (index, item) {
+          if (!item.value) {
+            // 只要有一个没有值，
+            flag = false;
+            // return;   break  使用两个都没有作用
+          }
+        })
+
+        if (flag) {
+          // console.log($('input'))
+          var tr = $('<tr></tr>');
+          $('tbody').append(tr);
+          $('input').each(function (index, item) {
+            // console.log(index, item) // item是DOM对象
+            var td = $('<td></td>');
+            td.html(item.value) // 或者使用 $(item).val()
+            tr.append(td)
+          })
+
+          $('input').each(function (index, item) {
+            item.value = '';
+            // $('item').val('');
+          })
+        } else {
+          alert('请将所有表单都填入值')
+        }
+
+      })
+    })
+
+
+    // 第二种方式
+    // var tr = $('<tr></tr>');
+    // $('tbody').append(tr);
+    // var str = '';
+    // $('input').each(function (index, item) {
+    //   str += '<td>'+$(item).val()+'</td>';
+    // })
+    // tr.html(str)
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="m-form-left">
+      <div class="m-input-wrap">
+        <label for="name">请输入姓名: </label>
+        <input id="name" type="text" class="form-control">
+      </div>
+      <div class="m-input-wrap">
+        <label for="email">请输入邮箱: </label>
+        <input id="email" type="text" class="form-control">
+      </div>
+      <div class="m-input-wrap">
+        <label for="phone">请输入手机: </label>
+        <input id="phone" type="text" class="form-control">
+      </div>
+      <div class="m-input-wrap">
+        <label for="addr">请输入地址: </label>
+        <input id="addr" type="text" class="form-control">
+      </div>
+      <div>
+        <button class="btn btn-primary" id="add">添加</button>
+      </div>
+    </div>
+    <div class="m-form-right">
+      <div class="m-table-wrap">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <td>姓名</td>
+              <td>邮箱</td>
+              <td>手机</td>
+              <td>地址</td>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-flex">
+    <div class="test-flex-1">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <div class="test-flex">
+    <div class="test-flex-2">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <div class="test-flex">
+    <div class="test-flex-1">
+      <div class="item" style="margin:0; background-color: #ae4; flex:8">
+        我的宽度为 (300-20)/10 * 8
+      </div>
+      <div class="item" style="margin:0; background-color: #ea4"></div>
+      <div class="item" style="margin:0; background-color: #44eec9"></div>
+    </div>
+  </div>
+</body>
+
+</html>

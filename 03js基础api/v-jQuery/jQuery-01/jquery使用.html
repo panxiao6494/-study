@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        font-size: 18px;
+        background-color: #f0f;
+    }
+    </style>
+</head>
+
+<body>
+    <script>
+    $(function() {
+        $('.btn1').click(function() {
+            $('div').hide(1000)
+        });
+        console.log($('.btn1'), 11)
+        $('.btn2').click(function() {
+            $('div').show(2000)
+        });
+        $('.dh').click(function() {
+            $('div').animate({ height: 400 }, 'slow');
+            $('div').animate({ width: 400 }, 'slow');
+            $('div').animate({ height: 200 }, 'slow');
+            $('div').animate({ width: 200 }, 'slow');
+        });
+        $('.btn3').click(function() {
+            $('div').animate({ left: '300px' }, 'slow');
+            $('div').animate({ fontSize: '40px' }, 'slow');
+            $('div').html('NO')
+        })
+    })
+
+    console.dir($('div')) //jquery对象
+    </script>
+    <div>你好</div>
+    <button class="btn1">隐藏</button>
+    <button class="btn2">显示</button>
+    <button class="btn3">滑动</button>
+    <button class="dh">拉伸</button>
+</body>
+
+</html>

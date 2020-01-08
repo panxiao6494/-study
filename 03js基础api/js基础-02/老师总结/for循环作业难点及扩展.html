@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环作业及扩展</title>
+</head>
+<script>
+
+	//for循环99乘法表
+	var str = "";
+	for(var i =1; i<10; i++){
+		for(var j = 1; j<10; j++){
+			if(i>=j){
+				str += i + ' * ' +  j + ' = ' + i * j + '\t';
+			}
+		}
+		str += "\n";
+	}
+	console.log(str);
+
+		//while循环
+	// var userName = '';
+	// var pwd = '';
+	// do{
+	// 	userName = prompt('请输入账号：');
+	// 	pwd = prompt('请输入密码：');
+	// }while(!(userName == 'admin' && pwd == '123456'))
+
+
+		//跳过个位数为3的数
+		//打印尾数为3的所有数，并求出它们的和，
+	//验证正确性，就是两组结果的相加是不是5050
+	var sum = 0;
+	var sumThree = 0;
+	for(var i = 1; i<=100; i++){
+		if(i%10 == 3){
+			sumThree += i;
+			console.log('i: ', i );
+			continue;
+		}
+		sum += i;
+	}
+	console.log(sumThree);
+	console.log(sum);
+
+	// 判断位数为3的高级写法
+	var pattern = /^[0-9]+$/;
+	if(pattern.test(15161563)){  //这个叫正则表达式，判断任何用户输入的数字尾数是否为3，不局限于100
+		console.log("你输入的数字尾数是3")
+	}
+</script>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        A：<input type="text" v-model="a">
+        B: <input type="text" v-model="b">
+        <select v-model="cal">
+            <option selected>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+
+        </select>
+        {{a}}<input type="button" v-model="cal" @click="hand">{{b}}
+
+        result：<input type="text" v-model="result">
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                cal: '+',
+                a: '',
+                b: '',
+                result: ''
+            },
+            methods: {
+                hand() {
+                    if (this.cal == '+') {
+                        this.result = parseInt(this.a) + parseInt(this.b)
+                    }
+                    if (this.cal == '-') {
+                        this.result = parseInt(this.a) - parseInt(this.b)
+                    }
+                    if (this.cal == '*') {
+                        this.result = parseInt(this.a) * parseInt(this.b)
+                    }
+                    if (this.cal == '/') {
+                        this.result = parseInt(this.a) / parseInt(this.b)
+                    }
+
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

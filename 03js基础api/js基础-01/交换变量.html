@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>交换变量</title>
+    <script>
+        var apple1 = "青苹果";
+        var apple2 = "红苹果";
+        console.log(apple1, apple2);
+        var temp
+        temp = apple1;//青苹果赋值给temp
+        apple1 = apple2;//红苹果赋值给apple1
+        apple2 = temp;//青苹果赋值给apple2
+        console.log(apple1, apple2);
+    </script>
+    <script>
+        var a = 2;
+        var b = 3;
+        console.log(a, b);
+        a = a + b;//a=5
+        b = a - b;//b=2
+        a = a - b;//a=3
+        console.log(a, b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

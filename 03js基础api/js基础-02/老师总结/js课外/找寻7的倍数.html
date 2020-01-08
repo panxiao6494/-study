@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7的倍数</title>
+	<script>
+		//算法都是由控制结构(顺序，分支，循环三种结构)和一些代码的操作构成的
+		//有时间复杂度和空间复杂度的说法， 评价一个算法的优劣， 了解一下
+
+		
+		function sevenOk1(num){
+			return num % 7 == 0 ? true : false;
+		}
+/* // 计算1-100 之间所有能被7整除的数的和
+		var sum = 0;
+		for(var i =1; i<=100;i++){
+			if(sevenOk1(i)){
+				console.log(i);
+				sum += i ;
+			}
+			// sum += sevenOk1(i) ? i : 0;
+		}
+		console.log(sum);
+*/
+/*
+		function sevenOk2(num){
+			if(num>0){
+				while(num>0){
+					num -= 7;
+					if(num == 0){
+						return true;
+					}
+				}
+			}else if(num == 0){
+				return true;
+			}else {
+				while(num < 0){
+					num += 7;
+					if(num == 0){
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+		for(var i =-100; i<= 100; i++){
+			if(sevenOk2(i)){
+				console.log('i 七的倍数：', i);
+			}
+		}
+*/
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

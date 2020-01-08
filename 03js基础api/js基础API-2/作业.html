@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 300px;
+            margin: 100px auto;
+            border-color: aquamarine;
+        }
+
+        th {
+            height: 35px;
+            background-color: blue;
+            color: #fff;
+        }
+
+        td {
+            height: 30px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellpadding="0" cellspacing="0" id="tb">
+        <thead>
+            <tr>
+                <!-- 表头 -->
+                <th>
+                    <input type="checkbox" id="checkall">
+                </th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>ipad pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>ipad watch</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>ipad air</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var checkAll = document.getElementById('checkall');
+        var checkSingle = document.querySelectorAll('#tbd input')
+
+        checkAll.onclick = function () {
+            for (var i = 0; i < checkSingle.length; i++) {
+                checkSingle[i].checked = this.checked;//当触发点击事件后，单选的选中状态保持和复选的一样
+            }
+        }
+        for (var i = 0; i < checkSingle.length; i++) {
+            checkSingle[i].onclick = function () {
+                //每次点击都会检查单选有没有被全部选中
+                for (var i = 0; i < checkSingle.length; i++) {
+
+                    if (!checkSingle[i].checked) {//如果单选没有被选中，直接退出,全部选中，这不会执行循环
+                        checkAll.checked = false;
+                        return;
+                    }
+                }
+                checkAll.checked = true;
+            }
+        }
+        //return 可以进行下一次循环，但是函数下面不会再执行
+        //break 退出循环，不在进行下一次
+        //continue 跳出本次循环
+    </script>
+</body>
+
+</html>

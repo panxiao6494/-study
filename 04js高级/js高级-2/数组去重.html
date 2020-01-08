@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [2, 3, 5, 4, 8, 5, 1, 3, 5];
+        var newArr = [];
+        arr.filter(function (value, index) {
+            if (newArr.indexOf(value) == -1) {//如果newArr中不包含arr中的成员，就把arr中的成员放到newArr中，起到数组去重的作用
+                newArr.push(value)
+            }
+        })
+        console.log(newArr);
+
+    </script>
+</body>
+
+</html>

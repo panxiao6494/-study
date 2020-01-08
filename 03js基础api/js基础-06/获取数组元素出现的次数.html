@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>出现次数</title>
+    <script>
+        var arr = ["c", "a", "z", "a", "x", "a"];
+        var obj = {};//定义一个空对象;属性是数组元素，属性值是元素出现的次数
+        function getCount() {
+            for (var i = 0; i < arr.length; i++) {
+                if (obj[arr[i]]) {//obj的属性值是出现的次数，true才能传入if
+                    obj[arr[i]]++;
+                } else {
+                    obj[arr[i]] = 1;
+                }
+            }
+            return obj;
+        }
+        console.log(getCount(arr));
+        //为对象添加属性和属性值
+        //var arr = [2, 3];
+       // var obj = {};
+       // obj[arr[1]] = 4;
+      //console.log(obj);
+      //{3:4}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

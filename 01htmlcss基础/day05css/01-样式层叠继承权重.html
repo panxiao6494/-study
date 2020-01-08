@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>权重</title>
+    <style>
+    div {
+        color: red;
+        /*没有选p标签，继承权重为0*/
+    }
+
+    p {
+        color: green;
+    }
+
+    .demo {
+        color: blue !important;
+        /* 因为demo没有选p标签，所以继承的权重为0 */
+    }
+
+    #tese {
+        color: pink;
+        /*没有选p标签，继承权重为0*/
+    }
+
+    #slo {
+        color: purple;
+        /*id选择器权重高于class类名选择器*/
+    }
+
+    .slo {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="demo" id="tese">
+        <p class="slo" id="slo">继承的权重为0</p>
+    </div>
+</body>
+
+</html>

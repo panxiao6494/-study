@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*   var reg = /123/;
+           var str = 'abc';
+           console.log(reg.test(str));//false
+           console.dir(reg)
+   
+           var re = /^abc$/;//边界符 匹配以a开头，c结尾，中间为b的字符串 */
+
+
+        var url = 'http://www.itheima.com/login.html?name=lers&age=23';
+        function getObj() {
+
+            /*  obj = {
+                  name: 'zs',
+                  age: 18
+              };*/
+
+            str = (url.match(/name\=\w{1,}/g)).toString();//将截取出来的数组元素转换成字符串
+            str1 = (url.match(/age\=\d{1,}/g)).toString();
+
+            var arr = str.split('=');//将字符串以 '='分割转成数组
+            var arr1 = str1.split('=');
+
+            var obj = {};
+            obj[arr[0]] = arr[1];
+            obj[arr1[0]] = arr1[1];
+            return obj;
+        }
+
+        console.log(getObj());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue_2.5.22.js"></script>
+    <script src="lib/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/user/1">用户1</router-link>
+        <router-link to="/user/2">用户2</router-link>
+        <router-link to="/user/3">用户3</router-link>
+        <router-link to="/index">首页</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        const Index = {
+            template: `<div>
+            <h1>首页</h1>
+                <button @click="back">返回</button>
+                </div>
+            `,
+            methods: {
+                back() {
+                    this.$router.go(-1)
+                }
+            },
+        }
+        const User = {
+            props:['id'],
+            template: `<div>
+            <h1>用户的id为： {{id}}==</h1>
+          
+            <button @click="re">跳转到首页</button>    
+            <hr/>
+            <router-link to="/user/tab1">apple</router-link>
+            <router-link to="/user/tab2">banana</router-link>
+            <router-view></router-view>
+            </div>
+            `,
+            methods: {
+                re() {
+                    this.$router.push('/index')
+                }
+            },
+        }
+        const Tab1 = {
+            template: "<div>apple</div>"
+        }
+        const Tab2 = {
+            template: "<div>banana</div>"
+        }
+
+        const router = new VueRouter({
+            routes: [{
+                path: '/', redirect: '/index'
+            }, {
+                path: '/index', component: Index
+            },
+            {
+                path: '/user/:id', component: User, props: true, children: [
+                    { path: '/user/tab1', component: Tab1 },
+                    { path: '/user/tab2', component: Tab2 },
+                ]
+            }
+            ]
+        })
+        const vm = new Vue({
+            el: '#app',
+            router,
+        })
+    </script>
+</body>
+
+</html>

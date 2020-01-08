@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div')
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六',]
+            var day = date.getDay();
+            var h = date.getHours();//取整获得剩余小时数
+            h = h < 10 ? '0' + h : h;
+            var m = date.getMinutes();//获得剩余分钟数
+            m = m < 10 ? '0' + m : m;
+            var s = date.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            div.innerHTML = '现在是' + year + '年' + month + '月' + dates + '日' + arr[day] + h + '时' + m + '分' + s + '秒';
+        }
+        getDate();//计时器之前调用一次，放置刷新有空白
+        setInterval(getDate, 1000)
+    </script>
+</body>
+
+</html>

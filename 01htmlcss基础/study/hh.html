@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+.box {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+}
+
+.son {
+    float: left;
+    width: 0;
+    border-top: 50px solid #ccc;
+    border-bottom: 50px solid #f00;
+    border-left: 50px solid #0ff;
+    border-right: 50px solid #f0f;
+}
+</style>
+
+<body>
+    <div class="box">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+    <script type="text/javascript">
+    let obj = {
+        name: 'xiaoming',
+        age: 14
+    }
+    let proxy1 = new Proxy(obj, { //代理对象
+        get() { //读取属性的时候执行
+            console.log(11)
+            return '张三'
+        }
+        set() {
+            console.log(23)
+        }
+    })
+    console.log(proxy1.name) //会执行get函数
+    </script>
+</body>
+
+</html>

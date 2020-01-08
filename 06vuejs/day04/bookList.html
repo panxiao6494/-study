@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+    <script src="js/axios.js"></script>
+    <script src="js/moment.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        width: 480px;
+        margin: 100px auto;
+        background-color: #e4dfd7;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    #app input {
+        width: 160px;
+    }
+
+    table {
+        width: 480px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    button {
+        width: 50px;
+        height: 25px;
+        outline: none;
+    }
+
+    p {
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-top: 1px solid sandybrown;
+        border-bottom: 1px solid sandybrown;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        编号: <input type="text" v-model.lazy='id' :disabled="flag">
+        名称: <input type="text" v-model.lazy="newBook"> <button @click="sub" :disabled="bflag">提交</button>
+        <p>图书总数:{{total}}</p>
+        <table border="1" cellspacing="0" cellpadding="0" rules="all">
+            <caption>图书管理列表</caption>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(item, index) in books" :key="index">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date|format("YYYY-MM-DD HH:mm:ss")}}</td>
+                <td>
+                    <a href="" @click.prevent="edit(item.id)">编辑</a> |
+                    <a href="" @click.prevent="del(item.id)">删除</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <script type='text/javascript'>
+        axios.defaults.baseURL = "http://127.0.0.1:3000/";//设置axios的默认接口
+
+        axios.interceptors.response.use(response => {//设置响应拦截,返回响应的数据 
+            // Do something before response is sent
+            console.log(response.data);
+            return response.data;
+        }, error => {
+            // Do something with response error
+            return Promise.reject(error);
+        });
+
+        Vue.filter('format', (ss, qqq) => {//接受两个形参，要过滤的对象和过滤函数需要的参数
+            return moment().format(qqq)
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                newBook: '',
+                id: '',
+                flag: false,
+                bflag: false,
+                books: []
+            },
+            methods: {
+                edit(id) {
+                    this.id = id;
+                    this.flag = true;
+                    this.books.filter((item) => {
+                        if (item.id == id) {
+                            this.newBook = item.name;
+                            return true;
+                        }
+                    })
+
+                },
+                async sub() {
+                    if (this.flag) {//编辑
+                        var ret = await axios.put('books/' + this.id, {
+                            name: this.newBook
+                        })
+                        if (ret.status == 200) {
+                            queryData()
+                        }
+                    } else {//添加
+                        var ret = await axios.post('books', {
+                            name: this.newBook
+                        })
+                        if (ret.status == 200) {
+                            queryData()
+                        }
+                    }
+                    this.id = '';
+                    this.newBook = '';
+                    this.flag = false;
+                },
+                async del(id) {
+                    var ret = await axios.delete(`books/${id}`);//根据id删除相应的数据
+                    if (ret.status == 200) {
+                        queryData()
+                    }
+                },
+                async queryData() {//在vue实例方法里面定义axios的请求函数,得到最新的数据渲染页面
+                    this.books = await axios.get('books');
+                }
+            },
+            computed: {
+                total() {
+                    return this.books.length;
+                }
+            },
+            watch: {
+                newBook: async function (val) {
+                    var ret = await axios.get('/books/book/' + val);
+                    if (ret.status == 1) {
+                        this.bflag = true;
+                    } else {
+                        this.bflag = false;
+                    }
+                }
+            },
+            created() {
+                this.queryData();
+            },
+        });
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age, sang) {
+            this.uname = uname;
+            this.age = age;
+            this.sing = function () {
+                console.log('我会唱' + sang);
+
+            }
+        }
+        var ldh = new Star('刘德华', 18, '冰雨');
+        console.log(ldh.sing());//动态成员，只能通过是实例化的对象来访问,每次访问都会开辟新的对空间
+
+        Star.sex = '男';
+        console.log(Star.sex);//静态成员，只能通过构造函数来访问
+
+
+    </script>
+</body>
+
+</html>

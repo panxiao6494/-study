@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;/*给父亲添加flex属性*/
+            width: 800px;
+            height: 300px;
+            flex-direction: column;/*设定主轴，默认是row，x轴*/
+            background-color: aqua;
+            /* justify-content: space-around;延主轴平分排列 */
+            justify-content: space-between;/*延主轴贴边*/
+        }
+        div span {
+            width: 150px;
+            height: 70px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="js/jd.js"></script> -->
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .preview_img {
+            position: relative;
+            display: block;
+            width: 400px;
+            height: 400px;
+            margin: 100px 100px;
+            border: 1px solid #666;
+
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 410px;
+            width: 500px;
+            height: 500px;
+            z-index: 999;
+            overflow: hidden;
+            border: 1px solid #999;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            cursor: move;
+            background-color: aquamarine;
+            opacity: .5;
+        }
+
+        .big img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_img">
+        <img src="images/s3.png" alt="">
+        <div class="big">
+            <img src="images/big.jpg" alt="" class="big_Img">
+        </div>
+        <div class="mask"></div>
+    </div>
+    <script>
+        var pre = document.querySelector('.preview_img');
+        var big = document.querySelector('.big');
+        var mask = document.querySelector('.mask');
+        var bigImg = document.querySelector('.big_Img');
+
+        //鼠标经过显示隐藏
+        pre.addEventListener('mousemove', function (e) {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+            var x = e.pageX - pre.offsetLeft;
+            var y = e.pageY - pre.offsetTop;
+            //mask跟随鼠标移动
+            var maskx = x - mask.offsetWidth / 2;
+            var masky = y - mask.offsetHeight / 2;
+            var maskMax = pre.offsetWidth - mask.offsetWidth;
+            var maskMay = pre.offsetHeight - mask.offsetHeight;
+            //限制mask的移动范围
+            if (maskx <= 0) {
+                maskx = 0
+            } else if (maskx >= maskMax) {
+                maskx = maskMax
+            }
+            if (masky <= 0) {
+                masky = 0;
+            } else if (masky >= maskMay) {
+                masky = maskMay;
+            }
+            mask.style.left = maskx + 'px';
+            mask.style.top = masky + 'px';
+            //大图按比例哟东
+            var bigImgx = (bigImg.offsetWidth - big.offsetWidth) / maskMax;
+            bigImg.style.left = -maskx * bigImgx + 'px';
+            bigImg.style.top = -masky * bigImgx + 'px';
+        })
+        pre.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+
+    </script>
+</body>
+
+</html>

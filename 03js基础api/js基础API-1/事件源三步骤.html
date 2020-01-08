@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="笔记本">
+    <script>
+        var ipt = document.querySelector('input');
+        //如果值为默认值，点击变空，输入文字颜色为#333
+        ipt.onclick = function () {
+            if (this.value === '笔记本') {
+                this.value = '';
+            }
+            this.style.color = '#333';
+        }
+        ipt.onblur = function () {
+            if (this.value === '') {
+                this.value = '笔记本';//恢复默认值
+
+            }
+            this.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>

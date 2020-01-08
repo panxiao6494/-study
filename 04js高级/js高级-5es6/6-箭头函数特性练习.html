@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  const obj = {
+              name: 'zs'
+          };
+  
+          function fn() {
+              console.log(this);//obj
+              return () => {
+                  console.log(this);//obj
+              }
+          };
+  
+          fn.call(obj);//让this指向obj
+  
+  
+          const reFn = fn.call(obj);
+          reFn()//箭头函数的this指向外层函数的this */
+
+
+        const shape = {
+            radius: 10,
+            diameter() {
+                return this.radius * 2;
+            },
+            perimeter: () => 2 * Math.PI * this.radius
+        };
+
+        console.log(shape.diameter());//20
+
+        console.log(shape.perimeter());//NaN  箭头函数中的this指向外部函数，this.radius=undefinded
+
+        /*  let a = 3;
+          let b = new Number(3);//通过构造函数实例化的对象
+          let c = 3;
+          console.log(typeof b);//是一个对象
+
+          console.log(a == b);//true
+          console.log(a === b);//false
+          console.log(b === c);//false */
+
+        /*  class Chameleon {
+              static colorChange(newColor) {
+                  this.newColor = newColor;
+              }
+
+              constructor({ newColor = "green" } = {}) {
+                  this.newColor = newColor;
+              }
+          };
+
+          const freddie = new Chameleon({ newColor: "purple" });
+          freddie.colorChange("orange");*/
+
+
+
+
+        /* function Person(firstName, lastName) {
+             this.firstName = firstName;
+             this.lastName = lastName;
+         }
+         const member = new Person("Lydia", "Hallie");
+         Person.getFullName = () => this.firstName + this.lastName;//不能再构造函数中添加方法，可以在构造函数的原型上添加
+
+         console.log(member.getFullName());*/
+
+
+
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        const fn1 = new Person("Lydia", "Hallie");
+        const fn2 = Person("Sarah", "Smith");//没有使用new关键字，指的是全局对象
+
+        console.log(fn1);
+        console.log(fn2);
+
+
+
+        function checkAge(data) {
+            if (data === { age: 18 }) {
+                console.log("You are an adult!");
+            } else if (data == { age: 18 }) {
+                console.log("You are still an adult.");
+            } else {
+                console.log(`Hmm.. You don't have an age I guess`);
+            }
+        }
+
+        checkAge({ age: 18 });// 两个对象比较相等性时，不能用值进行比较
+    </script>
+</body>
+
+</html>

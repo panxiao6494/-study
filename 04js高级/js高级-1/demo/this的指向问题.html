@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this-----指向</title>
+</head>
+<body>
+	
+	<input type="button" value="按钮" id="btn">
+
+
+	<script>
+		
+		// js是一门基于对象的语言,我们学习对象的属性和方法
+
+		// 函数调用和方法调用有什么区别?
+
+		// 函数调用: 函数名()  方法调用: 对象.方法名()
+
+		//总结: this永远指向方法的调用者
+
+		// 1.this在普通函数中的指向问题
+
+		// 函数申明
+		// function fn() {
+		// 	console.log(this) // this在普通函数中指向的是window
+		// }
+
+		// window.fn()
+
+		// 函数表达式
+		// var ff = function() {
+		// 	console.log(this)
+		// }
+
+		// window.ff()
+
+
+		// 2.this在事件绑定中的指向问题
+
+		var btn = document.getElementById('btn')
+		btn.onclick = function() {
+
+			console.log(this) // this在事件绑定中指向事件的绑定者
+		}
+
+
+		// 3.this在定时器里的指向问题
+		// var timerId = window.setInterval(function() {
+		// 	console.log(this) // this在定时器指向window
+		// }, 1000)
+
+
+		// 4.this在对象方法里面的指向
+		// var obj = {
+		// 	name: '孙尚香',
+		// 	gender: '女',
+		// 	play: function() {
+		// 		console.log(this.name + '会翻滚放技能')
+		// 	}
+		// }
+
+		// console.log(obj.name)
+		// console.log(obj['gender'])
+		// obj.play()
+
+		// 构造函数 // this在构造函数中指向实例对象
+		function Hero(name,gender,attack) {
+			this.name = name;
+			this.gender = gender;
+			this.attack = attack;
+			this.play = function() {
+				console.log(this.name + '的攻击力是:' + this.attack)
+			}
+		}
+
+		// 创建对象 new   (实例化对象) --------实例对象
+
+		var zgl = new Hero('诸葛亮', '男', 60)
+
+		console.log(zgl.name)
+		console.log(zgl.gender)
+
+		var drj = new Hero('狄仁杰', '男', 100)
+		console.log(drj['name'])
+	</script>
+</body>
+</html>

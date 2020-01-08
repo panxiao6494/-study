@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3];
+        let [a, b, c, d, e] = arr;//let声明的数组可以结构赋值，允许一一对应
+        console.log(a);//1
+        console.log(b);//2
+        console.log(c);//3
+        console.log(d);//undefined
+        console.log(e);//undefined
+
+        let arr1 = ['blue', ['red', 'green'], 'pink', 'black'];
+        let [h, i, j, k] = arr1;
+        console.log(h);
+
+        console.log(i);
+
+    </script>
+</body>
+
+</html>

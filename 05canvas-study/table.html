@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas-table</title>
+</head>
+
+<body>
+    <div id="container">
+        <canvas id="canvsEle" width="600" height="600">
+
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            var canvas = document.querySelector("#canvsEle");
+            var ctx = canvas.getContext('2d')
+            canvas.style.border = "1px solid #000";
+            console.log(canvas.width, canvas.height)
+            var rectHeight = 10;
+            var rectWidth = 10;
+            for (var i = 0; i < canvas.width / rectHeight; i++) {
+                //绘制横线
+                ctx.moveTo(0, i * rectHeight);//起点必须有
+                ctx.lineTo(canvas.width, i * rectHeight)
+                //绘制竖线
+                ctx.moveTo(i * rectWidth, 0)
+                ctx.lineTo(i * rectWidth, canvas.height)
+            }
+            ctx.stroke()
+        }())
+    </script>
+</body>
+
+</html>

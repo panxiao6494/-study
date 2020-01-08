@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // var num1 = 1;
+    // var num2 = 2;
+    // if (num1 > num2) {
+    //   console.log('num1 大于num2的值 为真，走这个代码块')
+    // }
+
+    // if (num1 > num2) {
+    //   console.log('num1 大于num2的值 为真，走这个代码块')
+    // } else {
+    //   console.log('num1 大于num2的值 为假，走这个代码块')
+    // }
+
+    // if (num1 > 90) {
+    //   console.log('num1 大于90 为真，走这个代码块')
+    // } else if (num1 > 80) {
+    //   console.log('num1 大于90 为假， num1 大于80 为真，走这个代码块')
+    // } else if (num1 > 70) {
+    //   console.log('num1 大于80 为假， num1 大于70 为真，走这个代码块')
+    // } else {
+    //   console.log('上面的条件都为假，走这个代码块')
+    // }
+
+    // // if语句是从上往下依次比对
+    // // switch语句是 直接找到对应的分支，并执行
+    // switch (num1) {
+    //   case '1': // 这里匹配是 === 全等的匹配
+    //     console.log('如果 num1 === "1" 为真，则走这句代码块 ');
+    //     break; // 退出switch语句
+    //   case 1:
+    //     console.log('如果 num1 === 1 为真，则走这句代码块 ');
+    //     break;
+    //   case 2:
+    //     console.log('如果 num1 === 2 为真，则走这句代码块 ');
+    //     break;
+    //   default:
+    //     console.log('上面语句都为假，则走默认语句')
+    // }
+
+
+    // var sum = 0;
+    // var even = 0;
+    // var evenArr = [];
+    // var odd = 0;
+    // var oddArr = [];
+    // var zhengchu3 = 0;
+    // var zhengchu3Arr = [];
+    // for (var i = 1; i < 100; i++) {
+    //   sum += i;
+    //   if (i % 2 == 0) {
+    //     even += i;
+    //     evenArr.push(i);
+    //   } else {
+    //     odd += i;
+    //     oddArr.push(i);
+    //   }
+    //   if (i % 3 == 0) {
+    //     zhengchu3 += i;
+    //     zhengchu3Arr.push(i)
+    //   }
+    // }
+    // console.log(sum, even, odd, zhengchu3);
+    // console.log(evenArr, oddArr, zhengchu3Arr)
+
+
+    // var str = '';
+    // for (var i = 1; i < 10; i++) { // 行数  外面执行1次，里面执行9次
+    //   for (var j = 1; j < 10; j++) { // 列数， 一共执行81次
+    //     if (i >= j) { //只有当i>=j时， 才拼接上星星
+    //       // str += '☆'  换成  2*2=4 ,才用引引加加
+    //       str += i + '*' + j + '=' + i * j + '\t'
+    //     }
+    //   }
+    //   str += '\n';
+    // }
+    // console.log(str)
+
+    // 求数组最大值
+    // var arr = [12, 23, 34, 2, 3, 31]
+    // var max = arr[0];
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (max < arr[i]) {
+    //     max = arr[i]
+    //   }
+    // }
+    // console.log(max)
+
+    // // 翻转数组
+    // var arr = [12, 23, 34, 3, 31]
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //   newArr[newArr.length] = arr[arr.length - 1 - i]
+    // }
+    // console.log(newArr)
+
+
+    // var arr2 = [12, 23, 34, 3, 31]
+    // for (var i = 0; i < arr2.length; i++) {
+    //   for (var j = 0; j < arr2.length; j++) {
+    //     if (arr2[j] > arr2[j + 1]) {
+    //       var temp = arr2[j];
+    //       arr2[j] = arr2[j + 1];
+    //       arr2[j + 1] = temp;
+    //     }
+    //   }
+    // }
+    // console.log(arr2)
+
+
+    // function paramArgc() {
+    //   var max = 0;
+    //   for (var i = 0; i < arguments.length; i++) {
+    //     if (max < arguments[i]) {
+    //       max = arguments[i];
+    //     }
+    //   }
+    //   return max;
+    // }
+    // console.log(paramArgc(12, 23, 34, 3, 31))
+
+
+    // function reverse(arr) {
+    //   var arr = [12, 23, 34, 3, 31]
+    //   var newArr = [];
+    //   for (var i = 0; i < arr.length; i++) {
+    //     newArr[newArr.length] = arr[arr.length - 1 - i]
+    //   }
+    //   return newArr;
+    // }
+    // console.log(reverse([12, 23, 34, 3, 31]))
+
+    // function bubbleSort(arr) {
+    //   for (var i = 0; i < arr.length; i++) {
+    //     for (var j = 0; j < arr.length; j++) {
+    //       if (arr[j] > arr[j + 1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j + 1];
+    //         arr[j + 1] = temp;
+    //       }
+    //     }
+    //   }
+    //   return arr;
+    // }
+
+    // console.log(bubbleSort([12, 23, 34, 3, 31]))
+
+    // function erYue(year) {
+    //   if (isRunYear(year)) {
+    //     return year + '年的二月有29天';
+    //   }
+    //   return year + '年的二月有28天';
+    // }
+    // function isRunYear(year) {
+    //   if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+    //     return true;
+    //   }
+    //   return false;
+    // }
+    // console.log(erYue(2000));
+
+    // var num = 10;
+    // var str = 2;
+    // var abc = 1;
+    // function fn() { // 外部函数
+    //   num = 30; // 局部变量， 不是全局变量
+    //   var num = 20; // 局部变量
+    //   // 可以把这句话去掉 或者 加上后面打印结果不一样
+    //   var str = 0;  // 有var声明，
+    //   str += 3;
+    //   abc = 15; // 没有var，属于全局变量
+    //   function fun() { // 内部函数
+    //     console.log(num);
+    //   }
+    //   fun(); // 调用才会打印，不调用不执行
+    // }
+    // fn(); // 20
+    // console.log(str, num, abc) // 2, 10, 15
+
+
+    // // 验证函数的优先级比变量高
+    // function a() {
+    // }
+    // var a;
+    // console.log(typeof a); // function
+
+    // function bar1() {
+    //   return foo;
+    //   var foo = 10;
+    //   function foo() { };
+    //   foo = 11;
+    // }
+    // console.log(typeof bar1()); // function
+
+
+    // function bar() {
+    //   var foo = 11;
+    //   return foo;
+    //   function foo() { };
+    // }
+    // console.log(typeof bar()); // number
+
+
+    // 构造函数名大写，里面有this，没有return
+    // function Star(uname, age, sex) {
+    //   this.name = uname;
+    //   this.age = age;
+    //   this.sex = sex;
+    //   this.sing = function (sang) {
+    //     console.log(sang);
+    //   }
+    // }
+
+    // // 构造函数通过new关键字调用
+    // var ldh = new Star('刘德华', 18, '男');
+    // console.log(ldh)
+
+
+    // var obj = {
+    //   name: 'jack',
+    //   age: 24,
+    //   addr: '北京'
+    // }
+    // for (var k in obj) {
+    //   // 必须写obj[k]，不能写obj.k
+    //   // obj.k表示去访问属性名为'k'的值
+    //   // obj[k] 表示访问属性名为k, 是一个变量
+    //   // obj.k   属性名 = "k" ; obj[k]  属性名 = k
+    //   console.log(obj[k])
+    //   console.log(obj.k) //undefined
+    // }
+
+    // function dateFormat() {
+    //   var date = new Date();
+    //   var year = date.getFullYear();
+    //   var month = date.getMonth() + 1;
+    //   month = month < 10 ? '0' + month.toString() : month;
+    //   var day = date.getDate();
+    //   day = day < 10 ? '0' + day.toString() : day;
+    //   var hour = date.getHours();
+    //   hour = hour < 10 ? '0' + hour.toString() : hour;
+    //   var minute = date.getMinutes();
+    //   minute = minute < 10 ? '0' + minute.toString() : minute;
+    //   var second = date.getSeconds();
+    //   second = second < 10 ? '0' + second.toString() : second;
+    //   var week = date.getDay();
+    //   var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+    //   return '现在是' + year + '年' + month + '月' + day + '日 ' + hour + ':' + minute + ':' + second + ' ' + arr[week];
+    // }
+    // console.log(dateFormat())
+
+
+    // function daoJiShi(date) {
+    //   var zhonzhi = +new Date(date);
+    //   var currTime = +new Date();
+    //   var chaZhi = Math.floor((zhonzhi - currTime) / 1000);
+
+    //   var day = Math.floor(chaZhi / 60 / 60 / 24);
+    //   day = day < 10 ? '0' + day.toString() : day;
+    //   var hours = Math.floor(chaZhi / 60 / 60 % 24);
+    //   hours = hours < 10 ? '0' + hours.toString() : hours;
+    //   var minutes = Math.floor(chaZhi / 60 % 60)
+    //   minutes = minutes < 10 ? '0' + minutes.toString() : minutes;
+    //   var seconds = Math.floor(chaZhi % 60)
+    //   seconds = seconds < 10 ? '0' + seconds.toString() : seconds;
+
+    //   return day + '天' + hours + '小时' + minutes + '分钟' + seconds + '秒钟';
+    // }
+
+    // console.log(daoJiShi('2019-5-17 08:08:08'))
+
+
+
+    // push, pop, unshift, shift
+    // var arr = [1, 2, 3, 4, 5];
+    // arr.push(12)    //  返回6， arr = [1,2,3,4,5,12]
+    // arr.pop()       //  返回12，arr = [1,2,3,4,5]
+    // arr.unshift(15) //  返回6， arr = [15,1,2,3,4,5]
+    // arr.shift() //  返回15， arr = [1,2,3,4,5]
+
+    // // indexOf
+    // arr.indexOf(2) // 返回1  返回的是索引号01234
+    // // join 数组转字符串
+    // arr.join('&')  // 返回"1&2&3&4&5"
+    // // splice 删除指定位置的元素，还有其他功能，参数个数还可以为3个
+    // // 暂时只学习它的删除指定位置的元素即可
+    // // 表示从索引号1的位置开始，删除1个元素
+    // arr.splice(1, 1) //返回[1] 删除的那个元素 arr=[2,3,4,5]
+
+    // // 课外扩展
+    // arr.splice(1, 1, 'aaa') // 表示删除索引号为1的元素，并添加一个新的元素
+
+
+
+    // 查询字符串str里面 字符c出现的次数
+    var str = 'abcdefgabcdefgabcdefg';
+    console.log(str.indexOf('c')); // 返回2 字符'c'在字符串里的位置 
+    // indexOf查到一个就返回了，要查询所有的，要使用循环
+    var num = 0;
+    var index = str.indexOf('c');
+    while (index != -1) {
+      // 使用2个参数，第二个表示从哪个位置开始查找
+      index = str.indexOf('c', index + 1);
+      num++;
+    }
+    console.log(num)
+
+
+    var str = 'abcdefgabcdefgabcdefg';
+    str.charAt(3) // 返回d， 这是第一个d
+    str[3];  // 也是返回d
+    // substr('起始位置','截取几个字符')
+    str.substr(2, 3)  // 返回 'cde'
+    // replace('源字符串里面一个字符' , '要被替换成什么字符')
+    str.replace('a', '我的') // 返回 "我的bcdefgabcdefgabcdefg"
+    // split分割字符串， 以当前的字符左右切割
+    str.split('a') // 返回 ["", "bcdefg", "bcdefg", "bcdefg"]
+
+
+    var str = 'abcdefgabcdefgabcdefga';
+    var obj = {}
+    for (var i = 0; i < str.length; i++) {
+      if (obj[str[i]]) {
+        obj[str[i]]++;
+      } else {
+        obj[str[i]] = 1;
+      }
+    }
+    console.log(obj)
+
+    // 因为次数最小是0，所以可以用0初始化最大值
+    var max = 0;
+    // 出现次数最多的字符
+    var currChar = '';
+    for (var k in obj) {
+      if (max < obj[k]) {
+        max = obj[k];
+        currChar = k;
+      }
+    }
+    console.log(currChar, max);
+    // 出现了相同的最大值怎么查找， 两个循环
+    // var obj = {
+    //   a: 2,
+    //   b: 2,
+    //   c: 3,
+    //   d: 3
+    // }
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            overflow: scroll;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        我是内容啊
+        今天很不爽
+        分被㔿 我的钱服务的企鹅分我分切
+        我很烦额3问问他亲吻分分额分 纷纷 额 任务都和我区分而我父母
+        不一定微风
+        度uehfjec纠纷uudasbc绝游泳刈对双方各；
+        CBEWYC TYEWFF bywbuv 是五我为uvwiefhui
+        企业成本企业
+    </div>
+
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.scrollHeight);//不是盒子的高度，是真正内容的高度
+        div.addEventListener('scroll', function () {
+            console.log(div.scrollTop);//内容超出盒子滚动条的部分
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>day06__课后作业</title>
+    <script>
+      // 上课练习， 找到一组字符串中字符a出现的位置和次数
+      var str = "sadffaaafdfefefss"; //查询a出现的次数
+
+      function getCount(param) {
+        var curr_index = 0;
+        var arr = [];
+        for (var i = 0; i < str.length; i++) {
+          curr_index += 1;
+          if (str.indexOf("a", curr_index) != -1) {
+            curr_index = str.indexOf("a", curr_index);
+            arr.push(curr_index);
+          }
+        }
+        return arr;
+      }
+
+      console.log(getCount(str));
+
+      //课后练习
+      var str1 = "abaasdffggghhjjkkgfddsssss3444343";
+      console.log(str1.length);
+      console.log(str1[0], str1[3], str1[5], str1.charAt(9));
+      console.log(str1.indexOf("i"), str1.indexOf("c"), str1.indexOf("b")); //-1表示不存在，其他的任何数字都表示存在
+
+      //str1.replace("g", "22"); //替换后是新字符串，原来的str1还是没有变化，如果要使用的话应该重新定义一个变量，或者将str1重新再赋值一遍
+
+      while (str1.indexOf("g") != -1) {
+        str1 = str1.replace("g", "22");
+      }
+      while (str1.indexOf("ss") != -1) {
+        str1 = str1.replace("ss", "b");
+      }
+
+      console.log("替换后的字符串str1= ", str1);
+
+      console.log(str1.slice(1, 6));
+
+      var o = {};
+      for (var i = 1; i < str1.length; i++) {
+        var curr_char = str1[i];
+        if (o[curr_char]) {
+          o[curr_char] += 1;
+        } else {
+          o[curr_char] = 1;
+        }
+      }
+      console.log(o);
+      var max = 0;
+      var ch = "";
+      for (var key in o) {
+        if (o[key] > max) {
+          max = o[key];
+          ch = key;
+        }
+      }
+      console.log(ch, max);
+
+      var str3 = "";
+      for (var i = 0; i < str1.length; i++) {
+        str3 += "@" + str1[i] + "@";
+      }
+      console.log(str3);
+    </script>
+  </head>
+  <body></body>
+</html>

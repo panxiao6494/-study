@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+            <div class="son2">1</div>
+        </div>
+    </div>
+    <div class="nav">
+        <p>2</p>
+        <p>33</p>
+        <div>
+            <p>4</p>
+        </div>
+    </div>
+    <ul>
+        <li>r</li>
+        <li>f</li>
+        <li>s</li>
+        <li>w</li>
+    </ul>
+    <script>
+        $(function () {
+            console.log($('.son2').parent());//son,选出最近的父级元素
+            $('.nav').children('p').css('color', 'blue');//改变亲儿子样式
+            //$('.nav').find('p').css('color', 'red')//把nav里所有的p都改变
+            $('li').eq(1).css('background', 'pink')//索引号为1的li
+        })
+
+    </script>
+</body>
+
+</html>

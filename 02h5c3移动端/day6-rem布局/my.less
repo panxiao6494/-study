@@ -1,0 +1,17 @@
+//定义变量
+@font-size: 12px;
+@border: 5px + 4;
+@baseFont: 50px;
+@color: blue;
+div {
+    font-size: @font-size;
+    a {
+        text-decoration: none;
+        border: @border solid #ccc;
+    }
+}
+img {
+    width: 82rem / @baseFont;
+}
+//1.运算符必须用空格隔开
+//2.单位以前面一个的单位为准

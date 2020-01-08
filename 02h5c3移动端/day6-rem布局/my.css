@@ -1,0 +1,10 @@
+div {
+  font-size: 12px;
+}
+div a {
+  text-decoration: none;
+  border: 9px solid #ccc;
+}
+img {
+  width: 1.64rem;
+}

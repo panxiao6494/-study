@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin: 20px 10px;
+    }
+
+    .web1-warp {
+      margin: 0 30px 300px;
+    }
+
+    .w-img-1 {
+      max-width: 200px;
+    }
+
+    .clearfix:after {
+      clear: both;
+      display: table;
+      content: ' ';
+      visibility: hidden;
+    }
+
+    /* -------------------------------------------------------- 输入框显示隐藏密码 --------- */
+    .web2-mima {
+      position: relative;
+      width: 400px;
+      height: 50px;
+    }
+
+    .web2-mima img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .web2-mima .w-mima-imput {
+      width: 100%;
+      height: 50px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #ccc;
+    }
+
+
+    /* -------------------------------------------------------- 关闭淘宝二维码 --------- */
+    .web1-taobao {
+      display: block;
+      position: relative;
+      border: 1px solid #ccc;
+      width: 160px;
+      padding: 10px;
+    }
+
+    .web1-taobao .w-taobao-close {
+      position: absolute;
+      top: -1px;
+      left: -18px;
+      padding: 3px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+
+    /* -------------------------------------------------------- 循环精灵图 --------- */
+    .web1-sprite ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      width: 200px;
+    }
+
+    .web1-sprite ul li {
+      /* 一定要加上宽高值 */
+      float: left;
+      width: 24px;
+      height: 24px;
+      margin: 10px;
+      background: url(image-day1/sprite.png) no-repeat;
+    }
+
+    .web1-xianshi {
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* -------------------------------------------------------- 密码验证 --------- */
+    .web1-message {
+      display: inline-block;
+      color: #999;
+      padding-left: 20px;
+      background: url(image-day1/mess.png) no-repeat left center;
+    }
+
+    .web-wrong {
+      color: red;
+      background: url(image-day1/wrong.png) no-repeat left center;
+    }
+
+    .web-right {
+      color: green;
+      background: url(image-day1/right.png) no-repeat left center;
+    }
+  </style>
+</head>
+<!--  github commit  变量起名  程序员界两大困扰 -->
+
+<body>
+  <div class="web1-warp">
+    <!--------------------------------------------------------- 分时问候案例 ------------------------->
+    <h2>分时问候案例</h2>
+    <hr>
+    <img src="image-day1/img1.jpg" class="w-img-1">
+    <p class="w-fenshi-1">现在是上午</p>
+    <!--------------------------------------------------------- 输入框显示隐藏密码 -------------------->
+    <h2>输入框显示隐藏密码</h2>
+    <hr>
+    <div class="web2-mima">
+      <img src="image-day1/close.png" class="w-img-yanjing">
+      <input type="password" class="w-mima-imput">
+    </div>
+
+    <!--------------------------------------------------------- 关闭淘宝二维码  ---------------------->
+    <h2>关闭淘宝二维码</h2>
+    <hr>
+    <div class="web1-taobao">
+      <div>淘宝二维码</div>
+      <img src="image-day1/tao.png" class="web1-img-3">
+      <span class="w-taobao-close">X</span>
+    </div>
+
+    <!--------------------------------------------------------- 循环精灵图  ---------------------->
+    <h2>循环精灵图</h2>
+    <hr>
+    <div class="web1-sprite">
+      <ul class="clearfix">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <!--------------------------------------------------------- 显示隐藏文本框内容  ------------>
+    <h2>显示隐藏文本框内容</h2>
+    <hr>
+    <input type="text" value="手机" class="web1-xianshi">
+
+    <!--------------------------------------------------------- 密码验证  ---------------------->
+    <h2>密码验证</h2>
+    <hr>
+    <div class="web1-yanzheng">
+      <input type="password" class="web1-yanzhen-input">
+      <p class="web1-message">请输入6~16位密码</p>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------------------------------------- 分时问候案例
+    // 需求是根据当前时间，动态改变图片的显示和 文字的显示
+    var img1 = document.querySelector('.w-img-1');
+    var p1 = document.querySelector('.w-fenshi-1');
+    var date = new Date();
+    var hours = date.getHours();
+    if (hours < 12) {
+      img1.src = 'image-day1/img1.jpg';
+      p1.innerHTML = '上午好';
+    } else {
+      img1.src = 'image-day1/img2.png';
+      p1.innerHTML = '下午好';
+    }
+
+    // ---------------------------------------------------------- 输入框显示隐藏密码
+    // 需求是 用户点击 小眼睛 动态显示隐藏密码
+    var yanJing = document.querySelector('.w-img-yanjing');
+    var mimaInput = document.querySelector('.w-mima-imput');
+    var flag = false;
+    yanJing.onclick = function () {
+      if (flag) {
+        mimaInput.type = 'password';
+        yanJing.src = 'image-day1/close.png'
+        flag = false;
+      } else {
+        mimaInput.type = 'text';
+        yanJing.src = 'image-day1/open.png'
+        flag = true;
+      }
+    }
+
+    // ---------------------------------------------------------- 关闭淘宝二维码
+    var taobaoImg = document.querySelector('.web1-taobao');
+    var taobaoClose = document.querySelector('.w-taobao-close');
+    taobaoClose.onclick = function () {
+      taobaoImg.style.display = 'none';
+    }
+
+
+    // ---------------------------------------------------------- 循环精灵图
+    // 每张图片放上去默认位置是0,0 显示， 通过修改backgroung-position属性
+    // 来控制显示图片的那个位置， 坐标原点为图片的左上角
+    // 如果一幅背景图像不足以占满整个容器时，就会在水平方向和垂直方向重复，以填满整个容器
+    // background-repeat: no-repeat // 表示不重复， 图像值显示一次
+    // background-position属性，它有两个参数，分别是水平方向移动的像素、竖直方向移动的像素
+    // background-position: -24px -24px;
+    var spriteWrap = document.querySelector('.web1-sprite ul');
+    for (var i = 0; i < spriteWrap.children.length; i++) {
+      var index = i * 44;
+      spriteWrap.children[i].style.backgroundPosition = '0 -' + index + 'px';
+    }
+
+
+    // ---------------------------------------------------------- 显示隐藏文本框内容
+    var inputXianshi = document.querySelector('.web1-xianshi');
+    inputXianshi.onfocus = function () {
+      if (inputXianshi.value == '手机') {
+        inputXianshi.value = ''
+      }
+      this.style.color = '#000';
+    }
+
+    inputXianshi.onblur = function () {
+      if (!inputXianshi.value) {
+        inputXianshi.value = '手机';
+      }
+      this.style.color = 'rgba(0, 0, 0, 0.3)';
+    }
+
+
+    // ---------------------------------------------------------- 密码验证
+    // 首先想到的是需要什么事件， onblur 用户失去焦点时判断用户的输入
+    var web1Message = document.querySelector('.web1-message');
+    var yanzhenInput = document.querySelector('.web1-yanzhen-input');
+    yanzhenInput.onblur = function () {
+      console.log(yanzhenInput.value)
+      if (yanzhenInput.value && yanzhenInput.value.length > 6 && yanzhenInput.value.length < 16) {
+        web1Message.className = 'web1-message web-right';
+        web1Message.innerHTML = "输入正确";
+      } else {
+        // web1Message.style.background =  不好书写，选择类的形式
+        web1Message.className = 'web1-message web-wrong';
+        web1Message.innerHTML = "对不起，输入错误，请输入6-16字符";
+      }
+    }
+  </script>
+</body>
+
+</html>

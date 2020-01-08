@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: red
+    }
+
+    span {
+      display: block;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: greenyellow
+    }
+
+    p {
+      display: block;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: burlywood;
+    }
+  </style>
+</head>
+
+<body>
+  <div>123</div>
+  <span>456</span>
+  <p>789</p>
+  <script>
+    //  1. 动画的最开始原理， 每隔30毫秒 left值再当前距离左边的offsetLeft值 加1
+    var div = document.querySelector('div');
+    var timer = setInterval(function () {
+      if (div.offsetLeft >= 400) {
+        // 停止动画 本质是停止定时器
+        clearInterval(timer);
+      }
+      div.style.left = div.offsetLeft + 1 + 'px';
+    }, 15);
+
+    // 2.  动画的封装
+    // 简单动画函数封装obj目标对象 target 目标位置
+    // 优化 obj.timer,  clearInterval(obj.timer)
+    function animate(obj, target) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        if (obj.offsetLeft >= target) {
+          // 停止动画 本质是停止定时器
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + 1 + 'px';
+      }, 30);
+    }
+
+    // 3 缓动动画
+    function animateTwo(obj, target) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        // step是每次动画移动的距离， 有正负值小数的情况
+        // 正值的时候  从左往右移动  12.5  应该用 13 不能用12, 因为一旦丢弃掉一部分小数，就会到账后面obj.offsetLeft == target不成立
+        // 负值的时候  从右往左移动  -12.3  应该使用 -13 不能用-12; 也是一样， 不能丢弃小数点的部分，不然会导致后面不能去到目标值的位置
+
+        // 时刻记住 target =400不变  obj.offsetLeft 的值每循环一次就变化一次， 这个值最后会不断接近于target
+        var step = (target - obj.offsetLeft) / 10;   // 400-391 = 9  9/10 =0.9  step = 1;  下次循环的offsetLeft = 391+1  
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        console.log(target, obj.offsetLeft, step)
+        if (obj.offsetLeft == target) {
+          clearInterval(obj.timer);
+        }
+        // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+        obj.style.left = obj.offsetLeft + step + 'px';
+
+      }, 15);
+    }
+    var span = document.querySelector('span');
+    animateTwo(span, 400)
+
+
+    // 4. 回调函数， 就是当动画执行结束后，要执行的回调函数， 一个异步操作
+    function animateThree(obj, target, callback) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        var step = (target - obj.offsetLeft) / 10;
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        console.log(target, obj.offsetLeft, step)
+        if (obj.offsetLeft == target) {
+          clearInterval(obj.timer);
+          callback && callback();
+        }
+        // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+        obj.style.left = obj.offsetLeft + step + 'px';
+
+      }, 15);
+    }
+    var p = document.querySelector('p');
+    animateThree(p, 500, function () {
+      console.log('动画执行完毕后执行再这个函数，放到事件队列里面去');
+      p.style.fontSize = '30px';
+      p.style.color = 'red';
+    })
+  </script>
+</body>
+
+</html>

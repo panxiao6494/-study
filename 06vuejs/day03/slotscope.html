@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<style>
+    .orange {
+        color: orange;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        <friut-list :list="list">
+            <template slot-scope="slotprops">
+                <strong v-if="slotprops.info.id==3" class="orange">{{slotprops.info.name}}</strong>
+                <span v-else>{{slotprops.info.name}}</span>
+            </template>
+        </friut-list>
+    </div>
+    <script type='text/javascript'>
+        Vue.component('friut-list', {
+            props: ['list'],
+            template: `<ul>
+                        <li v-for="(item,index) in list" :key="item.id">
+                            <slot :info="item">{{item.name}}</slot>
+                        </li>
+                      </ul>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                    id: 1,
+                    name: 'apple'
+                }, {
+                    id: 2,
+                    name: 'banana'
+                }, {
+                    id: 3,
+                    name: 'orange'
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>

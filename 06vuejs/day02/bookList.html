@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+    <script src="js/moment.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #app {
+        width: 480px;
+        margin: 100px auto;
+        background-color: #e4dfd7;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    #app input {
+        width: 160px;
+    }
+
+    table {
+        width: 480px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    button {
+        width: 50px;
+        height: 25px;
+        outline: none;
+    }
+
+    p {
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-top: 1px solid sandybrown;
+        border-bottom: 1px solid sandybrown;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        编号: <input type="text" v-model='id' :disabled="flag">
+        名称: <input type="text" v-model="newBook"> <button @click="sub">提交</button>
+        <p>图书总数:{{total}}</p>
+        <table border="1" cellspacing="0" cellpadding="0" rules="all">
+            <caption>图书管理列表</caption>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(item, index) in books" :key="index">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date|format("YYYY-MM-DD HH:mm:ss")}}</td>
+                <td>
+                    <a href="" @click.prevent="edit(item.id)">编辑</a> |
+                    <a href="" @click.prevent="del(item.id)">删除</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <script type='text/javascript'>
+        Vue.filter('format', (ss, qqq) => {//接受两个形参，要过滤的对象和过滤函数需要的参数
+            return moment().format(qqq)
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                newBook: '',
+                id: '',
+                flag: false,
+                books: [{
+                    id: 1,
+                    name: '三国演义',
+                    date: new Date(),
+                },
+                {
+                    id: 2,
+                    name: '西游记',
+                    date: new Date(),
+                }, {
+                    id: 3,
+                    name: '红楼梦',
+                    date: new Date(),
+                }, {
+                    id: 4,
+                    name: '水浒传',
+                    date: new Date(),
+                }]
+            },
+            methods: {
+                edit(id) {
+                    this.id = id;
+                    this.flag = true;
+                    this.books.filter((item) => {
+                        if (item.id == id) {
+                            this.newBook = item.name;
+                            return true;
+                        }
+                    })
+
+                },
+                sub() {
+                    if (this.flag) {//编辑
+                        this.books.some((item) => {
+                            if (item.id == this.id) {
+                                item.id = this.id;
+                                item.name = this.newBook;
+                            }
+                        })
+                    } else {//添加
+                        var nbook = {};
+                        nbook.id = this.id;
+                        nbook.name = this.newBook;
+                        this.books.push(nbook);
+                    }
+                    this.id = '';
+                    this.newBook = '';
+                    this.flag = false;
+                },
+                del(id) {
+                    this.books = this.books.filter(item => {
+                        return id != item.id;
+                    })
+                }
+            },
+            computed: {
+                total() {
+                    return this.books.length;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

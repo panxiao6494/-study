@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var row = parseInt(prompt('输入行数'));
+        var cole = parseInt(prompt('输入列数'));
+
+        var star = '';
+        for (i = 1; i <= row; i++) {//外层控制行
+            for (j = 1; j <= cole; j++) {//内层控制列
+                star += '*'
+            }
+            star += '\n'
+        }
+        console.log((star));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

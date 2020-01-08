@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+
+<body>
+    <div>详情</div>
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email" placeholder="输入你的邮箱"></p>
+    <p>Name: <input type="text" id="name" name="name" placeholder="输入你的昵称"></p>
+    <p>Age: <input type="text" id="age" name="age" placeholder="输入你的年龄"></p>
+    <script type="text/javascript">
+    window.addEventListener('load', () => {
+        function showHelp(help) {
+            document.querySelector('#help').innerHTML = help
+        }
+
+        function setUpHelp() {
+            let helpText = [
+                { 'id': 'email', 'help': 'Your e-mail address' },
+                { 'id': 'name', 'help': 'Your full name' },
+                { 'id': 'age', 'help': 'Your age (you must be over 16)' }
+            ]
+            for (let i = 0; i < helpText.length; i++) {
+                (function() {
+                    var item = helpText[i];
+                    document.getElementById(item.id).onfocus = function() {
+                        showHelp(item.help);
+                    }
+                })()
+
+            }
+        }
+        setUpHelp()
+    })
+    </script>
+</body>
+
+</html>

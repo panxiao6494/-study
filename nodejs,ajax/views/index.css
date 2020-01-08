@@ -1,0 +1,15 @@
+div {
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #474747;
+}
+
+a:hover {
+    color: red;
+}

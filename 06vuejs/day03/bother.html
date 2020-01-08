@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        {{msg}}
+        <brother></brother>
+        <sister></sister>
+    </div>
+    <script type='text/javascript'>
+        var vBus = new Vue();//定义事件中心
+        var sister = {
+            data() {
+                return {
+                    s: 'ssss'
+                }
+            },
+            template: `<div @click="hand1">sister==={{s}}</div>`,
+            methods: {
+                hand1() {
+                    vBus.$emit('b-event', this.s);//利用事件中心发送事件传递参数到 brother
+                }
+            },
+            mounted() {
+                vBus.$on('s-event', (val) => {
+                    this.s = val;
+                })
+            },
+        }
+        var brother = {
+            data() {
+                return {
+                    b: 'bbbbbb'
+                }
+            },
+            template: '<div @click="hand2">brother=={{b}}</div>',
+            methods: {
+                hand2() {
+                    vBus.$emit('s-event', this.b);//利用事件中心发送事件传递参数到 sister
+                }
+            },
+            mounted() {//利用事件中心监听从sister传递过来的信息
+                vBus.$on('b-event', (val) => {
+                    this.b = val;
+
+                })
+            },
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello'
+            },
+            components: {
+                sister,
+                brother
+            }
+        });
+    </script>
+</body>
+
+</html>

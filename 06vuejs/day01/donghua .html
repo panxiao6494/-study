@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #app {
+        margin: 100px;
+        width: 250px;
+        border: 1px solid #ccc;
+    }
+
+    ul {
+        overflow: hidden;
+
+    }
+
+    ul li {
+        float: left;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+
+    .content {
+        margin: 25px;
+    }
+
+    .active {
+        color: blue;
+        border-bottom: 1px solid greenyellow;
+    }
+</style>
+
+<body>
+    <div id='app'>
+
+        <ul>
+            <li v-for="(item, i) in list" :key="i" @click="current=i" :class="{active:current==i}">{{item}}</li>
+        </ul>
+        <div class="content">
+            <div v-for="(item, k) in content" :key="k" v-show="k==current">{{item}}</div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                content: ['内容11', '内容22', '内容33'],
+                list: ['列表1', '列表2', '列表3'],
+                current: 0
+            }
+        });
+
+    </script>
+</body>
+
+</html>

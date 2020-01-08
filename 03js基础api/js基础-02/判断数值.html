@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断</title>
+    <script>
+        var nNum = prompt("请输入一个数字：");
+
+        if (parseFloat(nNum).toString() == 'NaN') {
+            alert("输入错误！请输入数字");
+        } else {
+            // 数字还有整数和小数的情况，小数1.3,不会有 01.3这种写法
+            // 下面这句话判断数字是整数
+            if (nNum.toString().indexOf('.') == -1) {
+                // 整数还有整数 负数 和零的三种情况
+                if (parseFloat(nNum) < 0) {
+                    alert(nNum)
+                } else if (parseFloat(nNum) == 0) {
+                    alert(parseFloat(nNum))
+                } else {
+                    // 在这里才是真正的大于零的自然数的处理
+                    if (nNum < 10) {
+                        nNum = '00' + nNum.toString();
+                    } else if (nNum >= 10 && nNum < 99) {
+                        nNum = '0' + nNum.toString();
+                    } else {
+                        nNum = nNum.toString();
+                    }
+                    alert(nNum);
+                }
+            } else {
+                // 这里是小数的执行地方
+                alert(nNum);
+            }
+        }
+    </script>
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

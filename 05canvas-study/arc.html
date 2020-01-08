@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas')
+
+    canvas.style.border = "1px solid #ccc";
+    let context = canvas.getContext('2d');
+    //弧度转换公式，绘制一条0到30度的圆弧，圆心半径，弧度 rad=30*Math.PI/180 是否逆时针
+    context.moveTo(100, 100);
+
+    context.arc(100, 100, 60, Math.PI / 180 * -30, Math.PI / 180 * 30, true);
+    context.lineWidth = 2;
+    context.strokeStyle = '#0f0';
+    context.closePath();
+    context.fill()
+    for (var i = 0; i <= 6; i++) {
+        context.beginPath();
+        moveTo(160 + i * 32, 100);
+        context.arc(160 + i * 32, 100, 13 - i * 1, Math.PI / 180 * 0, Math.PI / 180 * 360, true);
+        context.strokeStyle = '#0f0';
+        context.fill()
+    }
+    // context.beginPath();
+    // context.moveTo(140, 100);
+    // context.arc(140, 100, 10, Math.PI / 180 * 0, Math.PI / 180 * 360, true);
+    // context.strokeStyle = '#0f0';
+    // context.fill();
+    // context.beginPath();
+    // context.moveTo(165, 100);
+    // context.arc(165, 100, 6, Math.PI / 180 * 0, Math.PI / 180 * 360, true);
+    // context.strokeStyle = '#0f0';
+    // context.fill();
+    </script>
+</body>
+
+</html>

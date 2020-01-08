@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        {{msg}}
+        <father @cc="cc" :ptitle='msg'></father>
+    </div>
+    <script type='text/javascript'>
+        var son = {
+            template: '<div>son</div>',
+        };
+        var father = {
+            props: ['ptitle'],//父组件的数据传到子组件，子组件 props 接受，插值到组件中，再用属性绑定挂载
+            template: `<div @click="$emit('cc','ddd')">father----{{ptitle}}<son></son></div>`,//$emit关键字保留子组件的click事件，这样就可以让子组件使用父组件的方法
+            components: {
+                son
+            },
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+            methods: {
+                cc(val) {// val接受子组件传递过来的参数，父组件使用子组件的参数
+                    console.log(val);
+                }
+            },
+            components: {
+                father: father,
+            }
+        });
+    </script>
+</body>
+
+</html>

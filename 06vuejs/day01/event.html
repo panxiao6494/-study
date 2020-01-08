@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <div>{{num}}</div>
+        <!-- 实参事件对象 -->
+        <button @click="handler($event)">点击</button>
+        <input type="text" @focus="ll" v-model="num">
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                handler: function (e) {
+                    console.log(e);
+                    this.num++
+                },
+                ll(e) {
+                    console.log(e);
+
+                    this.num++
+                }
+            },
+        });
+      
+    </script>
+</body>
+
+</html>

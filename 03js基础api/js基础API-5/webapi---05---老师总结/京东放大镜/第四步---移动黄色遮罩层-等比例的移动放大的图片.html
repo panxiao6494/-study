@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .preview_wrap {
+      width: 400px;
+      height: 590px;
+      margin: 100px 200px;
+    }
+
+    .preview_img {
+      position: relative;
+      height: 398px;
+      border: 1px solid #ccc;
+    }
+
+    .mask {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background: #FEDE4F;
+      opacity: .5;
+      border: 1px solid #ccc;
+      cursor: move;
+    }
+
+    .big {
+      display: none;
+      position: absolute;
+      left: 410px;
+      top: 0;
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+      z-index: 999;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    .big img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preview_wrap">
+    <div class="preview_img">
+      <img src="s3.png">
+      <div class="mask"></div>
+      <div class="big">
+        <img src="big.jpg" class="bigImg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var preview_img = document.querySelector('.preview_img');
+    var mask = document.querySelector('.mask');
+    var big = document.querySelector('.big');
+
+    // 第一步  显示隐藏2个元素
+    preview_img.addEventListener('mouseover', function () {
+      mask.style.display = 'block';
+      big.style.display = 'block';
+    })
+    preview_img.addEventListener('mouseout', function () {
+      mask.style.display = 'none';
+      big.style.display = 'none';
+    });
+
+    // 第二步  黄色方块跟着鼠标移动
+    preview_img.addEventListener('mousemove', function (e) {
+      var x = e.pageX - preview_img.offsetLeft;
+      var y = e.pageY - preview_img.offsetTop;
+      // mask.style.left = x - mask.offsetWidth / 2 + 'px';
+      // mask.style.top = y - mask.offsetHeight / 2 + 'px';
+
+      // 第三步， 让黄色遮罩层不能移动出外面的大div, 最小移动和最大移动距离
+      var maskX = x - mask.offsetWidth / 2;
+      var maskY = y - mask.offsetHeight / 2;
+      // maskMax 表示黄色div能够移动的 x轴的 最大距离
+      var maskMax = preview_img.offsetWidth - mask.offsetWidth; //400-300
+      // maskMaxY 表示黄色div能够移动的 y轴的 最大距离 ,这里是正方形所以可以一样
+      var maskMaxY = preview_img.offsetHeight - mask.offsetHeight; //400-300
+      // 求x轴能够移动的最大距离
+      if (maskX <= 0) {
+        maskX = 0;
+      } else if (maskX >= maskMax) {
+        maskX = maskMax;
+      }
+      // 求y轴能够移动的最大距离
+      if (maskY <= 0) {
+        maskY = 0;
+      } else if (maskY >= maskMaxY) {
+        maskY = maskMaxY;
+      }
+
+      mask.style.left = maskX + 'px';
+      mask.style.top = maskY + 'px';
+
+      // 第四部， 大图片的等比例移动，
+      var bigIMg = document.querySelector('.bigImg');
+      // 大图片的最大移动距离, 因为图片比div盒子大， 
+      // 和黄色遮罩层的最大移动距离 求比例
+      var bigMax = bigIMg.offsetWidth - big.offsetWidth;
+      // 大图片的移动距离
+      var bigX = maskX * (bigMax / maskMax);
+      var bigY = maskY * (bigMax / maskMax);
+      // 动态设置大图片的top，left值，让他跟着移动
+      bigIMg.style.left = -maskX * 3 + 'px';
+      bigIMg.style.top = -maskY * 3 + 'px';
+    });
+  </script>
+</body>
+
+</html>

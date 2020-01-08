@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clock {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        p {
+            height: 35px;
+            margin-top: 50px;
+        }
+
+        span {
+            display: inline-block;
+            padding: 2px 10px;
+            margin-left: 15px;
+            font-size: 30px;
+            color: #fff;
+            border-radius: 5px;
+            background-color: aquamarine;
+        }
+
+        p span:nth-child(1) {
+            color: chartreuse;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <h2>距离双十一,还有</h2>
+        <p>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </p>
+    </div>
+    <script>
+        var p = document.querySelector('p');
+        var inputTime = +new Date('2019-11-11 00:00:00');//用户输入的时间戳
+        countDown();//放置刷新有空白，在计时器上面调用一次
+        setInterval(countDown, 1000)//给时间函数添加定时器，每隔一秒调用一次
+        function countDown() {
+            var nowTime = +new Date();//当前时间戳
+            var times = (inputTime - nowTime) / 1000;//剩余总毫秒数
+            var d = parseInt(times / 60 / 60 / 24);//获得天数
+            d = d < 10 ? '0' + d : d;
+            p.children[0].innerHTML = d + '天';
+            var h = parseInt(times / 60 / 60 % 24);//取整获得剩余小时数
+            h = h < 10 ? '0' + h : h;
+            p.children[1].innerHTML = h + '时';//把获得小时数的内容给盒子
+            var m = parseInt(times / 60 % 60);//获得剩余分钟数
+            m = m < 10 ? '0' + m : m;
+            p.children[2].innerHTML = m + '分';
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            p.children[3].innerHTML = s + '秒';
+        }
+    </script>
+</body>
+
+</html>

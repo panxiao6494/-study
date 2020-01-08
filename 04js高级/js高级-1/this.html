@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        var that;
+        class Star {
+            constructor(uname, age) {
+                that = this;//用变量保存this
+                this.uname = uname;
+                this.age = age;
+                this.btn = document.querySelector('button');
+                this.btn.onclick = this.sing;//此时this指向函数调用者btn，
+            }
+            sing() {
+                console.log(this);
+                console.log(that);
+                console.log(that.uname);
+            }
+        }
+        var ldh = new Star('刘德华', 20);
+        ldh.sing();
+
+
+
+        var obj = {
+            name: 'xiaom',
+            say: function () {
+                console.log(this.name);
+
+            }
+        }
+        obj.say();
+
+
+
+
+
+    </script>
+</body>
+
+</html>

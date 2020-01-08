@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        li {
+            font: 22px/30px "simsun";
+            cursor: pointer;
+            margin: 5px;
+        }
+
+
+        /* 一定注意，视屏里面知识告诉我们一种写程序的方式，但并不表示我们一定要去用它，学会它了解它即可 */
+        /* 工作中样式一定用css去写，不会的就去百度谷歌，类似三角形，同心圆之类 */
+        /* 除非是用户交互，动画，游戏等复杂逻辑，否则一定不要用js去写大量的css，不利于后期程序维护，js和html/css 也分不开 */
+
+        li:nth-child(odd){
+            background: skyblue;
+        }
+        li:nth-child(even){
+            background: yellowgreen;
+        }
+        li.mouse-hover {
+            background: red !important;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        jQuery(function () {
+            // fn();
+
+            //鼠标进入高亮显示
+            $("ul li").mouseover(function () {
+                // fn();
+                // $(this).css("background","red");
+                
+                $(this).addClass('mouse-hover').siblings().removeClass('mouse-hover');
+            });
+
+            //隔行变色
+            function fn(){
+                $("ul li:odd").css("background","skyblue");
+                $("ul li:even").css("background","yellowgreen");
+            }
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+        <li>以色侍人，色衰而爱驰也;以才侍人，才进得久，互赏而终...</li>
+    </ul>
+</body>
+</html>

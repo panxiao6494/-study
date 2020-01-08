@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>day05__课后作业</title>
+    <script>
+      //1.
+      var computer = {
+        color: "",
+        weight: "",
+        brand: "",
+        type: "",
+        seeMovie: function() {
+          console.log("我在看电影！");
+        },
+        listenMusic: function() {
+          console.log("我在看电影！");
+        },
+        playGame: function() {
+          console.log("我在打游戏！");
+        },
+        writeCode: function() {
+          console.log("我在敲代码！");
+        }
+      };
+      computer.seeMovie();
+      computer.listenMusic();
+      computer.playGame();
+      computer.writeCode();
+
+      //2.
+      function Student(name, id, sex, grade) {
+        this.name = name;
+        this.id = id;
+        this.sex = sex;
+        this.grade = grade;
+        this.sayHi = function() {
+          alert("你好，我是: " + this.name);
+        };
+      }
+      var stu1 = new Student("张三", 10000, "男", "小学三年级");
+      stu1.sayHi();
+
+      // 3. 记住一点，变量一定先声明后再使用，不然就是undefined
+      // 这里输出 undefined,
+      // 将这个程序改变一下，多打印几个，看看分别是什么值
+      var num = 1;
+      function demo() {
+        console.log("这里是第一个打印语句: ", num); //undefined
+        function demoSon() {
+          num = 3;
+          console.log("这里是第二个打印语句: ", num); //3
+        }
+        var num = 2;
+        console.log("这里是第三个打印语句: ", num); //2
+        demoSon();
+        console.log("这里是第四个打印语句: ", num); //3
+      }
+      demo(); //最后的结果是  undefined 2 3 3 一定注意顺序
+    </script>
+  </head>
+  <body></body>
+</html>

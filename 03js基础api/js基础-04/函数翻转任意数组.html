@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //数组翻转，让数组从后面往前遍历，依次放入新数组，注意新数组的索引号
+    var newArr = [];
+
+    function resetArr(arr) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            newArr[newArr.length] = arr[i]
+        }
+        return newArr;
+    }
+    console.log(resetArr([3, 5, 6, 7]));
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

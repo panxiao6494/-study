@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>显示当前时间</button>
+    <div>113</div>
+    <script>
+        //点击按钮，div显示当前时间
+        //1获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        //注册事件
+        btn.onclick = function () {
+            div.innerHTML = getDate();//改变div的内容，执行getDate函数
+        }
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var day = date.getDay();
+            var huors = date.getHours();
+            return '现在是' + year + '年' + month + '月' + dates + '日' + huors + '时' + '星期' + day
+        }
+    </script>
+</body>
+
+</html>

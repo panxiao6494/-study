@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+        }
+
+        .box {
+            width: 852px;
+            margin: 100px auto;
+            background: url(images/bg.png) repeat-x;
+            padding: 10px;
+        }
+
+        .box ul {
+            overflow: hidden;
+            /*清除浮动就会有高度*/
+        }
+
+        .box li {
+            position: relative;
+            float: left;
+            width: 69px;
+            height: 69px;
+            margin-left: 10px;
+        }
+
+        .small {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 69px;
+            height: 69px;
+            border-radius: 5px;
+        }
+
+        .current .big {
+            display: block;
+        }
+
+        .big {
+            width: 224px;
+            display: none;
+        }
+
+        .box .current {
+            width: 224px;
+        }
+
+        .current .small {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            /* $(".box li").mouseenter(function () {
+                 //当前li开始动画宽变成224px，小图片淡出消失，大图片淡入出现
+                 $(this).stop().animate({
+                     width: 224,
+                 }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn();
+                 //让其他的li宽度变成69px，小图片淡入出现，大图片淡出消失
+                 $(this).siblings("li").stop().animate({
+                     width: 69,
+                 }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut()
+             })*/
+
+            $(".box li").mouseenter(function () {
+                $(this).stop().animate({
+                    width: 224
+                }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn();
+                $(this).siblings("li").stop().animate({
+                    width: 69
+                }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut()
+            })
+        })
+
+    </script>
+    <div class="box">
+        <ul>
+            <li class="current"><a href="javascript:;">
+                    <img src="images/c.png" alt="" class="big">
+                    <img src="images/c1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/h.png" alt="" class="big">
+                    <img src="images/h1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/l.png" alt="" class="big">
+                    <img src="images/l1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/m.png" alt="" class="big">
+                    <img src="images/m1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/t.png" alt="" class="big">
+                    <img src="images/t1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/w.png" alt="" class="big">
+                    <img src="images/w1.jpg" alt="" class="small">
+                </a>
+            </li>
+            <li><a href="javascript:;">
+                    <img src="images/z.png" alt="" class="big">
+                    <img src="images/z1.jpg" alt="" class="small">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        123
+    </div>
+    <script>
+    //模板字符串
+    let divDom = document.querySelector('div');
+    let name = `张三`;
+    let say = `hello,我的名字是${name}`; //不再使用字符串拼接变量的方式
+    console.log(say);
+
+
+    let obj = {
+        name: 'zhangsan',
+        age: 20
+    };
+    let html = `
+        <div>
+            <p>${obj.name}</p>
+            <p>${obj.age}</p>
+        </div>
+        `;
+    divDom.innerHTML = html;
+    console.log(html);
+
+    //startWith和endWith
+    let str = 'javascript';
+    let r1 = str.startsWith('java'); //返回一个布尔值true
+    let r2 = str.endsWith('script'); //false
+    console.log(r1);
+    console.log(r2);
+
+    console.log('cd'.repeat(3)); //重复次数
+
+    //padStart()，padEnd()
+    'x'.padStart(5, 'ab') // 'ababx' 向字符串开头以ab补全长度
+    'x'.padStart(4, 'ab') // 'abax' 
+
+
+    'x'.padEnd(5, 'ab') // 'xabab'向字符串结尾以ab补全长度
+
+    'xxx'.padStart(2, 'ab') // 'xxx' 长度不够则方法失效
+    </script>
+</body>
+
+</html>

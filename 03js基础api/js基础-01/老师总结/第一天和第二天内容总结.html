@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一天和第二天内容总结</title>
+	<script>
+		//认识js的2种注释
+		/* 要求：
+		 * 1.接受用户输入的数据
+		 * 2.判断用户输入的数据类型，并分别处理
+		 * 3.如果用户输入的是字符串，输入“对不起，请您输入一个数字”
+		 * 4.如果用户输入的是数字，处理接下来几步
+		 * 5.判断用户输入的是大于零的整数 (因为有小数，负数，0，正数几种情况)
+		 * 6.对于1-9的数 前面加上00   返回  001, 002. 009 这类的结构
+		 * 7.对于10-99的数 前面加上0   返回  011, 026. 099 这类的结构
+		 * 8.对于大于等于100的数， 直接返回，不处理
+		*/ 
+
+		var myStr = prompt("请输入：")   //--->  回顾一下变量的定义，及规范，驼峰法   18   parseFloat('18') ===> '18'
+		console.log(typeof myStr);      //--->  回顾一下typeof的含义， 以及返回的5种值
+		var newNum = parseFloat(myStr); //--->  回顾一下parseFloat,parseInt的作用
+		// 重点！！！  parseInt,parseFloat 只会返回一个数字 或者 NaN没有其他的值
+		// 这里主要是把 字符串'18' 转换为数字18.因为数字才能进行一些运算
+		// 视频里面没有加是因为js有个隐式类型转换在里面，这个尽量人为类型最好
+
+		//--->回顾一下NaN的含义，toString()这种转换字符串的用法
+		//--->一定注意 NaN是一个特殊的值，不能比较，它们不相等
+		if(newNum.toString() === 'NaN'){
+			// 这里是输入的是字符串进入的代码位置
+			alert("您输入的是字符串")
+		} else{
+			//这里是输入的数字进入的代码位置  -1.2  2.3 0 656 -3 3 0
+			if(parseInt(newNum) == parseFloat(newNum)){
+				//这个条件表示输入的是整数，不是小数
+				//进入这里数 又分为 正数，负数，零; 分别判断
+				if(newNum > 0){
+					if(newNum < 10){  //这里表示一位数 123456789
+						newNum = '00' + newNum.toString();  //---> 两种字符串转换的方法比较不同
+					}else if(newNum >=10 && newNum <=99){  //这里表示两位数 10 11...99
+						newNum = '0' + newNum.toString();
+					}else { //剩下的大于等于100的数都在这里
+						//这里没有对newNum操作，所以不处理
+					}
+					alert(newNum);
+				}else if(newNum == 0){
+					alert("您输入的是零，请重新输入");
+				}else {
+					alert("您输入的是负数，请重新输入");
+				}
+			}else {
+				//这里表示用户输入的是小数
+				alert("您输入的是小数");
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

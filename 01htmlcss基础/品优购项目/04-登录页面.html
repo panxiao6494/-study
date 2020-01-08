@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>d登录</title>
+    <style>
+        * {
+			margin: 0;
+			padding: 0;
+		}
+		.w {
+			width: 1200px;
+			margin: auto;
+		}
+		body {
+			font-size: 12px;
+		}
+		ul{
+			float: right;
+		}
+		li {
+			width: 600px;
+			list-style: none;
+		}
+		.header .logo {
+			display: block;
+			height: 112px;
+			border-bottom: 2px solid red;
+			font-size: 40px;
+			line-height: 112px;
+		}
+		.boddy {
+			height: 525px;
+			margin-top: 15px;
+			border: 1px solid #ccc;
+		}
+		.regi_form {
+			height: 400px;
+			margin: 30px auto
+		}
+		.regi {
+			height: 42px;
+			line-height: 42px;
+			background-color: #ececec;
+		}
+		h2 {
+			float: left;
+			font-size: 18px;
+			font-weight: 400;
+			margin-left: 10px;
+			color: #333;
+		}
+		h3 {
+			float: right;
+			font-size: 14px;
+			color: #333;
+			font-weight: 400;
+			margin-right: 10px;
+		}
+		a {
+			color: black;
+			text-decoration: none;
+		}
+		a:hover {
+			color: red;
+		}
+		.regi_form span {
+			color: #00ff00;
+		}
+		.boddy input {
+			outline: none;
+			width: 240px;
+			height: 38px;
+		}
+		.regi_form label{
+			display: inline-block;
+			width: 100px;
+			height: 36px;
+			margin-right: 9px;
+			line-height: 36px;
+			text-align: right;
+		}
+		.regi_form li {
+			margin: 17px 0;
+		}
+		.regi_form li.erro {
+			margin-left: 150px;
+
+		}
+		.regi_form input.allow {
+			width: 12px;
+			height: 12px;
+		}
+		.regi_form .agree {
+			padding-left: 100px;
+			padding-top: 20px;
+		}
+		.sucess {
+			
+			display: block;
+			height: 36px;
+			width: 200px;
+			line-height: 36px;
+			text-align:center;
+			margin-top: 50px;
+			color: #fff;
+			font-size: 16px;
+			background-color: #f00;
+		}
+		.footer {
+			text-align: center;
+		}
+		.copyright {
+			padding: 20px 0;
+		}
+	</style>
+</head>
+
+<body>
+    <div class="header w">
+        <h1><a href="javascript:;" class="logo">京东</a></h1>
+    </div>
+    <div class="boddy w">
+        <div class="regi">
+            <h2>注册新用户</h2>
+            <h3>我有账号，去<a href="#">登录</a></h3>
+        </div>
+        <div class="regi_form">
+            <ul>
+                <li>
+                    <label for="tel">手机号</label>
+                    <input type="text">
+                    <span style="color:red" ;>手机号码格式不正确，请从新输入</span>
+                </li>
+                <li>
+                    <label for="">短信验证码</label>
+                    <input type="text">
+                </li>
+                <li>
+                    <label for="tel">登录密码</label>
+                    <input type="text">
+                    <span>恭喜您输入正确</span>
+                </li>
+                <li class="erro">安全程度弱 中 强</li>
+                <li>
+                    <label for="tel">确认密码</label>
+                    <input type="text">
+                    <span>恭喜您输入正确</span>
+                </li>
+                <li class="agree">
+                    <input type="checkbox" class="allow">同意并注册<a href="javascript:;">《知果果用户协议》</a>
+                    <a href="#" class=sucess>完成注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer w">
+        <div class="copyright">
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+            <a href="#">关于我们</a>|
+        </div>
+        <p>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br>
+            京ICP备08001421号京公网安备110108007702
+        </p>
+    </div>
+</body>
+
+</html>

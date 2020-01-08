@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 350px;
+            height: 35px;
+            margin: 40px auto;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .box input {
+            width: 300px;
+            height: 33px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for=""><img src="images/close.png" alt=""></label>
+        <input type="password">
+    </div>
+    <script>
+        var eye = document.querySelector('img');
+        var pwd = document.querySelector('input');
+        var flag = 0;//0时可见
+        eye.onclick = function () {
+            if (flag == 0) {
+                pwd.type = 'text';
+                eye.src = 'images/open.png';
+                flag = 1;//点了才会变，所以默认为0
+            } else {
+                pwd.type = 'password';
+                eye.src = 'images/close.png';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

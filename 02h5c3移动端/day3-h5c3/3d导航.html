@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            margin: 100px;
+        }
+        li {
+            position: relative;
+            width: 150px;
+            height: 36px;
+            list-style: none;
+            perspective: 500px;
+        }
+        .box {
+            width: 100%;
+            height: 100%;
+            transition: all .8s;
+            transform-style: preserve-3d;
+        }
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        .front,
+        .bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .front {
+            background-color: aquamarine;
+            z-index: 1;
+            transform: translateZ(18px);/*向前移动高度的一般，为了保持box旋转时，两个盒子的旋转轴线相同*/
+        }
+        .bottom {
+            background-color: chocolate;
+            transform: translateY(18px) rotateX(-90deg);/*向下移动高度的一半，逆向旋转90度*/
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <a href="" class="front">黑马程序员</a>
+                <a href="" class="bottom">学习改变未来</a>
+                <!-- <div class="front">黑马程序员</div>
+                <div class="bottom">学习改变未来</div> -->
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+       }
+        .line {
+           width: 400px;
+           height: 400px;
+           margin: auto;
+           animation: rotate 2s linear infinite;
+       }
+       div[class^=box] {
+           float: left;
+           border: 100px solid transparent;
+       }
+       .line .box1 {
+           border-right: 100px solid pink;
+       }
+       .line .box2 {
+           border-bottom: 100px solid aquamarine;
+       }
+       .line .box3 {
+           border-top: 100px solid blue;
+       }
+       .line .box4 {
+           border-left: 100px solid chocolate;
+       }
+       @keyframes rotate {
+           100% {
+               transform: rotate(360deg);
+           }
+       }
+   </style>
+</head>
+<body>
+    <div class="line">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

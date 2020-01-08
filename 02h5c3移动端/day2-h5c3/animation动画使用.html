@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本使用</title>
+    <style>
+        /*定义动画名称*/
+        @keyframes move {
+            0% {
+                transform: translate(0,0) rotate(0);
+            }
+            25% {
+                transform: translate(1000px, 0) rotate(180deg);
+            }
+            50% {
+                transform: translate(1000px,700px) rotate(360deg);
+            }
+            75% {
+                transform: translate(0,700px) rotate(540deg);
+            }
+            100% {
+                transform: translate(0,0) rotate(720deg);
+            }
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            animation: move 8s;/*调用动画，和持续时间 动画名称保持一致*/
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

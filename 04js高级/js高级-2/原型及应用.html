@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  Star.prototype.sing = function () {
+              console.log('我会唱歌');
+  
+          }
+          function Star(name, age) {
+              this.name = name;
+              this.age = age;
+          }
+          var ldh = new Star('刘德华', 18);
+          ldh.sing();
+          console.log(ldh.__proto__);
+          console.log(Star.prototype);
+  
+          console.log(ldh.__proto__ === Star.prototype);//对象的原型和构造函数的原型对象全等*/
+
+
+
+
+
+
+        function Foo() {
+            getName = function () {
+                console.log(1);
+
+            };
+            return this;
+        };
+
+        Foo.getName = function () {
+            console.log(2);
+
+        };
+
+        Foo.prototype.getName = function () {
+            console.log(3);
+
+        };
+
+        var getName = function () {
+            console.log(4);
+
+        };
+
+        function getName() {
+            console.log(5);
+
+        };
+
+        Foo.getName();//2
+        getName(); //4
+        Foo().getName()// 1
+        getName();//1
+        new Foo.getName(); //2
+
+
+
+
+
+        function foo() {
+            foo.a = function () { console.log(1) };
+            this.a = function () { console.log(2) };
+            a = function () { console.log(3) };
+            var a = function () { console.log(4) };
+        };
+
+        foo.prototype.a = function () { console.log(5) };
+
+        foo.a = function () { console.log(6) };
+
+        foo.a();//6
+
+        var obj = new foo();
+        obj.a();//2
+        foo.a(); //1
+
+
+
+        //creat继承
+
+        var obj = {
+            a: 3,
+            fx: function () {
+                return this.a + 3;
+            }
+        }
+        console.log(obj.fx());//6
+
+        var p = Object.create(obj);
+        p.a = 4;
+        console.log(p.fx());//7
+
+
+    </script>
+    <script>
+        //继承原型的函数方法
+        function Father(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        Father.prototype.money = function () {
+            console.log(10000);
+        };
+
+        function Son(name, age, score) {
+            Father.call(this, name, age);//改变this指向，继承父亲的属性
+            this.score = score;
+        };
+
+        Son.prototype = new Father();//通过父构造函数创建的实例对象，可以访问父函数的原型
+        Son.prototype.constructor = Son;//把构造函数重新赋值给son原型，让son的原型对象中的constructor重新指向Son
+        Son.prototype.exam = function () {
+            console.log('考试');
+        }
+        var son = new Son('小明', 18, 80);
+        son.money();
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!--数据劫持  -->
+        <div>用户名:{{user}}</div>
+        用户名：<input type="text" v-model="user">
+        <div>密码:{{password}}</div>
+        密码：<input type="text" v-model="password">
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                user: 'Hello Vue',
+                password: '123'
+            }
+        });
+
+    </script>
+</body>
+
+</html>

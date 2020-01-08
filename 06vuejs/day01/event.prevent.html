@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 阻止冒泡和默认行为 -->
+        <div @click="handler()">11
+            <div @click.stop="bb">22</div>
+        </div>
+        <a href="event.html" @click.prevent="handler">ew</a>
+        <!-- 键盘事件 -->
+        <input type="text" @keyup.enter="bb">
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+            methods: {
+                handler() {
+                    console.log('父元素');
+                },
+                bb(e) {
+                    console.log(e.keyCode);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

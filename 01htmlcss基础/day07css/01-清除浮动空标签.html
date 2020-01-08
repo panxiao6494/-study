@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.father {
+			width: 500px;/*因为内容随时会更新父级盒子不方便给高度*/
+			border: 1px solid #000;
+		}
+		.son1 {
+			float: left;
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+		.son2 {
+			float: right;
+			width: 100px;
+			height: 150px;
+			background-color: purple;
+		}
+		.two {
+			width: 500px;
+			height: 200px;
+			background-color: green;
+		}
+		.clear {
+			clear: both;/*清除浮动会使父盒子自动检测子盒子的高度，不影响下面的布局*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<!-- 额外空标签，清除浮动 -->
+		<div class="clear"></div>
+	</div>
+	<div class="two"></div>
+</body>
+</html>

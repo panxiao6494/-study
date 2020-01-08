@@ -1,0 +1,13 @@
+<template>
+  <view>Cate页面</view>
+</template>
+           
+<script>
+import wepy from 'wepy'
+import mix from '@/mixins/tabs/cates.js'
+export default class extends wepy.page {
+  mixins = [mix]
+}
+</script>
+<style lang="less">
+</style>

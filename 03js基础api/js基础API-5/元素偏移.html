@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 150px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            margin-left: 50px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="son">son</div>
+
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var son = document.querySelector('.son');
+        console.log(box.offsetTop);
+        console.log(box.offsetLeft);
+        console.log(son.offsetLeft);
+
+    </script>
+</body>
+
+</html>

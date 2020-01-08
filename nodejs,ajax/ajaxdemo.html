@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+td {
+    text-align: center;
+}
+</style>
+
+<body>
+    <h1></h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>白天天气</th>
+                <th>晚上天气</th>
+                <th>温度</th>
+                <th>天气</th>
+                <th>风极</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>周六 03月31日 (实时：12℃)</td>
+                <td><img src="http://api.map.baidu.com/images/weather/day/yin.png" alt=""></td>
+                <td><img src="http://api.map.baidu.com/images/weather/night/duoyun.png" alt=""></td>
+                <td>17 ~ 8℃</td>
+                <td>阴转多云</td>
+                <td>南风微风</td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    //面向接口编程，拿到百度天气的接口，
+    $.ajax({
+        type: 'post',
+        url: "http://api.map.baidu.com/telematics/v3/weather", //百度天气的数据库接口
+        data: {
+            "ak": "zVo5SStav7IUiVON0kuCogecm87lonOj",
+            "location": "上海",
+            "output": 'json'
+        },
+        dataType: 'jsonp', //跨域用到jsonp
+        success: render
+    })
+
+    function render(result) {
+        console.log(result) //拿到响应结果
+        var ht = result.results[0].currentCity + '天气';
+        $('h1').html(ht);
+        var html = '';
+        let items = result.results[0].weather_data
+        for (var i = 0; i < items.length; i++) {
+            html += '<tr>\
+                <td>' + items[i].date + '</td>\
+                <td><img src="' + items[i].dayPictureUrl + '" alt=""></td>\
+                <td><img src="' + items[i].nightPictureUrl + '" alt=""></td>\
+                <td>' + items[i].temperature + '</td>\
+                <td>' + items[i].weather + '</td>\
+                <td>' + items[i].wind + '</td>\
+            </tr>'
+        }
+        document.querySelector('tbody').innerHTML = html;
+    };
+    </script>
+</body>
+
+</html>

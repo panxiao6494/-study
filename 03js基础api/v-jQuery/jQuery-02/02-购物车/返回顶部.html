@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1000px;
+            height: 2000px;
+            background-color: aquamarine;
+            margin: 300px auto;
+        }
+
+        .back {
+            display: none;
+            position: fixed;
+            width: 42px;
+            height: 40px;
+            background-color: violet;
+            right: 15px;
+            bottom: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container">
+    </div>
+    <script>
+        $(function () {
+            var boxTop = $(".container").offset().top;
+            console.log(boxTop);
+            $(window).scroll(function () {
+                if ($(document).scrollTop() >= boxTop) {
+                    $(".back").fadeIn();
+                } else {
+                    $(".back").fadeOut();
+                }
+            });
+            $(".back").click(function () {
+                $("body,html").stop().animate({
+                    scrollTop: 0
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

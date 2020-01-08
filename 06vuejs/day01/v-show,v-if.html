@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- v-if移除dom -->
+        <div v-if="score>=90">优秀</div>
+        <div v-else-if="score < 90 && score>=70">良好</div>
+        <div v-else>较差</div>
+
+        <!-- v-show显示隐藏 -->
+        <div v-show="flag">box</div>
+        <button @click="handle">切换</button>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                score: 90,
+                flag: true
+            },
+            methods: {
+                handle() {
+                    this.flag = !this.flag
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

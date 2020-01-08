@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js基础拓展练习</title>
+	<script>
+		// 3. 将一个字符串重复若干次
+		// 4. 打印 1!+2!+3!+4!+5!+^=xxx
+		// 5. 输入某年某月某日，判断这一天是这一年的第几天？
+
+		// 3. 字符串重复 hello ---> hellohellohello
+		// function repeat(str, n){
+		// 	var result = "";
+		// 	for(var i = 0;i < n;i++){
+		// 		result += str;
+		// 	}
+		// 	return result;
+		// }
+		// console.log(repeat('hello', 3))
+
+
+		// 4. 计算阶乘
+		// var sum=0;
+		// for (var i=1;i<=5;i++){
+		// 	var jie=1;
+		// 	for (var j=1;j<=i;j++){
+		// 			jie *= j;
+		// 	}
+		// 	sum += jie;
+		// }
+		// console.log("1!+2!+3!+4!+5!="+sum);
+
+
+		//5.
+		/*
+			var year = parseInt(prompt("请输入年份"));
+			var month = parseInt(prompt("请输入月份"));
+			var day = parseInt(prompt("请输入日期"));
+			var sum = 0;
+			for(var i=1;i<month;i++){
+				if(i==1||i==3||i==5||i==7||i==8||i==10||i==12){
+						sum += 31;
+				}else if(i==4||i==6||i==9||i==11){
+						sum += 30;
+				}else{
+					if(year%4==0&&year%100!=0||year%400==0){
+						sum += 29;
+					}else {
+						sum += 28;
+					}
+				}
+			}
+			sum += day; 
+ 			console.log("您输入的日期为"+year+"-"+month+"-"+day+"为该年的第"+sum+"天");
+		*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

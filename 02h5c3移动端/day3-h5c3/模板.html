@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口，视口宽度，初始缩放比，最大缩放比，最小缩放比，不允许缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edg">
+    <title>旋转</title>
+    <style> 
+        body {
+            perspective: 500px;
+        }
+        img {
+            display: block;
+            margin: 100px auto;
+            transition: all 2s;
+        }
+        img:hover {
+            transform: rotate3d(1,1,0,180deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="media/pic.jpg" alt="">
+</body>
+</html>

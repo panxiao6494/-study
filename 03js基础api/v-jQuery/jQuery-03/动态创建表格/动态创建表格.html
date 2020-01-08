@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tabbl {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        button {
+            display: block;
+            width: 50px;
+            height: 25px;
+        }
+
+        table {
+            width: 600px;
+            margin: auto;
+        }
+
+        th {
+            background-color: violet;
+        }
+
+        td {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #tbd tr:nth-child(odd) {
+            background-color: aquamarine;
+        }
+
+        #tbd tr:nth-child(even) {
+            background-color: chocolate;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tabbl">
+        请输入姓名: <input type="text" id="name"> <br>
+        请输入邮箱: <input type="text" id="email"> <br>
+        请输入手机: <input type="tel" id="tel"> <br>
+        请输入地址: <input type="text" id="address">
+        <button>添加</button>
+    </div>
+    <!--设置表格的边框，每个单元格的内外边距为0 -->
+    <table border="1" cellpadding="0" cellspacing="0" id="tb">
+
+        <!--表头默认居中-->
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+            <tr>
+                <td>小黑</td>
+                <td>xiaohei@123.com</td>
+                <td>19999990990</td>
+                <td>北京</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script>
+        //获取按钮
+        var btn = document.querySelector('button');
+        var nameInput = document.querySelector('#name');
+        var emailInput = document.querySelector('#email');
+        var telInput = document.querySelector('#tel');
+        var adInput = document.querySelector('#address')
+        //获取tbody
+        var tbd = document.querySelector('#tbd')
+
+        btn.addEventListener('click', function () {
+            if (nameInput.value == '' || emailInput.value == '' || telInput.value == '' || adInput.value == '') {
+                alert('请将数据填入完全!');
+                return;
+            }
+            var tr = document.createElement('tr');//
+            tbd.appendChild(tr);
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            td1.innerHTML = nameInput.value;
+            td2.innerHTML = emailInput.value;
+            td3.innerHTML = telInput.value;
+            td4.innerHTML = adInput.value;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            claer()
+        });
+        function claer() {
+            nameInput.value = '';
+            emailInput.value = '';
+            telInput.value = '';
+            adInput.value = '';
+        }
+
+    </script>
+</body>
+
+</html>

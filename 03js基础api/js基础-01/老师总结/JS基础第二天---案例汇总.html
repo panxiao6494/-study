@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS基础第二天案例展示及源码解读</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      h2.header-h2 {
+        margin: 0;
+        text-align: center;
+        line-height: 70px;
+      }
+      div {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      /* 布局为头部固定不动，下面出现滚动条 */
+      .wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .header {
+        color: #000000;
+        background: #bdc7d5;
+        position: fixed;
+        height: 70px;
+        width: 100%;
+        z-index: 2;
+      }
+      .main {
+        /* height: 100%; */
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      .code-wrap {
+        padding-top: 90px;
+        overflow-y: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+      .code-item {
+        margin: 15px;
+        margin-bottom: 30px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        position: relative;
+      }
+      .code-item:after {
+        clear: both;
+        content: "";
+        display: table;
+      }
+      .post-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5px;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 5px;
+      }
+      .item-left {
+        width: 40%;
+        float: left;
+      }
+      .item-right {
+        width: 60%;
+        float: left;
+      }
+      .code-content-left {
+        margin: 15px;
+        padding-top: 30px;
+        border-right: 1px solid #ccc;
+      }
+      .item-code-title {
+        margin-bottom: 10px;
+      }
+      .item-code-content {
+        padding-right: 15px;
+      }
+      .code-content-rigth {
+        margin: 15px;
+      }
+      .color-warn {
+        color: #28a745;
+      }
+      .word-wrap {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      .code-cr-main {
+        font-size: 18px;
+      }
+      pre,
+      code {
+        display: block;
+        overflow: auto;
+        background: #f4f4f4;
+        padding: 5px 10px;
+        border: 1px solid #eee;
+        word-wrap: break-word;
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <h2 class="header-h2">JS基础第二天案例展示及源码解读</h2>
+      </div>
+      <div class="main">
+        <div class="code-wrap">
+          <div class="code-item">
+            <div class="post-title">自增自减详解</div>
+            <div class="item-left">
+              <div class="code-content-left">
+                <div class="item-code-title">
+                  案例要求： 判断前置和后置时表达式的值和变量的值
+                </div>
+                <div class="item-code-content">
+                  <span class="color-warn">思考重点：</span>
+                  <div class="word-wrap">
+                    1.一定区分表达式和变量，num++,++num这些都是表达式，有一个返回值，不是变量的值，num才是变量
+                  </div>
+                  <div class="word-wrap">
+                    2. num++, ++num的作用都是一样 就是将变量 num的值+1
+                  </div>
+                  <div class="word-wrap">
+                    3. num++, ++num不一样在于返回值不一样
+                  </div>
+                  <div class="word-wrap">
+                    3.1. num++是先使用num作为返回值，然后再对变量num加1，他的返回值是1， num的值是2
+                  </div>
+                  <div class="word-wrap">
+                    3.2. ++num是先对num加1，然后再使用num的值作为返回值，这是返回值为2， num的值也为2
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item-right">
+              <div class="code-content-rigth">
+                <div class="code-cr-main">
+                  <code>var num =1;</code>
+                  <code>// console.log(num++, ++num, num);  //1,3,3</code>
+                  <code>var nNum1 = num++ + ++num + num; //7</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-item">
+            <div class="post-title">判断闰年案例</div>
+            <div class="item-left">
+              <div class="code-content-left">
+                <div class="item-code-title">
+                  案例要求： 用户输入年份，输出是否是闰年
+                </div>
+                <div class="item-code-content">
+                  <span class="color-warn">思维过程：</span>
+                  <div class="word-wrap">
+                    1.
+                    关键判断什么是闰年，这就是算法。闰年就是能被4整除并且不能被100整除，或者能被400整除的就是闰年，否则就是平年
+                  </div>
+                  <div class="word-wrap">
+                    2. 2004是闰年，1999不是闰年；
+                    2000年是闰年，1900不是闰年。闰年366天，2月有29号
+                  </div>
+                  <div class="word-wrap">
+                    3. 输入语句是prompt,输出语句是alert
+                  </div>
+                  <div class="word-wrap">
+                    4.
+                    定义一个变量接受用户输入的值，最好进行一步类型转换，然后就是利用if...else分支结构，写好条件语句
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item-right">
+              <div class="code-content-rigth">
+                <div class="code-cr-main">
+                  <code>var sYear = prompt('请输入想要查询的年份');</code>
+                  <code>var nYear = parseInt(sYear);</code>
+                  <code
+                    >if( ((nYear%4 == 0) && (nYear%100 != 0)) || nYear%400 ==0
+                    ){</code
+                  >
+                  <code>alert("我是闰年");</code>
+                  <code>}else {</code>
+                  <code>alert("我不是闰年")</code>
+                  <code> }</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-item">
+            <div class="post-title">数字补零案例</div>
+            <div class="item-left">
+              <div class="code-content-left">
+                <div class="item-code-title">
+                  案例要求：
+                  用户输入一个数，如果是一位数则在前面添加2个零，如果是两位数则在前面添加1个零，如果是三位数则什么也不做
+                </div>
+                <div class="item-code-content">
+                  <span class="color-warn">思维过程：</span>
+                  <div class="word-wrap">
+                    1. 定义一个变量就收用户输入的值
+                  </div>
+                  <div class="word-wrap">
+                    2.
+                    主要的逻辑在于对于输入的数字进行判断，小于10的一位数，大于等于10且小于100的叫二位数，剩下的不处理
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item-right">
+              <div class="code-content-rigth">
+                <div class="code-cr-main">
+                  <code>var nNum = prompt("请输入一个数字：");</code>
+                  <code>if(nNum<10){</code>
+                  <code>nNum = '00' + nNum.toString();</code>
+                  <code>}else if(nNum>=10 && nNum<99){</code>
+                  <code>nNum = '0' + nNum.toString();</code>
+                  <code>}else {</code>
+                  <code>nNum = nNum.toString();</code>
+                  <code>}</code>
+                  <code>alert(nNum);</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

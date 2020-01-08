@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //用箭头函数来求和
+        const sum = (...argus) => {//用...接收所有的实参，形成数组，并进行遍历
+            console.log(argus);
+
+            let total = 0;
+            argus.forEach(item =>
+                total += item
+            );
+            return total;
+        }
+        console.log(sum(21, 21, 434));
+        console.log(sum(1, 6));
+
+
+    </script>
+</body>
+
+</html>

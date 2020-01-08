@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //promise中构造函数是同步，then是异步
+    const promise = new Promise((resolve, reject) => {
+        console.log(1)
+        resolve()
+        console.log(2)
+    })
+    promise.then(() => {
+        console.log(3)
+    })
+    console.log(4)
+    //promise是一个构造函数，可以通过new Promise得到一个实例
+    //promise 原型对象上有.then的方法，成功执行resolve,失败执行reject
+    </script>
+</body>
+
+</html>

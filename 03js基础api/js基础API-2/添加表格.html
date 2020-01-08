@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tabbl {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        button {
+            display: block;
+            width: 50px;
+            height: 25px;
+        }
+
+        table {
+            width: 600px;
+            margin: auto;
+        }
+
+        th {
+            background-color: pink;
+        }
+
+        td {
+            text-align: center;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tabbl">
+        请输入姓名: <input type="text" id="name"> <br>
+        请输入邮箱: <input type="text" id="email">
+        <button>添加</button>
+    </div>
+    <!--设置表格的边框，每个单元格的内外边距为0 -->
+    <table border="1" cellpadding="0" cellspacing="0" id="tb">
+
+        <!--表头默认居中-->
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>邮箱</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+            <tr>
+                <td>小黑</td>
+                <td>xiaohei@123.com</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script>
+        //获取按钮
+        var btn = document.querySelector('button');
+        var nameInput = document.querySelector('#name');
+        var emailInput = document.querySelector('#email');
+        //获取tbody
+        var tbd = document.querySelector('#tbd')
+
+        btn.onclick = function () {
+
+            if (nameInput.value == '' || emailInput.value == '') {
+                alert('请填写完整的信息');
+                return;
+            }
+            var tr = document.createElement('tr');//
+            tbd.appendChild(tr);
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            td1.innerHTML = nameInput.value;
+            td2.innerHTML = emailInput.value;
+        }
+    </script>
+</body>
+
+</html>

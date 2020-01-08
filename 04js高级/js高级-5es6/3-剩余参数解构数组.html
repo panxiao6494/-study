@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 24, 32, 4];
+        let [s1, s2, ...s3] = arr;
+        console.log(s1);
+        console.log(s2);
+        console.log(s3);
+
+        console.log(...arr);//扩展运算符，将数组转换成参数序列，
+
+
+
+        function getAge(...args) {
+            console.log(typeof args);//带参数的数组，是一个对象
+        }
+
+        getAge(21);//object
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for 循环迭代
+        /*  var arr = [1, 2, 6, 3, 4, 0, 7];
+          arr = arr.sort();
+          for (var i = 0; i < arr.length; i++) {
+              console.log(arr[i]);
+          }*/
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        //every 迭代，需要数组中每一个元素都满足条件
+        var everyResult = numbers.every(function (item, index, array) {
+
+            return (item > 2);
+
+        });
+
+        console.log(everyResult);  //返回布尔值false;
+
+
+
+
+        //some迭代，有一个满足条件，就会返回结束
+        var someResult = numbers.some(function (item, index, array) {
+
+            return (item > 2);
+
+        });
+
+        console.log(someResult);   // 返回布尔值true;
+
+
+
+
+
+
+
+        //filter迭代，筛选出数组中符合条件的
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+        var filterResult = numbers.filter(function (item, index, array) { return (item > 2); });
+
+        console.log(filterResult);    //[3,4,5,4,3]
+
+
+        //map 迭代，可以新创建一个与数组有一一对应关系的数组
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+        var mapResult = numbers.map(function (item, index, array) { return item * 2; });
+
+        console.log(mapResult);    //[2,4,6,8,10,8,6,4,2] 
+
+
+
+
+        //foreach 迭代
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+        numbers.forEach(function (item, index, array) {
+            console.log(item);
+        });
+    </script>
+</body>
+
+</html>

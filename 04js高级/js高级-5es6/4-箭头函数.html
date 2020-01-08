@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    /*const fx = function (a) {
+            return a + 1
+        }
+        console.log(fx(2));*/
+
+    /*  const fx = (a) => {
+              return a + 1
+          }
+          console.log(fx(2)); //3
+  
+  
+          //const fx = a => a + 1;//形参只有一个，返回值只有一段代码，小括号和大括号都可以省略
+          // console.log(fx(2));//3
+  
+  
+          const fn = a => {//形参只有一个时，可以省略小括号
+              console.log(a);
+  
+          }
+          fn(43);*/
+
+
+
+    let fn1 = (x, y) => {
+        var sum = x + y;
+        return sum;
+    }
+    console.log(fn1(32, 64));
+
+
+
+    //箭头函数没有arguments属性
+    function foo(n) {
+        var f = () => arguments[0] + n;
+        return f();
+    }
+    let res = foo(2);
+    console.log(res); // 4
+
+
+
+    //,没有this绑定
+    function A() {
+        this.fo = 1
+    }
+    A.prototype.bar = () => console.log(this.fo); //undefined
+    let a = new A()
+    a.bar()
+
+
+
+
+    //call,bind.apply不能改变this指向
+    let resu = (function() {
+        return [
+            (() => this.x).bind({ x: 'inner' })()
+        ];
+    }).call({ x: 'outer' });
+    console.log(resu) //outer
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三角形</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			position: relative;
+			width: 200px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: pink;
+		}
+		p {
+			position: absolute;
+			top: -60px;/*让三角形出来*/
+			left: 50%;
+			margin-left: -30px;
+			width: 0;
+			height: 0;
+			border-width: 30px;
+			border-style: solid;
+			border-color: transparent transparent pink transparent;/*上右下左边框颜色*/
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        var text = document.querySelector('#text');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        btn.addEventListener('click', function () {
+            var li = document.createElement('li');
+
+            li.innerHTML = text.value.replace(/激情/, '**');
+
+            ul.append(li);
+        })
+
+    </script>
+</body>
+
+</html>

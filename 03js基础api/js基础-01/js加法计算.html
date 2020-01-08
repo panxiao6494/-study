@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        var a = false + 1;
+        console.log(a);//1
+
+
+        var b = false == 1;
+        console.log(b);//false
+
+
+        if (typeof (a) && (-true) + (+undefined) + '') {
+            console.log('通过');//通过
+        } else {
+            console.log('没通过');
+        };
+
+
+        var name = 'languiji';
+        name += 10;
+        var type = typeof (name);
+        if (type.length === 6) {
+            type.text = 'string';
+        }
+        console.log(type.text);
+
+
+        if (1 + 5 * '3' === 16) {
+            console.log('通过');
+
+        } else {
+            console.log('未通过')
+        }
+
+
+        var a = 1;
+        if (function fn() { }) {
+            a += typeof (fn)
+
+        }
+        console.log(a);
+
+
+        var fn = (
+            function test1() {
+                return 1;
+            },
+            function test2() {
+                return '2';
+            }
+        )();
+        console.log(typeof (fn));
+
+
+
+        var str = 'index431.come';
+        console.log(str.charAt(6) + str.charAt(8) + str.charAt(7) + str.charAt(6));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折线统计图</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvas')
+            let context = canvas.getContext('2d');
+            canvas.style.border = "1px solid #f00";
+            let x0 = 100;
+            let y0 = 400;
+            let maxHeight = 300
+            //绘制 x轴
+            context.beginPath();
+            context.moveTo(100, 400);
+            context.lineTo(500, 400);
+            context.strokeStyle = '#f04';
+            //绘制箭头
+            let arrowH = 10
+            context.moveTo(500, 400);
+            context.lineTo(500 - arrowH, 400 - arrowH);
+            context.moveTo(500, 400);
+            context.lineTo(500 - arrowH, 400 + arrowH);
+            context.stroke();
+
+            //绘制 y轴
+            context.beginPath();
+            context.strokeStyle = 'purple';
+            context.moveTo(100, 400);
+            context.lineTo(100, 50);
+            context.moveTo(100, 50);
+            context.lineTo(100 - arrowH, 50 + arrowH);
+            context.moveTo(100, 50);
+            context.lineTo(100 + arrowH, 50 + arrowH);
+            context.stroke();
+
+            //绘制折线段
+            let arr = [.4, .5, .8, .7];
+            let pointWidth = 400 / (arr.length + 1);
+            context.beginPath();
+            context.strokeStyle = 'blue';
+            for (let i = 0; i < arr.length; i++) {
+                let x = x0 + (i + 1) * pointWidth;
+                let y = y0 - arr[i] * maxHeight;
+                context.lineTo(x, y);
+            }
+            context.stroke();
+
+        }())
+    </script>
+</body>
+
+</html>

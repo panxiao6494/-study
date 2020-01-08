@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    let arr = [2, 3, 9, 3, 45, 3, 2, 30, 9, 3];
+    let newArr = [];
+    arr.forEach(item => {
+        if (!newArr.includes(item)) { //newArr.indexOf(item)==-1,es5
+            newArr.push(item);
+        }
+        return newArr;
+    });
+
+    console.log(newArr);
+
+    let a = [2, 34, 1, 2, 93, 4, 6, 3, 2];
+    let s1 = new Set(a); //将arr传入set，把重复的元素去除,Set是一种新的类数组数据结构，不允许出现重复的元素
+    console.log(s1.size);
+
+    const arr1 = [...s1]; //转换成数组，才能使用数组的方法
+    console.log(arr1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+body {
+    min-width: 320px;
+    max-width: 750px;
+    width: 10rem; /*1rem=75px,分成10等分*/
+    margin: auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+    height: 1000px;
+  }
+  a {
+    text-decoration: none;
+  }
+  /*适配方案，750px平分10等份，75px=1rem*/
+  @media screen and (min-width:750px) {
+    html {
+      font-size: 75px!important;/*75px=1rem,提权*/
+    }
+  }
+  .search_content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    font-size: .293333rem;
+    transform: translateX(-50%);
+    background-color: #FFC001;
+    width: 10rem;
+    height: 1.173333rem;
+  }
+  .search_content a:nth-of-type(1) {
+    width: .586667rem;
+    height: .933333rem;
+    margin: .16rem .333333rem .093333rem;
+    font-size: 0;
+    background: url(../images/classify.png) no-repeat;
+    background-size: .586667rem .933333rem;
+  }
+  .search {
+    flex: 1;
+  }
+  .search input {
+    outline: none;
+    border: 0;
+    width: 100%;
+    margin-top: .133333rem;
+    text-indent: .4rem;
+    height: .88rem;
+    border-radius: .88rem;
+  }
+  .search_content a:nth-of-type(2) {
+    width: 1rem;
+    height: .933333rem;
+    margin: .133333rem;
+    text-align: center;
+    line-height: .933333rem;
+    color: #fff;
+  }
+  .banner {
+    width: 10rem;
+    height: 4.906667rem;
+    margin-top: .88rem;
+  }
+  .banner img {
+    width: 100%;
+    height: 100%;
+  }
+  .ad {
+    display: flex;
+  }
+  .ad a {
+    flex: 1;
+  }
+  .ad a img {
+    width: 100%;
+  }
+  nav a {
+    float: left;
+    width: 2rem;
+    height: 1.84rem;
+    text-align: center;
+    margin: .066667rem 0;
+  }
+  nav a img {
+    display: block;
+    width: 1.093333rem;
+    height: 1.093333rem;
+    margin: auto;
+    margin-bottom: .066667rem;
+  }
+  nav span {
+    font-size: .266667rem;
+    color: #666;
+  }

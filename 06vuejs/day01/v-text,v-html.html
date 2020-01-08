@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        <!-- v-cloak解决插值闪动问题 -->
+        <div v-cloak>{{msg}}</div>
+
+        <!-- 解析纯文本,行内指令会覆盖嵌套插值 -->
+        <div v-text="msg">{{msg2}}</div>
+
+        <!-- 解析html标签 -->
+        <div v-html="h1"></div>
+
+        <div v-pre>{{msg}}</div>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue',
+                msg2: 'sssss',
+                h1: '<h1>首页</h1>'
+            }
+        });
+
+    </script>
+</body>
+
+</html>

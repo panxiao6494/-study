@@ -1,0 +1,133 @@
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 50px;
+}
+input {
+  outline: none;
+  border: 0;
+}
+img {
+  vertical-align: middle;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+div,
+ul,
+li {
+  box-sizing: border-box;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 21.33333333px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 25.6px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 26.66666667px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 27.6px;
+  }
+}
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 28.26666667px;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 50px;
+  }
+}
+body {
+  min-width: 320px;
+  width: 12.8rem;
+  margin: auto;
+  background: #fff;
+  line-height: 1.5;
+  color: #666;
+  font-family: -apple-system, Helvetica, sans-serif;
+}
+body header {
+  position: fixed;
+  width: 12.8rem;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.9rem;
+  background-color: #333;
+  font-size: 0.28rem;
+  line-height: 0.9rem;
+}
+header ul li {
+  float: left;
+}
+header ul li:nth-child(1) {
+  width: 8%;
+  height: 0.9rem;
+  text-align: center;
+}
+header ul li:nth-child(1) img {
+  width: 0.2rem;
+  height: 0.2rem;
+}
+header ul li:nth-child(2) {
+  width: 10%;
+  height: 0.9rem;
+  text-align: center;
+}
+header ul li:nth-child(2) img {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+header ul li:nth-child(3) {
+  width: 57%;
+  height: 0.9rem;
+  font-size: 0.28rem;
+  text-align: center;
+  color: #fff;
+}
+header ul li:nth-child(4) {
+  width: 25%;
+  height: 0.9rem;
+  text-align: center;
+  color: #fff;
+  background-color: #F63515;
+}

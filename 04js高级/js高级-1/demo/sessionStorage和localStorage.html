@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+		<input type="text" value="" id="username">
+
+		<input type="button" value="添加" id="add">
+		<input type="button" value="获取" id="get">
+		<input type="button" value="移除" id="remove">
+		<input type="button" value="清除所有" id="clear">
+	
+	<script>
+		
+
+		// 1.sessionStorage的特点 (会话存储)
+
+		// 1.存储的数据大小为5M 2.生命周期为浏览器关闭就销毁了 3.不同的浏览器和不同的页面不能共享数据
+
+		// 3.localStorage的特点 (本地存储---硬盘存储)
+
+		// 1.存储数据大小约20M 2.生命周期--永久存储,如果要删除,手动删除
+		//3.同一浏览器的同域名下的不同页面的可以共享数据
+
+		//-------共同点(4个方法)
+
+		//1.setItem(key, value) 以键值对的形式存贮在硬盘中
+		//2.getItem(key)  根据key值获取对应的属性值
+		//3.removeItem(key) 根据key值移除属性值
+		//4.clear() 清除所有的存储数据
+ 	
+ 		// 1.获取元素
+ 		var add = document.querySelector('#add')
+ 		var get = document.querySelector('#get')
+ 		var remove = document.querySelector('#remove')
+ 		var clear = document.querySelector('#clear')
+
+ 		var username = document.getElementById('username')
+
+
+ 		add.onclick = function() {
+ 			// trim() 字符串的方法,清除前后空格
+ 			var value = username.value
+ 			if(value.trim() ===  '') {
+ 				alert('不能为空')
+ 				return
+ 			}else {
+ 				window.localStorage.setItem('username', value)
+ 			}
+ 		}
+
+ 		get.onclick = function() {
+
+ 			alert(window.localStorage.getItem('username'))
+ 		}
+
+ 		remove.onclick = function() {
+ 			localStorage.removeItem('username')
+ 		}
+
+
+ 		clear.onclick = function() {
+ 			localStorage.clear()
+ 		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* var person = {
+             name: 'xiaomi',
+             age: 18,
+             sex: 'male'
+         };
+ 
+         var arr = Object.keys(person);//遍历对象的属性
+         console.log(arr);//['name','age','sex']
+         var arr1 = Object.values(person);//遍历对象的属性值
+         console.log(arr1);
+         var arr2 = Object.entries(person);//将对象的属性和属性值数组的形式遍历出来
+         console.log(arr2);*/
+
+
+        function foo() {
+            foo.a = function () { console.log(1) };
+            this.a = function () { console.log(2) };
+            a = function () { console.log(3) };
+            var a = function () { console.log(4) };
+        };
+        foo.prototype.a = function () { console.log(5) };
+        foo.a = function () { console.log(6) };
+
+        foo.a();//6
+
+        var obj = new foo();
+
+        obj.a();//2
+
+        foo.a();//1
+
+
+
+
+        (function () {
+            var a = b = 5;
+        })();
+        console.log(b);//5
+    </script>
+
+
+</body>
+
+</html>

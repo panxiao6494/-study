@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 设置canvas标签的宽高，不要用css设置，会导致变形拉伸 -->
+    <canvas width="600" height="600" id="demo">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("demo");
+        var ctx = canvas.getContext('2d');
+        console.log(canvas.height)
+        ctx.moveTo(100, 100);//把画笔移动到100，100
+        ctx.lineTo(200, 100);//从画笔的位置，画一条直线到200,100
+        ctx.lineTo(100, 200);//从当前位置，再画一条直线到100,200
+        ctx.closePath();//闭合路径
+        ctx.lineWidth = 4//描边宽度
+        ctx.strokeStyle = '#f00';//描边颜色
+
+        ctx.stroke()//描边划线
+        ctx.fillStyle = "#0f0"
+        ctx.fill()//填充
+    </script>
+</body>
+
+</html>

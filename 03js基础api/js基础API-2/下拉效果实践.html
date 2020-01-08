@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .nav {
+            width: 200px;
+            margin: 50px auto;
+        }
+
+        .nav>li {
+            float: left;
+        }
+
+        .nav li a {
+            display: block;
+            text-decoration: none;
+            color: #222;
+            padding: 10px 22px;
+            margin: 0 6px;
+        }
+
+        .nav>li>a:hover {
+            background-color: rgba(0, 0, 0, .3)
+        }
+
+        .nav ul {
+            display: none;
+            /*跟下面的nav.childrend对应*/
+        }
+
+        .nav ul a {
+            border: 1px solid chocolate;
+            border-top: none;
+        }
+
+        .nav ul a:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">微博</a>
+            <ul>
+                <li><a href="">私信</a></li>
+                <li><a href="">评论</a></li>
+                <li><a href="">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">微博</a>
+            <ul>
+                <li><a href="">私信</a></li>
+                <li><a href="">评论</a></li>
+                <li><a href="">@我</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var nav = document.querySelector('.nav');//获取nav标签
+        var lis = nav.children;//nav的亲儿子
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function () {
+                this.children[1].style.display = 'block';//让ul显示
+            }
+            lis[i].onmouseout = function () {
+                this.children[1].style.display = 'none';//让ul隐藏
+            }
+        }
+
+    </script>
+</body>
+
+</html>

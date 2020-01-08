@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var a = 2;
+        function fn() {
+            var b = 1;
+            a = 4;
+            function f1() {
+                var a = 3;
+                console.log(a);//3
+            }
+            f1()//函数一定要调用才能执行f1打印a
+        }
+        fn();//调用执行
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var age = 30;
+        var obj = {
+            age: 20,
+            say: () => {
+                console.log(this.age);
+
+            }
+        }
+        obj.say();//箭头函数this指向外部作用域中的this,对象不会产生作用域, 30
+
+
+
+        var ob = {
+            num: 3,
+            sing: function () {
+                setTimeout(() => {
+                    console.log(this.num);//外部函数产生作用域，this指向obj
+
+                }, 20)
+            }
+        };
+        ob.sing()//3
+
+
+    </script>
+</body>
+
+</html>

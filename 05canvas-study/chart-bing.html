@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>统计饼状图</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        let canvas = document.querySelector('#canvas')
+        let context = canvas.getContext('2d')
+        canvas.style.border = "1px solid #999"
+        let data = [
+            {
+                title: '学生',
+                value: .25,
+                color: '#0f0'
+            },
+            {
+                title: '老师',
+                value: .3,
+                color: '#f0f'
+            },
+            {
+                title: '程序员',
+                value: 0.3,
+                color: '#f93'
+            },
+            {
+                title: '校长',
+                value: .15,
+                color: '#ee5'
+            }
+        ]
+        //context.arc(100, 100, 60, Math.PI / 180 * -30, Math.PI / 180 * 30, true);
+        let x0 = 180;
+        let y0 = 180;
+        let ra = 120;
+        let temAngle = -90; //起始角度
+        for (var i = 0; i < data.length; i++) {
+            let angle = 360 * data[i].value //每个分类所占的分类
+            context.fillStyle = data[i].color;
+            let startAngle = temAngle * Math.PI / 180 //起点弧度
+            let endAngle = (temAngle + angle) * Math.PI / 180 //终点弧度
+            context.beginPath();
+            context.moveTo(x0, y0);
+            context.arc(x0, y0, ra, startAngle, endAngle);
+            //绘制文字
+            var txt = data[i].value * 100 + '%'
+            let x, y;
+            var txtAngle = temAngle + .5 * angle //每一块弧度的中间，离半径20显示文字
+            x = x0 + Math.cos(txtAngle * Math.PI / 180) * (ra + 20) //文字x坐标
+            y = y0 + Math.sin(txtAngle * Math.PI / 180) * (ra + 20)//文字y坐标
+            if (txtAngle > 90 && txtAngle < 270) {
+                context.textAlign = 'end';
+            }
+            context.fillText(txt, x, y);
+
+            context.fill();
+            temAngle += angle
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环精灵图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .jl {
+            list-style: none;
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        .jl li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin: 15px;
+            background: url(images/sprite.png) no-repeat;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <ul class="jl">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var domLi = document.getElementsByTagName('li')//获取所有的li，组成一个数组集合
+        for (i = 0; i < domLi.length; i++) {//对这个li的集合进行遍历
+            var index = i * 44;
+            domLi[i].style.backgroundPosition = '0 -' + index + 'px';//根据每个li的索引号不同，改变背景位置
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var day = date.getDay();
+            var huors = date.getHours();
+            return '今天是' + year + '年' + month + '月' + dates + '日' + '星期' + day
+        }
+        console.log(getDate());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

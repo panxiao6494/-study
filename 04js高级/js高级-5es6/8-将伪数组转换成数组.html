@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+    <script>
+        var divs = document.querySelectorAll('div');
+        console.log(divs);//伪数组形式，不能使用数组的内置方法
+
+        var arr = [...divs];//将伪数组转换成数组，可以使用数组的方法
+        arr.push('a')
+        console.log(arr);
+
+
+
+        var arrLike = {//类数组对象
+            '0': '1',
+            '1': '2',
+            'length': 2
+        }
+        var arr1 = Array.from(arrLike, item => item * 2);
+        console.log(arr1);
+
+
+        var str = 'a';
+        console.log(str.repeat(2.3));//默认向下取整，重新字符串
+
+
+    </script>
+</body>
+
+</html>

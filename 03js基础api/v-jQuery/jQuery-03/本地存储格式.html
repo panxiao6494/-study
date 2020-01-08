@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var todolist = [{
+            title: '好好学习',
+            done: 'true'
+        }, {
+            title: '学习jQuery插件',
+            done: 'false'
+        }];
+
+        localStorage.setItem('todo', JSON.stringify(todolist));//将数组转换成字符转存储在本地存储
+        console.log(JSON.stringify(todolist));
+
+        var data = localStorage.getItem('todo');//现在data时字符串形式
+
+        //获取本地存储数据，需要把字符串转换成数组形式
+        data = JSON.parse(data);
+
+
+        console.log(data[0].title);
+        console.log(data[1].title);
+    </script>
+</body>
+
+</html>

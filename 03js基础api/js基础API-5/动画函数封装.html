@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+
+        span {
+            position: absolute;
+            top: 400px;
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始</button>
+    <div></div>
+    <span></span>
+    <script>
+        var span = document.querySelector('span');
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button')
+        function animate(obj, target, time) {
+            clearInterval(obj.timer);//防止定时器被反复调用，清除上次定时器
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.timer)
+                }
+                obj.style.left = obj.offsetLeft + 10 + 'px';
+            }, time)
+        }
+        animate(div, 500, 15);
+        btn.addEventListener('click', function () {
+            animate(span, 300, 50)
+        })
+
+    </script>
+</body>
+
+</html>

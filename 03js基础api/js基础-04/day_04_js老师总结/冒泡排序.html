@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      // 数组/对象 的创建与遍历
+      // var arr = [1, 2, 3, 4, 5]; //new Array()
+      // var obj = {}; //new Object()
+
+      var arr = [5, 4, 3, 2, 1];
+      while (true) {}
+      var count = 0;
+      function bubbleSort(arr) {
+        for (var i = 0; i < arr.length; i++) {
+          //5轮
+          for (var j = 0; j < arr.length; j++) {
+            count += 1;
+            //5次
+            if (arr[j] > arr[j + 1]) {
+              var temp = 0;
+              temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+          console.log(arr);
+        }
+        console.log(count);
+        return arr;
+      }
+
+      bubbleSort(arr); // [1,2,3,4,5]
+    </script>
+  </head>
+  <body>
+    <input type="text" />+
+    <input type="text" />
+  </body>
+</html>

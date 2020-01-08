@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Person.prototype = {//原型
+            name: 'zneng',
+            toString: function () {
+                return 'hehe'
+            }
+        };
+
+        function Person(name, age) {
+            this.age = age;
+
+        }
+        var liu = new Person();
+        console.log(liu.__proto__ === Person.prototype);//实例对象的原型全等于构造函数的原型对象
+
+
+        console.log(liu.name);//继承原型zhneng  
+        console.log(liu.toString());//重写
+
+
+
+
+        Number.prototype.toString = function () {//改变原型
+            return '呵呵呵';
+        }
+
+        var num1 = 1;
+        var num2 = 99;
+
+        console.log(num1.toString());
+
+        console.log(num2.toString());
+    </script>
+</body>
+
+</html>

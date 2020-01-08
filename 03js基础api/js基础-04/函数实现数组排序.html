@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function setArr(arr) {
+            for (i = 0; i <= arr.length - 1; i++) {
+                for (j = 0; j <= arr.length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        tem = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tem;
+                    }
+                }
+            }
+            return arr
+        }
+        console.log(setArr([1, 2, 3, 4, 7, 5]));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

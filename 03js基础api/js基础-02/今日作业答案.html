@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // 1- 判断时间阶段。 
+    // var time = parseInt(prompt("请输入当前小时："));
+    // if(time == 12){
+    //   alert("中午好");
+    // }else if(time == 18){
+    //   alert('傍晚好');
+    // }else if(time ==23){
+    //   alert('深夜好')
+    // }else {
+    //   alert("谢谢")
+    // }
+
+    // 2. 比较两个数的最大值
+    // var num1 = parseFloat(prompt("请输入一个数字： "));
+    // var num2 = parseFloat(prompt("请再输入一个数字： "));
+    // var max = num1;
+    // if(num2 > num1){
+    //   max = num2;
+    // }
+    // var str = "最大值是" + max;
+    // alert(str)
+
+    // 3.判断用户输入的是奇数还是偶数
+    // var num = parseFloat(prompt("请输入一个数字： "));
+    // if(num % 2 == 0){
+    //   alert('我是偶数')
+    // }else {
+    //   alert("我是奇数")
+    // }
+
+    // 4.判断星期
+    // var num = parseFloat(prompt("请输入一个数字： "));
+    // switch(num % 7){
+    //   case 1:
+    //     alert("星期三");
+    //     break;
+    //   case 2:
+    //     alert("星期四");
+    //     break;
+    //   case 3:
+    //     alert("星期五");
+    //     break;
+    //   case 4:
+    //     alert("星期六");
+    //     break;
+    //   case 5:
+    //     alert("星期日");
+    //     break;
+    //   case 6:
+    //     alert("星期一");
+    //     break;
+    //   case 0:
+    //     alert("星期二");
+    //     break;
+    // }
+
+    // 5. 请客吃饭
+    // var num = parseFloat(prompt("请输入班长手里有多少钱： "));
+    // if(num >= 2000){
+    //   alert("大家吃西餐")
+    // }else if(num >= 1500){
+    //   alert("大家吃快餐")
+    // }else if(num >= 1000){
+    //   alert("大家和饮料")
+    // }else if(num >= 500){
+    //   alert("大家吃棒棒糖")
+    // }else {
+    //   alert("班长请充值哦")
+    // }
+    // switch(true){
+    //   case num>=2000:
+    //     alert("大家吃西餐");
+    //     break;
+    //   case num>=1500:
+    //     alert("大家吃快餐");
+    //     break;
+    //   case num>=1000:
+    //     alert("大家和饮料");
+    //     break;
+    //   case num>=500:
+    //     alert("大家吃棒棒糖");
+    //     break;
+    //   default: 
+    //     alert("班长请充值哦");
+    //     break;
+    // }
+
+    // 6. 成绩表
+    var num = parseFloat(prompt("请输入当前成绩： "));
+    var dengji = "";
+    if(num >= 90){
+      dengji = "A";
+    }else if(num >= 80){
+      dengji = "B";
+    }else if(num >= 70){
+      dengji = "C";
+    }else if(num >= 60){
+      dengji = "D";
+    }else {
+      dengji = "E";
+    }
+    var str = "您当前的登记是：" + dengji
+    alert(str)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

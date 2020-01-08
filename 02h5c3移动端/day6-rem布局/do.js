@@ -1,0 +1,1 @@
+var arry=newArry[*,*,*];

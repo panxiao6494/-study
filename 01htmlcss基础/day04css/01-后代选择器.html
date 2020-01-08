@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后代选择器</title>
+	<style>
+		/*选择所有后代*/
+		/*div strong {
+			color: red;
+		}*/
+		/*只选择儿子辈*/
+		div>strong {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<strong>儿子</strong>
+		<strong>儿子</strong>
+		<strong>儿子</strong>
+	</div>
+	<div>
+		<p>
+			<strong>孙子</strong>
+			<strong>孙子</strong>
+			<strong>孙子</strong>
+		</p>
+	</div>
+</body>
+</html>

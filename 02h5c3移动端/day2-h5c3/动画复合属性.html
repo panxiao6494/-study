@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画复合属性</title>
+    <style>
+        @keyframes move {
+            100% {
+                transform: translate(1000px,0);
+            }
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            /*动画名称，持续时间，运动曲线，延迟时间，循环次数，是否逆向播放，是否回到原点*/
+            animation: move 1s ease 1s infinite alternate backwards;
+        }
+    </style>
+</head>
+<body>
+    <div>   
+    </div>
+</body>
+</html>

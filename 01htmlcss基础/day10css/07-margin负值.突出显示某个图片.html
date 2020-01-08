@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			width: 1000px;
+			margin: 20px auto;
+		}
+		li {
+			list-style: none;
+		}
+		li {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 350px;
+			margin-left: -1px;/*可以让两根重叠的线2px为1px*/
+			margin-top: -1px;
+			border: 1px solid #ccc;
+		}
+		li:hover {
+			border: 1px solid #f00;
+			position: relative;
+			z-index: 5;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

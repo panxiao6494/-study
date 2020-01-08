@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 1200px;
+            height: 40px;
+            margin: 10px auto;
+            border-bottom: 1px solid coral;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        .father {
+            float: right;
+            margin-right: 30px;
+        }
+
+        .father>li {
+            position: relative;
+            float: left;
+            margin-left: 28px;
+            cursor: pointer;
+        }
+
+        .father>li::after {
+            position: absolute;
+            top: 4px;
+            right: -11px;
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-top: 1px solid #666;
+            border-right: 1px solid #666;
+            transform: rotate(135deg);
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        .son {
+            display: none;
+
+        }
+
+        .son li {
+
+            padding: 2px;
+            border-bottom: 1px solid chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="father">
+            <li>
+                <i>登录</i>
+                <ul class="son">
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul>
+            </li>
+            <li>微信</li>
+            <li>博客</li>
+            <li>邮箱</li>
+        </ul>
+        <script>
+            var lis = document.querySelector('.father>li');
+            var lisr = document.querySelector('.son');
+            var flag = true;
+            lis.onclick = function () {
+                if (flag) {
+                    lisr.style.display = 'block';
+                    flag = false;
+                } else {
+                    lisr.style.display = 'none';
+                    flag = true;
+                }
+
+            }
+        </script>
+    </header>
+</body>
+
+</html>

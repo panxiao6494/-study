@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var newArr = [];
+    var arr = [1, 2, 3, 4, 3, 1, 8];
+
+    function reset(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(arr[i]) === -1) { //indenxOf返回数组的索引，如果在新数组里没有，则返回-1
+                newArr.push(arr[i]) //当新数组中包含arr中元素时，则不会执行，所以不会有重复的元素加入新数组
+            }
+        }
+        return newArr;
+    }
+    console.log(reset(arr));
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

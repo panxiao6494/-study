@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //选出数组中大于等于10的成员，并加到新数组中
+        var arr = [2, 55, 36, 5, 9, 12];
+        var newArr = [];
+        var addArr = [];
+        var j = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                newArr[j] = arr[i];//新数组索引号应该从0开始
+                j++
+            }
+        }
+        for (var k = 0; k < arr.length; k++) {
+            if (arr[k] >= 10) {
+                addArr[addArr.length] = arr[k];//addArr.length 自动检测
+            }
+        }
+        console.log(arr);
+        console.log(newArr);
+        console.log(addArr);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

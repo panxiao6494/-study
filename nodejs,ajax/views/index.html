@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<style type="text/css">
+body {
+    font-size: 15px;
+}
+
+a {
+    font-size: 1.2em;
+}
+
+h1 {
+    font-size: 1.6em;
+}
+</style>
+
+<body>
+    <div class="son12">点击改变body字体大小12</div>
+    <div class="son16">点击改变body字体大小16</div>
+    <div class="son20">点击改变body字体大小20</div>
+    <h1>你好</h1>
+    <input type="text" name="" placeholder="请输入一段文本">
+    <a href="about.html">去关于页面</a>
+    <a href="detail.html">去详情页面</a>
+    <script type="text/javascript">
+    window.onload = function() {
+        function makeSize(size) {
+            return () => {
+                document.body.style.fontSize = size + 'px'
+            }
+        }
+
+        let size12 = makeSize(12);
+        let size16 = makeSize(16);
+        let size20 = makeSize(20);
+        document.querySelector('.son12').onclick = size12;
+        document.querySelector('.son16').onclick = size16;
+        document.querySelector('.son20').onclick = size20
+    }
+    </script>
+</body>
+
+</html>

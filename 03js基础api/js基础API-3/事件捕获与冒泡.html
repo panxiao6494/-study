@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //捕获，从外面父节点向里面子节点依次触发事件
+        //冒泡，从子节点向父节点依次触发事件
+        //阻止冒泡;在事件里面添加
+        var div = document.querySelector('div');
+        div.addEventListener('click', function (e) {
+            this.style.backgroundColor = '#ccc';
+            console.log(e);//e指的是事件对象，对象里面有很多属性和属性值
+
+            e.stopPropagation();//阻止向外面父级冒泡
+        })
+        document.body.addEventListener('click', function () {
+            this.style.backgroundColor = '#f0f';
+        })
+
+    </script>
+</body>
+
+</html>

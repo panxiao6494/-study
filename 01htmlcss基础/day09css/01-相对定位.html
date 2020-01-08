@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+		}
+		.purple {
+			background-color: purple;
+			position: relative;/*相对于原来的位置移动，也会占据原来的位置，还会覆盖其他的盒子*/
+			top: 100px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div class="purple">2</div>
+	<div>3</div>
+</body>
+</html>

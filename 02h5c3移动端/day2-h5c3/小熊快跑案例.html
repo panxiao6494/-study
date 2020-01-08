@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小熊快跑</title>
+    <style>
+        body {
+            background: #ccc url(media/bg1.png) no-repeat;
+            animation: mon 3s linear infinite;
+        }
+
+        div {
+            position: relative;
+            /*加上定位属性*/
+            top: 110px;
+            left: 0;
+            width: 200px;
+            height: 100px;
+            background: url(media/bear.png) no-repeat;
+            animation: run 1s steps(8) infinite, move 3s forwards;
+        }
+
+        /*定义背景定位从0走到-1600px*/
+        @keyframes run {
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        /*定义盒子从0移动到浏览器中间*/
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes mon {
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

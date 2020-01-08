@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var arr = [25, 2, 3, 25, 0, 1, 35, 0, 2];
+    //[25,2,3,0,1,35],把arr中重复的数字去掉，放进新数组
+    var newArr = []; //定义一个新的空数组
+    var flag = false; //定义一个标杆为false
+    for (var i = 0; i < arr.length; i++) { //遍历 arr
+        flag = false;
+        for (var j = 0; j < newArr.length; j++) { //遍历 newArr,j=0的时候，newArr为空，结束循环不用比
+            if (newArr[j] == arr[i]) { //i=1时，让arr[1]和newArr中所有数字相比
+                flag = true; //flag为true的时候，后面不会执行，不会放入新数组
+            }
+        }
+        if (!flag) { //if里面放true
+            newArr[newArr.length] = arr[i]; //所以newArr[0]=25,必定成立
+        }
+    }
+    console.log(newArr);
+    //利用标杆去重
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

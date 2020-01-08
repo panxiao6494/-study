@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(function () {
+            console.log(1);
+
+        }, 0)//异步任务
+        new Promise(function (a, b) {
+            console.log(2);
+            for (var index = 0; index < 10; index++) {
+                index == 9 && a()
+            }
+            console.log(3);
+
+        }).then(function () {
+            console.log(4);
+
+        })
+    </script>
+</body>
+
+</html>

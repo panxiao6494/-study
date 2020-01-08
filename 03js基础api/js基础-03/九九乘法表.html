@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九九乘法表</title>
+    <script>
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) {
+                if (j <= i) {
+                    str += j + '*' + i + '=' + j * i + '\t'
+                } else {
+                    str += '#' + '\t' + '\t'
+                }
+
+            }
+            str += '\n'
+        }
+        console.log(str);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

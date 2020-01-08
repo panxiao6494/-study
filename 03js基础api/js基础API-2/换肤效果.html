@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(images/1.jpg) no-repeat left center;
+            background-size: cover;
+        }
+
+        .baidu img {
+            width: 160px;
+            cursor: pointer;
+        }
+
+        .baidu {
+            width: 800px;
+            margin: 100px auto;
+            list-style: none;
+        }
+
+        .baidu li {
+            float: left;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="baidu">
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+    <script>
+        var imgs = document.querySelectorAll('.baidu img');//获得的以一个伪数组集合
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                document.body.style.backgroundImage = 'url(' + this.src + ')'//把图片路径拿过来给背景图片,必须用this
+            }
+        }
+
+    </script>
+</body>
+
+</html>

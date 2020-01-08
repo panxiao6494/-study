@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var arr = ['red', 'green', 'yellow']
+    arr.some(function(value) {
+        if (value == 'green') {
+            return true //返回布尔值，找到元素直接结束函数，不再遍历循环
+        }
+    })
+
+    //单例模式，一个类只有一个实例
+    class LoginForm {
+        constructor() {
+            this.state = 'hide'
+        }
+        show() {
+            if (this.state === 'show') {
+                alert('已经显示')
+                return
+            }
+            this.state = 'show'
+            console.log('登录框显示成功')
+        }
+        hide() {
+            if (this.state === 'hide') {
+                alert('已经隐藏')
+                return
+            }
+            this.state = 'hide'
+            console.log('登录框隐藏成功')
+        }
+    }
+    LoginForm.getInstance = (function() {
+        let instance
+        return function() {
+            if (!instance) {
+                instance = new LoginForm() //唯一一个类的实例
+            }
+            return instance
+        }
+    })()
+
+    let obj1 = LoginForm.getInstance()
+    obj1.show()
+
+    let obj2 = LoginForm.getInstance()
+    obj2.hide()
+    console.log(obj1)
+    console.log(obj1 === obj2)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <form action="">
+            用户名: <input type="text" name="username" v-model.lazy="usn">
+            密码: <input type="password" name="password" v-model.lazy="pwd" @change="change">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+    <script type='text/javascript'>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                usn: '',
+                pwd: ''
+            },
+            methods: {
+                change() {
+                    if(this.pwd.length<6) {
+                        alert('11');
+                        return
+                    }
+                    
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

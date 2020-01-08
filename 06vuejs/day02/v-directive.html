@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app' v-focus>
+        {{msg}}
+        <div v-aa="col">{{mag}}</div>
+        <div v-s='bg'>12</div>
+    </div>
+    <script type='text/javascript'>
+    //全局自定义指令
+        Vue.directive('focus', function (el) {
+            // console.log(el);
+            el.style.backgroundColor = 'pink';
+            el.style.height = '45px';
+            el.style.lineHeight = '45px';
+        });
+
+        Vue.directive('aa', {
+            inserted: function (el, binding) {
+               // console.log(el, binding);
+                el.style.color=binding.value;
+                el.style.backgroundColor='green';
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mag:'max',
+                msg: 'Hello Vue',
+                col: 'hotpink',
+                bg:"purple"
+            },
+            directives:{
+                s:{//局部自定指令
+                    inserted:function(el,binding) {
+                        console.log(binding);
+                        
+                        el.style.backgroundColor=binding.value;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

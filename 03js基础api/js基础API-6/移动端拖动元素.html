@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var startX = 0;//手指初始位置
+        var startY = 0;
+        var x = 0;//盒子原来的位置
+        var y = 0;
+        div.addEventListener('touchstart', function (e) {//手指触摸事件，给第一个触摸的手指绑定事件
+            console.log(e);//事件对象
+
+            startX = e.targetTouches[0].pageX;//第一根手指在页面上的坐标
+            startY = e.targetTouches[0].pageY;
+            x = this.offsetLeft;//鼠标点击时盒子在页面的初始位置
+            y = this.offsetTop;
+        });
+        div.addEventListener('touchmove', function (e) {
+            var moveX = e.targetTouches[0].pageX - startX;//手指移动后再页面上的距离，减去初始位置，就是移动的距离
+            var moveY = e.targetTouches[0].pageY - startY;
+            this.style.left = x + moveX + 'px';
+            this.style.top = y + moveY + 'px';
+        })
+
+
+    </script>
+</body>
+
+</html>

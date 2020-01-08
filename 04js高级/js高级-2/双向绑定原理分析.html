@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id='h1'></h1>
+    <input type="text" id="inp" onkeyup="inputChange(event)">
+    <input type="button" value="加" onclick="btnAdd()" />
+</body>
+<script>
+    //定义初始对象
+    let vm = {
+        value: 0
+    }
+    //定义构造函数
+    let Dep = function () {
+        this.list = [];
+        this.add = function (watcher) {
+            this.list.push(watcher)
+        },
+            this.notify = function (newValue) {
+                this.list.forEach(fn => {
+                    fn(newValue)
+                });
+            }
+    };
+    function renderInput(newValue) {
+        let el = document.querySelector('#inp');
+        if (el) {
+            el.value = newValue
+        }
+    }
+    function renderTitle(newValue) {
+        let el = document.querySelector('#h1');
+        if (el) {
+            el.innerHTML = newValue
+        }
+    }
+    let dep = new Dep();
+    dep.add(renderInput);
+    dep.add(renderTitle);
+
+    //定义函数，利用object给vm对象添加属性
+    function observer(vm, key, value) {
+        Object.defineProperty(vm, key, {
+            enumerable: true,
+            configurable: true,
+            get: function () {
+
+                return value;
+
+            },
+            set: function (newValue) {
+                if (value !== newValue) {
+                    value = newValue;
+
+                    dep.notify(newValue)
+
+                }
+            }
+        })
+    };
+
+    function inputChange(ev) {
+        let value = Number.parseInt(ev.target.value);
+        vm.value = (Number.isNaN(value) ? 0 : value);
+    }
+    function btnAdd() {
+        vm.value = vm.value + 1;
+    }
+
+    function initMVVM(vm) {
+        Object.keys(vm).forEach(key => {
+            observer(vm, key, vm[key])
+        })
+    };
+
+    initMVVM(vm);
+
+    dep.notify(vm.value);
+</script>
+
+</html>

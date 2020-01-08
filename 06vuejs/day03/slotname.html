@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='js/vue.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        {{msg}}
+        <!-- 插槽，相当插入一个子组件 -->
+        <base-y>
+            <template slot="header">
+                <p>h</p>
+                <p>e</p>
+                <p>a</p>
+                <p>d</p>
+            </template>
+            <template slot="footer">
+                fff
+            </template>
+        </base-y>
+    </div>
+    <script type='text/javascript'>
+        Vue.component('base-y', {
+            template: `<div>
+            <header>
+            <slot name="header"></slot>
+            </header>
+            <footer>
+            <slot name="footer"></slot>
+            </footer>
+            </div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            }
+        });
+    </script>
+</body>
+
+</html>

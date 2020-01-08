@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //字符串转数组
+        var str = '?name=张三&age=24'
+        var arr = str.split('&');//以&为截点，字符串转数组,
+        console.log(arr);//[?name=张三，aeg=24]
+        //数组转字符串
+        var str = arr.join('@')
+        console.log(str);//'?name=张三@age=24'
+
+    </script>
+</body>
+
+</html>

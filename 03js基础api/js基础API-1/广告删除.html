@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            position: relative;
+            width: 1200px;
+            margin: auto;
+        }
+
+        .banner img:nth-child(2) {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="images/luzhou.jpg" alt="">
+        <img src="images/close.jpg" alt="" id="img">
+    </div>
+    <script>
+        var domBox = document.querySelector('.banner');
+        var img = document.querySelector('#img');
+        img.onclick = function () {
+            domBox.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

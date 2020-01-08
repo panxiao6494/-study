@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>es6异步</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var arr = [1, [
+            [2, 3], 4
+        ],
+        [5, 6]
+    ];
+
+    var flat = function*(a) {
+        var length = a.length;
+        for (var i = 0; i < length; i++) {
+            var item = a[i];
+            if (typeof item !== 'number') {
+                yield* flat(item);
+            } else {
+                yield item;
+            }
+        }
+    };
+
+    for (var f of flat(arr)) {
+        console.log(f);
+    }
+    // 1, 2, 3, 4, 5, 6
+
+
+
+    //promise
+    let promise = new Promise(function(resolve, reject) {
+        console.log('Promise'); //promise创建会被立即执行
+        resolve();
+    });
+
+    promise.then(function() {
+        console.log('resolved.');
+    });
+
+    console.log('Hi!');
+    </script>
+</body>
+
+</html>

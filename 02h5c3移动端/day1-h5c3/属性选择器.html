@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button[disabled] {
+            cursor: default;/*选择带有属性disabled的button标签*/
+        }
+        button {
+            cursor: pointer;
+        }
+        input[type="search"] {
+            color: green;
+        }
+        div[class^="icon"] {
+            color: red;/* 选择以icon开头的标签*/
+        }
+        div[class$="icon"] {
+            color: orange;
+        }
+        div[class*="icon"] {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+     <!-- disabled 是禁用我们的按钮 -->
+     <button>按钮</button>
+     <button>按钮</button>
+     <button disabled="disabled">按钮</button>
+     <button disabled="disabled">按钮</button>
+ 
+     <input type="text" name="" id="" value="文本框">
+     <input type="text" name="" id="" value="文本框">
+     <input type="text" name="" id="" value="文本框">
+     <input type="search" name="" id="" value="搜索框">
+     <input type="search" name="" id="" value="搜索框">
+     <input type="search" name="" id="" value="搜索框">
+     
+     <div class="icon1">图标1</div>
+     <div class="icon2">图标2</div>
+     <div class="icon3">图标3</div>
+     <div class="iicon3">图标4</div>
+     <div class="absicon">图标5</div>
+</body>
+</html>

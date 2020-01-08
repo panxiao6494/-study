@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for in 遍历对象
+        var hero = {
+            name: '后羿',
+            blood: 2000,
+            attack: function () {
+                console.log(1);
+
+            }
+        }
+        hero.name = '貂蝉';//属性可更改
+        for (var k in hero) {
+            console.log(k);
+            console.log(hero[k]);
+        };
+
+
+
+        //对象的原型遍历
+        var person = {
+            name: 'xiaoming',
+            age: 18,
+            sex: 'male'
+        };
+
+        var arr = Object.keys(person);//遍历对象的属性
+        console.log(arr);//['name','age','sex']
+        var arr1 = Object.values(person);//遍历对象的属性值
+        console.log(arr1);
+        var arr2 = Object.entries(person);//将对象的属性和属性值数组的形式遍历出来
+        console.log(arr2);
+
+
+
+
+
+        //对象的高级应用
+        var obj = {
+            id: 1,
+            name: '小米',
+            price: 999
+        }
+        Object.defineProperty(obj, 'num', {
+            value: 1000,//在对象里添加属性;
+            enumerable: false,//不允许被枚举遍历
+            configurable: false//特性不允许再被修改
+
+        });
+        Object.defineProperty(obj, 'id', {
+            writable: false,//此属性不允许被修改
+        });
+        obj.id = 2;//id属性不可更改
+        console.log(obj);
+        console.log(Object.keys(obj));//不会遍历出num属性
+
+
+    </script>
+</body>
+
+</html>

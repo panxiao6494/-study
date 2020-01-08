@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Audio</title>
+	<link rel="stylesheet" href="css/music.css">
+	<script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>
+	<script src="music.js"></script>
+</head>
+<body>
+	<div id="music">
+		<div id="container">
+			<h3 id="musicName">{{src}}</h3>
+			<img src="img/bg2.png" id="musicImg">
+			<audio ref="myaudio" :src="src" controls></audio>
+			<div class="btn">
+				<button @click="play">播放</button>
+				<button @click="pause">暂停</button>
+				<button @click="prev">上一曲</button>
+				<button @click="next">下一曲</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

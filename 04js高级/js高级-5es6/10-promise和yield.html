@@ -8,42 +8,54 @@
 
 <body>
     <script type="text/javascript">
-    var arr = [1, [
-            [2, 3], 4
-        ],
-        [5, 6]
-    ];
-
-    var flat = function*(a) {
-        var length = a.length;
-        for (var i = 0; i < length; i++) {
-            var item = a[i];
-            if (typeof item !== 'number') {
-                yield* flat(item);
-            } else {
-                yield item;
-            }
-        }
-    };
-
-    for (var f of flat(arr)) {
-        console.log(f);
+    //yield
+    function* show() {
+        console.log('a');
+        let a = yield;
+        console.log('b');
+        console.log(a) //5,yield暂停，next执行第二步
     }
-    // 1, 2, 3, 4, 5, 6
+    let gen = show();
+    gen.next(12);
+    gen.next(5);
 
 
 
     //promise
     let promise = new Promise(function(resolve, reject) {
-        console.log('Promise'); //promise创建会被立即执行
-        resolve();
+        setTimeout(() => {
+            console.log('promise')
+            resolve(); //成功后的回调
+        }, 2000) //promise创建会被立即执行
     });
-
-    promise.then(function() {
+    promise.then(function() { //异步的链式操作
         console.log('resolved.');
     });
-
     console.log('Hi!');
+
+
+
+
+    //Promise深度理解
+    console.log(1);
+    setTimeout(function() {
+        console.log(2);
+    }, 0);
+    new Promise(function(resolve) {
+        console.log(3);
+        resolve(Date.now());
+    }).then(function() {
+        console.log(4);
+    });
+    console.log(5);
+    setTimeout(function() {
+        new Promise(function(resolve) {
+            console.log(6);
+            resolve(Date.now());
+        }).then(function() {
+            console.log(7);
+        });
+    }, 0);
     </script>
 </body>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数防抖</title>
+</head>
+<style type="text/css">
+#content {
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    color: #fff;
+    background-color: #ccc;
+    font-size: 80px;
+}
+</style>
+
+<body>
+    <div id="content"></div>
+    <script>
+    let num = 1;
+    let content = document.getElementById('content');
+
+    function count() {
+        content.innerHTML = num++;
+    };
+    //定义防抖函数
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            let context = this;
+            let args = arguments;
+
+            if (timeout) clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+                func.apply(context, args)
+            }, wait);
+        }
+    }
+    content.onmousemove = debounce(count, 1000); //鼠标覆盖在div的时候，防止频繁触发count函数
+    </script>
+</body>
+
+</html>

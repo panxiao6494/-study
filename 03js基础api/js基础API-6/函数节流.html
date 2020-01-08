@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数节流</title>
+</head>
+<style type="text/css">
+#content {
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    color: #fff;
+    background-color: #ccc;
+    font-size: 80px;
+}
+</style>
+
+<body>
+    <div id="content"></div>
+    <script>
+    let num = 1;
+    let content = document.getElementById('content');
+
+    //定义节流函数
+    function throttle(func, wait) {
+        let previous = 0;
+        return function() {
+            let now = Date.now();
+            let context = this;
+            let args = arguments;
+            if (now - previous > wait) {
+                func.apply(context, args);
+                previous = now;
+            }
+        }
+    }
+
+    function count() {
+        content.innerHTML = num++;
+    };
+    content.onmousemove = throttle(count, 1000); //防止函数频繁触发，使用节流方案，1s执行一次
+    </script>
+</body>
+
+</html>

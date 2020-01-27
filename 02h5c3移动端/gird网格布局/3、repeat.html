@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+	.grid_box{
+		display: grid;
+		/*表示第一列宽30px，第三列是第二列的两倍，其余三列平分剩余宽度*/
+		grid-template-columns: 30px 1fr 2fr repeat(3,auto);
+		background: #054154;
+		width: 800px;
+	}
+	.grid_item{
+		background-color: #0490db;
+		border: 1px solid #fff;
+	}
+</style>
+<body>
+    <div class="grid_box">
+        <div class="grid_item">1</div>
+        <div class="grid_item">2</div>
+        <div class="grid_item" id="item3">3</div>
+        <div class="grid_item" id="item4">4</div>
+        <div class="grid_item">5</div>
+        <div class="grid_item">6</div>
+        <div class="grid_item">7</div>
+        <div class="grid_item">8</div>
+        <div class="grid_item">9</div>
+        <div class="grid_item">10</div>
+        <div class="grid_item">11</div>
+        <div class="grid_item">12</div>
+        <div class="grid_item">13</div>
+    </div>
+    <span>邻居元素</span>
+</body>
+
+</html>

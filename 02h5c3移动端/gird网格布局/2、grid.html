@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gird</title>
+</head>
+<style>
+	.grid_box{
+		background-color: #054154;
+		display: grid;/*将grid_box整体转换成块级网格盒子，将span挤向下一行*/
+		width: 500px;
+		height: 300px;
+		/*表示第一行高40px，第三行高40px，其余行高平分剩余高度*/
+		grid-template-rows: 60px auto 40px;
+		/*列宽，第一列宽30px，第二列宽20px，第三列和第四列平分，设置了多少列就显示多少列*/
+		grid-template-columns: 30px 20px auto auto;
+		 grid-gap: 2px 4px;   /*行间距2px,列间距4px*/
+	}
+	.grid_item{
+		background-color: #0490db;
+		border: 1px solid #fff;
+	}
+</style>
+<body>
+	<div class="grid_box">
+		<div class="grid_item">1</div>
+		<div class="grid_item">2</div>
+		<div class="grid_item" id="item3">3</div>
+		<div class="grid_item" id="item4">4</div>
+		<div class="grid_item">5</div>
+		<div class="grid_item">6</div>
+		<div class="grid_item">7</div>
+		<div class="grid_item">8</div>
+		<div class="grid_item">9</div>
+		<div class="grid_item">10</div>
+	</div>
+	<span>邻居元素</span>
+</body>
+</html>

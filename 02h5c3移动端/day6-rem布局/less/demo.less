@@ -1,0 +1,71 @@
+/*less*/
+#header {
+  &::after {
+    /*&看做#header*/
+    content: "less is more";
+  }
+  .title {
+    //嵌套使用
+    font-weight: bold;
+  }
+  &_content {
+    //变量和字符串拼接使用
+    margin: auto;
+  }
+}
+
+//选择器变量,@声明变量
+.border(@a:10px,@b:50px,@c:30px,@color:#000) {
+  border: 1px solid @color;
+  box-shadow: @arguments; //指代的是全部参数
+}
+
+#main {
+  .border(0px, 5px, 30px, red);
+}
+
+//条件筛选,less没有if else，用when
+#card {
+  .border(@width,@style,@color) when (@width>100px) and(@color=#999) {
+    border: @width @style @color;
+  }
+  //not运算，相当于取非运算
+  .background(@color) when not (@color>=#222) {
+    background: @color;
+  }
+
+  //，逗号分隔符，相当于或||运算，终于符合一个条件才会执行
+  .font(@size:20px) when (@size>50px),(@size<100px) {
+    font-size: @size;
+  }
+}
+//执行运算，给main加样式
+#main {
+  #card>.border(200px, solid, #999);
+  #card .background(#111);
+  #card>.font(40px);
+}
+
+//循环方法,递归
+.generate-columns(4);
+.generate-columns(@n,@i:1) when (@i=<@n) {
+  .column-@{i} {
+    width: (@i*100% / @n);
+  }
+  .generate-columns(@n, (@i+1));
+}
+
+//less中使用js
+@content: "aaa";
+#randomColor {
+  @randomColor: ~"rgba(`Math.round(Math.random()*256`,`Math.round(Math.random()*256`,`Math.round(Math.random()*256`)";
+}
+#wrap {
+  width: ~"`Math.round(Math.random()*100)`px";
+  &::after {
+    content: @content;
+  }
+  height: ~"`window.innerHeight`px";
+  #randomColor();
+  background-color: @randomColor;
+}

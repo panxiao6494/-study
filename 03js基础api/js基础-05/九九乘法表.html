@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html,
+    body,
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    ul {
+        width: 900px;
+        overflow: hidden;
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 36px;
+    }
+
+    li {
+        float: left;
+        width: 90px;
+        margin: 0 4px;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #333;
+        background: yellowgreen;
+    }
+    </style>
+</head>
+
+<body>
+    <ul></ul>
+    <script>
+    for (var i = 1; i <= 9; i++) {
+        var myUl = document.createElement('ul');
+        for (var j = 1; j <= i; j++) {
+            var myLi = document.createElement('li');
+            var myText = document.createTextNode(j + " × " + i + " = " + i * j);
+            myLi.appendChild(myText);
+            myUl.appendChild(myLi);
+        }
+        document.getElementsByTagName('body')[0].appendChild(myUl);
+    }
+    </script>
+</body>
+
+</html>

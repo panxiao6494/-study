@@ -21,16 +21,17 @@
     <script>
     let num = 1;
     let content = document.getElementById('content');
-
+    console.log(Date.now())
     //定义节流函数
     function throttle(func, wait) {
         let previous = 0;
         return function() {
-            let now = Date.now();
+            let now = Date.now();//当前时间戳
             let context = this;
             let args = arguments;
-            if (now - previous > wait) {
-                func.apply(context, args);
+           // console.log(args)
+            if (now - previous > wait) {//相隔时间大于1s才会执行count函数
+                func.apply(context, args);//匿名函数调整this指向事件对象
                 previous = now;
             }
         }

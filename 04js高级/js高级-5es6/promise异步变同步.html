@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+    var box = document.querySelector('#box');
+    var p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            box.innerHTML += '建立连接<br>';
+            resolve('ok')//传参给下一个.then方法，成功或者失败取决于http请求的结果
+        })
+    }, 1000)
+    function post_sth(data) {
+        return new Promise((resolve, reject) => {
+            box.innerHTML += 'post网络请求，此时data=' + data + '<br>';
+            resolve(data + '|post') //传递参数给下一个promise函数
+        })
+    }
+
+    function get_sth(data) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                box.innerHTML += 'get请求，此时data=' + data + '<br>';
+                resolve(data + '|get')
+            }, 1000)
+        })
+    }
+    //.then返回的也是一个promise函数对象
+    p.then(post_sth).then(get_sth).then(data => {
+        box.innerHTML += '最后的data=' + data + '<br><hr>'
+    })
+    </script>
+</body>
+
+</html>

@@ -25,10 +25,7 @@
          var zxy = new Star('张学友', 20);
          ldh.sing('冰雨');//实参
          zxy.sing('心如刀割')//实参*/
-
-
-
-        class star {
+        class Star {
             constructor(uname, age) {
                 this.uname = uname;
                 this.age = age;
@@ -41,6 +38,22 @@
 
         var ldh = new Star('刘德华', 18);
         ldh.sing()
+
+        var arr=[1,[[2,3],4],[5,6]];
+        var flat=function* (a){
+            var length=a.length;
+            for(var i=0;i<length;i++){
+                var item=a[i];
+                if(typeof item!=='number'){
+                    yield* flat(item)
+                }else{
+                    yield item
+                }
+            }
+        }
+        for(var f of flat(arr)){
+            console.log(f)
+        }
     </script>
 </body>
 

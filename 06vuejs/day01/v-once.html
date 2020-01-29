@@ -9,19 +9,33 @@
 </head>
 
 <body>
-    <div id='app' v-once>
-        {{msg}}
-    </div>
-    <script type='text/javascript'>
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                msg: 'Hello Vue'
-            }
-        });
+   <div id="app">
+       <example></example>
+   </div>
 
-        vm.msg = 'qq';//不允许改变
-    </script>
+   <script type="text/javascript">
+   
+      Vue.component('example',{
+        template:'<span  @click=updatedmessage>{{message}}</span>',
+        data:function(){
+            return{
+                message:'not updated'
+            }
+        },
+        methods:{
+            updatedmessage:function(){
+                this.message='updated';
+               // console.log(this.$el.textContent)
+                this.$nextTick(function(){
+                    console.log(this.$el.textContent)
+                })
+            }
+        }
+      })
+     new Vue({
+        el:'#app',
+    })
+   </script>
 </body>
 
 </html>

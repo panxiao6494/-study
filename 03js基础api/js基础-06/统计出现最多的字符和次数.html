@@ -8,26 +8,23 @@
     <title>Document</title>
     <script>
     var str = "acdefadcfioppdacwfc";
-    var obj = {};
-    for (var i = 0; i < str.length; i++) {
-        if (obj[str[i]]) {
-            obj[str[i]]++;
-        } else {
-            obj[str[i]] = 1; //只出现一次的，都为1
-        }
+  
+   var obj={};
+   for(var i=0;i<str.length;i++){
+    if(obj[str[i]]){
+        obj[str[i]]++
+    }else{
+        obj[str[i]]=1
     }
-    console.log(obj);
+   }
+   console.log(obj)
+   var max=0;
+   var strMax='';
+   for(var k in obj){
+    max=obj[k]>max?obj[k]:max
 
-    var max = 0;
-    var chr = '';
-    for (var k in obj) {
-        if (obj[k] > max) {
-            max = obj[k];
-            chr = k;
-        }
-    }
-    console.log(max);
-    console.log(chr);
+   }
+   console.log(max)
     </script>
 </head>
 

@@ -10,37 +10,47 @@
 
 <body>
     <script>
-        Person.prototype = {//原型
-            name: 'zneng',
-            toString: function () {
-                return 'hehe'
-            }
-        };
-
-        function Person(name, age) {
-            this.age = age;
-
+    console.log(new Object().__proto__.__proto__) //null
+    Object.prototype.hack = '污染原型的属性';
+    //会根据原型链，一层一层地查找
+    const obj = { name: 'xiaoHong', age: 18 };
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            console.log(obj[key]);
         }
-        var liu = new Person();
-        console.log(liu.__proto__ === Person.prototype);//实例对象的原型全等于构造函数的原型对象
+    }
 
 
-        console.log(liu.name);//继承原型zhneng  
-        console.log(liu.toString());//重写
+    //new的功能
+    /*
+      1.new会在内存中创建一个新的空对象
+      2.new会让this指向这个新对象
+      3.执行构造函数里面的代码，目的：给这个新对象添加属性和方法
+      4.new会返回这个新对象，(所以构造函数不需要return)
+    */
+    function Student(name, num, age) {
+        this.name = name;
+        this.num = num;
+        this.age = age;
+    }
+    var s2 = new Student('xiaoming', 523, 18)
+    console.log(s2)//实例对象
 
 
+    //构造函数中的return
+    //如果return是普通值类型，对构造函数没有影响，实例化对象返回一个空对象
+    //如果return引用类型，那么实例化对象那个就会返回该引用类型
+    function foo(name){
+        this.name=name;
+        return name
+    }
+    console.log(new foo('光合'))
 
-
-        Number.prototype.toString = function () {//改变原型
-            return '呵呵呵';
-        }
-
-        var num1 = 1;
-        var num2 = 99;
-
-        console.log(num1.toString());
-
-        console.log(num2.toString());
+    function bar(name){
+        this.name=name;
+        return ['光','和']
+    }
+    console.log(new bar('光合'))
     </script>
 </body>
 

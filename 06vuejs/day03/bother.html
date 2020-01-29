@@ -16,43 +16,35 @@
     </div>
     <script type='text/javascript'>
         var vBus = new Vue();//定义事件中心
-        var sister = {
-            data() {
-                return {
-                    s: 'ssss'
-                }
-            },
-            template: `<div @click="hand1">sister==={{s}}</div>`,
-            methods: {
-                hand1() {
-                    vBus.$emit('b-event', this.s);//利用事件中心发送事件传递参数到 brother
-                }
-            },
-            mounted() {
-                vBus.$on('s-event', (val) => {
-                    this.s = val;
-                })
-            },
+       var sister={
+        data(){
+            return{
+                sisMessage:'i am sister'
+            }
+        },
+        template:`<div @click='hande1'>sister</div>`,
+        methods:{
+            hande1(){
+                vBus.$emit('beven',this.sisMessage)
+            }
         }
-        var brother = {
-            data() {
-                return {
-                    b: 'bbbbbb'
-                }
-            },
-            template: '<div @click="hand2">brother=={{b}}</div>',
-            methods: {
-                hand2() {
-                    vBus.$emit('s-event', this.b);//利用事件中心发送事件传递参数到 sister
-                }
-            },
-            mounted() {//利用事件中心监听从sister传递过来的信息
-                vBus.$on('b-event', (val) => {
-                    this.b = val;
+       }
+       var brother={
+        data(){
+            return{
+                broMessage:'i am brother'
+            }
+        },
+        template:`<div>{{broMessage}}</div>`,
+        mounted(){
+            vBus.$on('beven',val=>{
+               this.broMessage=val
+            })
+        },
+        methods:{
 
-                })
-            },
         }
+       }
         var vm = new Vue({
             el: '#app',
             data: {

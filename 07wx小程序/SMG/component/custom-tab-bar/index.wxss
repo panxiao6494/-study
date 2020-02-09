@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     padding-bottom: env(safe-area-inset-bottom);
-    background-color: #358BFF;
+    background-color: #31CA81;
     z-index: 10000;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .bottom-image {
-    width: 80rpx;
-    height: 80rpx;
+    width: 45rpx;
+    height: 45rpx;
 }
 
 .tab-bar-item-text {

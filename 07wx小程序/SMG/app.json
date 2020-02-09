@@ -12,7 +12,7 @@
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "SMG",
         "navigationBarTextStyle": "black",
-        "navigationStyle": "custom"
+        "navigationStyle":"custom"
     },
     "tabBar":
     {

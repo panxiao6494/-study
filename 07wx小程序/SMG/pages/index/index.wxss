@@ -19,3 +19,70 @@
 .usermotto {
   margin-top: 200px;
 }
+.back{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+}
+.bottomBox {
+  width: 50rpx;
+  position: fixed;
+  top: 66%;
+  left: 58%;
+  font-size: 34rpx;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300rpx;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.bottomBox .line-t,
+.bottomBox .line-b,
+.bottomBox .line-g,
+.bottomBox .line-s {
+  height: 25rpx;
+  width: 25rpx;
+  border-top: 1rpx solid #fff;
+  border-right: 1rpx solid #fff;
+  transform: rotate(-45deg);
+}
+
+.bottomBox .topp {
+  animation: bo 1s ease infinite;
+}
+
+.bottomBox .bott {
+  animation: to 1s ease infinite;
+}
+
+.bottomBox .line-b {
+  transform: rotate(135deg);
+
+}
+
+.bottomBox .line-s {
+  transform: rotate(135deg);
+}
+
+@keyframes to {
+  100% {
+    transform: translateY(25rpx);
+  }
+}
+
+@keyframes bo {
+  100% {
+    transform: translateY(-25rpx);
+  }
+}
+.bglabel{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}

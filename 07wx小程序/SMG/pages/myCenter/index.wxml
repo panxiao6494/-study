@@ -1,2 +1,11 @@
-<view>我的页面</view>
+<view style="margin-top: 50rpx">
+	 <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+    <button bindtap="getUserInfo" wx:if="{{!hasUserInfo}}">点击获取头像</button>
+</view>
 <custom-tab-bar currentIdx='2'></custom-tab-bar>

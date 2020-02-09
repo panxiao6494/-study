@@ -1,12 +1,23 @@
 <!--index.wxml-->
-<view class="container">
-    <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-        <block wx:else>
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
+<view class="main">
+	<label for="godemo" class="bglabel"></label>
+	<button id="godemo" hidden bindtap="goDemo"></button>
+  <image src="/image/indexback.png" class="back"></image>
+  <view class='bottomBox'>
+    <view class="topp">
+      <view class="line-t"></view>
+      <view class="line-g"></view>
     </view>
-    <button bindtap="goDemo">点我</button>
+    <view style="width:40rpx">
+      <text>点</text>
+      <text>击</text>
+      <text>加</text>
+      <text>入</text>
+    </view>
+    <view class="bott">
+      <view class="line-b"></view>
+      <view class="line-s"></view>
+    </view>
+  </view>
 </view>
 <custom-tab-bar currentIdx='0'></custom-tab-bar>

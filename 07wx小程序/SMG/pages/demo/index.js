@@ -155,5 +155,8 @@ Page({
         wx.navigateTo({
             url: '../yuyueOrder/index'
         })
+    },
+      backPage() {
+        wx.navigateBack()
     }
 })

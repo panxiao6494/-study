@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+.container div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    line-height: 50px;
+    text-align: center;
+}
+#box{
+     position: absolute;
+    left: 200px;
+    top: 200px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    line-height: 50px;
+    text-align: center;
+}
+</style>
+
+<body>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <div id="box"></div>
+    <script>
+          var container=document.querySelector('.container');
+    var oDivs = document.querySelectorAll('.container div');
+  
+    var box=document.querySelector('#box')
+    for (var i = 0; i < oDivs.length; i++) {
+        //0 150;1 100;2 50;3 0
+        oDivs[i].style.left = (oDivs.length - i - 1) * 50 + 'px' //确定好每隔盒子的排列顺序
+    }
+
+    function left() {
+        for (var i = oDivs.length - 1; i > 0; i--) {
+            oDivs[i].style.left = oDivs[i - 1].offsetLeft + 'px';
+            oDivs[i].style.top = oDivs[i - 1].offsetTop + 'px';
+        }
+    }
+    //碰撞检测函数
+    function col(el1,el2){
+        //贪吃蛇头 el1
+        //红色方块 el2
+        //水平方向检测，垂直方向检测
+        var r1=el1.offsetLeft+el1.offsetWidth,
+        l1=el1.offsetLeft,
+        b1=el1.offsetTop,
+        t1=el1.offsetTop+el1.offsetHeight;
+
+        var r2=el2.offsetLeft+el2.offsetWidth,
+        l2=el2.offsetLeft,
+        b2=el2.offsetTop,
+        t2=el2.offsetTop+el2.offsetHeight;
+        if(r1<l2||l1>r2||b1>t2||t1<b2){
+            return false //未碰撞
+        }else{
+            return true //碰撞
+        }
+    }
+    window.addEventListener('keydown', (e) => {
+        //左上右下 37，38,39,40
+        console.log(e.keyCode)
+        if(col(oDivs[0],box)){
+            box.style.backgroundColor='orange';
+
+        }else{
+            box.style.backgroundColor='red'
+        }
+        switch (e.keyCode) {
+            case 37:
+                left()
+                oDivs[0].style.left = oDivs[0].offsetLeft - 50 + 'px';
+                break;
+            case 38:
+                left()
+                oDivs[0].style.top = oDivs[0].offsetTop - 50 + 'px';
+                break;
+            case 39:
+                left()
+                oDivs[0].style.left = oDivs[0].offsetLeft + 50 + 'px';
+                break;
+            case 40:
+                left()
+                oDivs[0].style.top = oDivs[0].offsetTop + 50 + 'px';
+                break;
+        }
+    })
+    </script>
+</body>
+
+</html>

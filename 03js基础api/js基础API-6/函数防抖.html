@@ -27,19 +27,19 @@
     };
     //定义防抖函数
     function debounce(func, wait) {
-        let timeout;
+        let timeout=null;
         return function() {
             let context = this;
             let args = arguments;
 
-            if (timeout) clearTimeout(timeout);
+            if (timeout) clearTimeout(timeout);//如果在1秒内重复生成定时器，则会被清除掉，下面的函数也不会执行
 
             timeout = setTimeout(() => {
-                func.apply(context, args)
+                func.apply(context, args)//每隔1秒执行一次函数，生成一个timeout定时器
             }, wait);
         }
     }
-    content.onmousemove = debounce(count, 1000); //鼠标覆盖在div的时候，防止频繁触发count函数,触发最后一次
+    content.onmousemove = debounce(count, 1000); //鼠标覆盖在div的时候，防止频繁触发count函数,触发最后一次,将返回的函数执行
     </script>
 </body>
 

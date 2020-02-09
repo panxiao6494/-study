@@ -2,12 +2,20 @@
     width: 750rpx;
     height: 517rpx;
 }
-
 .topbar image {
     width: 100%;
     height: 100%;
 }
-
+.back {
+    position: fixed;
+    width: 50rpx;
+    height: 50rpx;
+    top: 60rpx;
+    left: 30rpx;
+    padding: 8rpx;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 50rpx;
+}
 .stage {
     color: #000;
     font-size: 30rpx;

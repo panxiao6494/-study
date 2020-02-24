@@ -20,7 +20,7 @@ a:hover {
   text-decoration: none;
 }
 header {
-  padding-left: 0 !important;
+  padding: 0 !important;
 }
 header h1 {
   margin: 0;
@@ -63,6 +63,7 @@ header ul a:hover {
 }
 .news li:nth-child(1) img {
   height: 266px;
+  width: 100%;
 }
 .news li>a {
   position: relative;

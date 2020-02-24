@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Docuent</title>
     <script>
-        /*  var a = function () {
+    /*  var a = function () {
               alert("hello");
           }
           console.log(a);//function() {alert('hello)}
@@ -17,35 +17,33 @@
           }
           console.log(a);
           a();*/
-        /* f1();
-         console.log(c);
-         console.log(b);
+    /* f1();
+     console.log(c);
+     console.log(b);
+     console.log(a);
+     function f1() {
+         var a = b = c = 9;
          console.log(a);
-         function f1() {
-             var a = b = c = 9;
-             console.log(a);
-             console.log(b);
-             console.log(c);
-         }*/
-        a();
-        var a = 10;
-        function a() {
+         console.log(b);
+         console.log(c);
+     }*/
+    a();
+    var a = 10;
+    function a() {
+        console.log(a);
+        console.log(b);
+
+        function b() {
+            a = 9;
+            b = 10;
             console.log(a);
-            console.log(b);
-
-            function b() {
-                a = 9;
-                b = 10;
-                console.log(a);
-            }
-            b();
         }
-
+        b();
+    }
     </script>
 </head>
 
 <body>
-
 </body>
 
 </html>

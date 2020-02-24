@@ -8,23 +8,28 @@
     <title>Document</title>
     <script>
     var str = "acdefadcfioppdacwfc";
-  
-   var obj={};
-   for(var i=0;i<str.length;i++){
-    if(obj[str[i]]){
-        obj[str[i]]++
-    }else{
-        obj[str[i]]=1
-    }
-   }
-   console.log(obj)
-   var max=0;
-   var strMax='';
-   for(var k in obj){
-    max=obj[k]>max?obj[k]:max
 
-   }
-   console.log(max)
+    var obj = {};
+    for (var i = 0; i < str.length; i++) {
+        if (obj[str[i]]) {
+            obj[str[i]]++
+        } else {
+            obj[str[i]] = 1
+        }
+    }
+    console.log(obj)
+    var max = 0;
+    var strMax = '';
+    var arr = [];
+    for (var k in obj) {
+        arr.push(k)
+        if (obj[k] > max) {
+            max = obj[k]
+            strMax = k
+        }
+    }
+    console.log(strMax)//出现最多的数字为c
+    console.log(arr)
     </script>
 </head>
 

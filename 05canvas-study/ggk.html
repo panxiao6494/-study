@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.ggk{
+		width: 200px;
+		height: 100px;
+		border: 1px solid #ccc;
+		margin: 0 auto;
+		color: red;
+		position: relative;
+	}
+	.ggk span{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		line-height: 100px;
+		font-size: 50px;
+	}
+	canvas{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+<body>
+	<div class="ggk">
+		<span id="span">200</span>
+		<canvas id="canvas"></canvas>
+	</div>
+	<script type="text/javascript">
+		init();
+		function init() {
+			productResult();
+			var canvas=document.getElementById("canvas");
+			var ctx=canvas.getContext("2d");
+			drawCover(ctx);
+			drawStoke(ctx)
+		}
+		//随机结果
+		function productResult() {
+			var span=document.getElementById('span');
+			var arr=['谢谢','谢谢','200','300','谢谢','VIP会员'];
+			span.innerHTML= arr[randomInt(0,arr.length-1)];
+			
+		}
+		//取整函数
+		function randomInt(from,to){
+			return parseInt(Math.random()*(to-from+1)+from)
+		}
+		//刮刮卡背景色
+		function drawCover(ctx){
+			ctx.save();
+			ctx.fillStyle="rgba(0,100,100)";
+			ctx.fillRect(0,0,200,100);
+			ctx.restore();
+		}
+		//刮刮卡
+		function drawStoke(ctx){
+			canvas.onmousedown=function(e) {
+				var downX=e.offsetX;
+				var downY=e.offsetY;
+				ctx.beginPath();
+				ctx.globalCompositeOperation='destination-out'
+				ctx.lineWidth=10;
+				ctx.moveTo(downX,downY);
+				canvas.onmousemove=function(e){
+					var x=e.offsetX;
+					var y=e.offsetY;
+					ctx.lineTo(x,y);
+					ctx.stroke();
+				}
+			}
+			canvas.onmouseup=function(){
+				canvas.onmousemove=null;
+			}
+		}
+	</script>
+</body>
+</html>

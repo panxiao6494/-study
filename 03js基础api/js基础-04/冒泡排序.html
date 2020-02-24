@@ -7,17 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        var arr = [1, 2, 3, 4, 5];
-        for (var i = 0; i < 5; i++) {
-            for (var j = 0; j < 4; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    var tem = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tem;
-                }
-            }
-        }
-        console.log(arr);
+       
         var arr2 = [1, 2, 3, 4, 5];
         for (var i = 0; i < arr2.length - 1; i++) {
             for (var j = 0; j < arr2.length - 1 - i; j++) {
@@ -29,7 +19,19 @@
             }
         }
         console.log(arr2);
-
+var twoSum = function(nums, target) {
+    var arr=[];
+    for(var i=0;i<nums.length-1;i++){
+        for(var j=1;i<nums.length-1-i;j++){
+            if(nums[i]+nums[j]==target){
+                arr.push(i);
+                arr.push(j);
+                return arr;
+            }
+        }
+    }
+};
+console.log(twoSum([2,8,4],6));
     </script>
 </head>
 
